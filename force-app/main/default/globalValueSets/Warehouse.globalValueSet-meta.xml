@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>BUR</fullName>
+        <default>false</default>
+        <label>BUR - Burnie Warehouse</label>
+    </customValue>
+    <customValue>
+        <fullName>CONS</fullName>
+        <default>false</default>
+        <label>CONS - Consignment Stock</label>
+    </customValue>
+    <customValue>
+        <fullName>DAN</fullName>
+        <default>false</default>
+        <label>DAN - 2/491 Hammond Rd Dandenong Sth</label>
+    </customValue>
+    <customValue>
+        <fullName>EMBE</fullName>
+        <default>false</default>
+        <label>EMBE - Embedded Expertise</label>
+    </customValue>
+    <customValue>
+        <fullName>HBT</fullName>
+        <default>false</default>
+        <label>HBT - Hobart Warehouse</label>
+    </customValue>
+    <customValue>
+        <fullName>KATH</fullName>
+        <default>false</default>
+        <label>KATH - Katherine Warehouse</label>
+    </customValue>
+    <customValue>
+        <fullName>KEYS</fullName>
+        <default>false</default>
+        <label>KEYS - Keysborough Warehouse</label>
+    </customValue>
+    <customValue>
+        <fullName>LST</fullName>
+        <default>false</default>
+        <label>LST - Launceston Warehouse</label>
+    </customValue>
+    <customValue>
+        <fullName>MAIN</fullName>
+        <default>false</default>
+        <label>MAIN - Main Warehouse</label>
+    </customValue>
+    <customValue>
+        <fullName>NSW</fullName>
+        <default>false</default>
+        <label>NSW - North Ryde Warehouse</label>
+    </customValue>
+    <customValue>
+        <fullName>NT</fullName>
+        <default>false</default>
+        <label>NT - Northern Territory Warehouse</label>
+    </customValue>
+    <customValue>
+        <fullName>NUKO</fullName>
+        <default>false</default>
+        <label>NUKO - Nukon Company Warehouse</label>
+    </customValue>
+    <customValue>
+        <fullName>QLD</fullName>
+        <default>false</default>
+        <label>QLD - Electronics St Warehouse</label>
+    </customValue>
+    <customValue>
+        <fullName>SKL</fullName>
+        <default>false</default>
+        <label>SKL - Skills Lab Warehouse</label>
+    </customValue>
+    <customValue>
+        <fullName>TONS</fullName>
+        <default>false</default>
+        <label>TONS - Tonsley Warehouse</label>
+    </customValue>
+    <customValue>
+        <fullName>VIC</fullName>
+        <default>false</default>
+        <label>VIC - 2/216 Turner St Port Melbourne</label>
+    </customValue>
+    <customValue>
+        <fullName>WA</fullName>
+        <default>false</default>
+        <label>WA - Warehouse</label>
+    </customValue>
+    <customValue>
+        <fullName>WHY</fullName>
+        <default>false</default>
+        <label>WHY - Whyalla Warehouse</label>
+    </customValue>
+    <masterLabel>Warehouse</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

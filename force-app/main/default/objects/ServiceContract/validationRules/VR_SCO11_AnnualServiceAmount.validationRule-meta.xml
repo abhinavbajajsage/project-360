@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_SCO11_AnnualServiceAmount</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT(ISPICKVAL(Contract_Billing_Cycle__c, &#39;None&#39;) ) &amp;&amp; NOT(ISBLANK(TEXT(Contract_Billing_Cycle__c))) &amp;&amp; ISBLANK( Annual_Service_Amount__c )</errorConditionFormula>
+    <errorDisplayField>Annual_Service_Amount__c</errorDisplayField>
+    <errorMessage>Annual Service Amount is mandatory from Silver Customer Support</errorMessage>
+</ValidationRule>

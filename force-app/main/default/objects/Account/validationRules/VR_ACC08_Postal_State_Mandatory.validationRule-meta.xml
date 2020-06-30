@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_ACC08_Postal_State_Mandatory</fullName>
+    <active>false</active>
+    <errorConditionFormula>ISBLANK(  ShippingState  ) &amp;&amp; NOT(ISCHANGED(Account_Payable_Contact__c))</errorConditionFormula>
+    <errorDisplayField>ShippingState</errorDisplayField>
+    <errorMessage>Please fill out the postal state</errorMessage>
+</ValidationRule>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_ACC12_OtherNatureOfBusiness</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISBLANK(Other__c) &amp;&amp;
+ISPICKVAL(Industry, &#39;Other&#39;)</errorConditionFormula>
+    <errorDisplayField>Other__c</errorDisplayField>
+    <errorMessage>This field is mandatory when Nature Of Business value is &#39;Other&#39;</errorMessage>
+</ValidationRule>

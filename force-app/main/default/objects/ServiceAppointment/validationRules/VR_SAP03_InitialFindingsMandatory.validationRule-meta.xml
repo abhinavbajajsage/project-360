@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_SAP03_InitialFindingsMandatory</fullName>
+    <active>true</active>
+    <description>The SA cannot be updated to Completed or Cannot Complete when Initial Findings has not been populated on the WO</description>
+    <errorConditionFormula>ISBLANK( Work_Order__r.Initial_Findings__c  ) &amp;&amp; (ISPICKVAL(Status, &#39;Cannot Complete&#39;) || ISPICKVAL(Status, &#39;Completed&#39;))</errorConditionFormula>
+    <errorDisplayField>Status</errorDisplayField>
+    <errorMessage>Status cannot be &quot;Completed&quot; or &quot;Cannot Complete&quot; when &quot;Initial Findings&quot;has not been populated.</errorMessage>
+</ValidationRule>

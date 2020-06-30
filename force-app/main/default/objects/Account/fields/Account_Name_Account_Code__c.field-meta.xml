@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Name_Account_Code__c</fullName>
+    <description>This field is used in Create PO flow for helping Supplier Selection with the same name</description>
+    <externalId>false</externalId>
+    <formula>Name + &#39; - &#39;+  Pronto_Account_Code__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Account Name - Account Code</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

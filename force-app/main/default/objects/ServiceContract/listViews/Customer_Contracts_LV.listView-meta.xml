@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Contracts_LV</fullName>
+    <columns>CONTRACT.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Account_Code__c</columns>
+    <columns>CONTRACT.STARTDATE</columns>
+    <columns>CONTRACT.ENDDATE</columns>
+    <columns>CONTRACT.STATUS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTRACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>ServiceContract.Customer_Contract_RT</value>
+    </filters>
+    <label>Customer Contracts</label>
+</ListView>

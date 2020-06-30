@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Contract__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Service Contract</label>
+    <lookupFilter>
+        <active>true</active>
+        <booleanFilter>(1 AND 3 AND 5 AND 6) OR (2 AND 4 AND 5 AND 6)</booleanFilter>
+        <errorMessage>There is no active service contract of this customer, please create or choose template contract.</errorMessage>
+        <filterItems>
+            <field>$Source.AccountId</field>
+            <operation>equals</operation>
+            <valueField>ServiceContract.AccountId</valueField>
+        </filterItems>
+        <filterItems>
+            <field>ServiceContract.RecordType.DeveloperName</field>
+            <operation>equals</operation>
+            <value>Template_Contract_RT</value>
+        </filterItems>
+        <filterItems>
+            <field>$Source.AccountId</field>
+            <operation>equals</operation>
+            <valueField>ServiceContract.Account.Id</valueField>
+        </filterItems>
+        <filterItems>
+            <field>ServiceContract.Type__c</field>
+            <operation>equals</operation>
+            <value>Bronze Support</value>
+        </filterItems>
+        <filterItems>
+            <field>ServiceContract.StartDate</field>
+            <operation>lessOrEqual</operation>
+            <valueField>ServiceContract.NOW__c</valueField>
+        </filterItems>
+        <filterItems>
+            <field>ServiceContract.EndDate</field>
+            <operation>greaterOrEqual</operation>
+            <valueField>ServiceContract.NOW__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>ServiceContract</referenceTo>
+    <relationshipLabel>Cases</relationshipLabel>
+    <relationshipName>Cases</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

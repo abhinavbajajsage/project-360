@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Technician__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISBLANK(Work_Order_Line_Item__c), &#39;&#39;, Work_Order_Line_Item__r.Resource_Formula__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This field shows related Work Order Line Item Resource field for labour line</inlineHelpText>
+    <label>Technician</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

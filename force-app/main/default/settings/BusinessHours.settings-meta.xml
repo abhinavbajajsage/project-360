@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessHoursSettings xmlns="http://soap.sforce.com/2006/04/metadata">
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>07:00:00.000Z</fridayEndTime>
+        <fridayStartTime>00:00:00.000Z</fridayStartTime>
+        <mondayEndTime>07:00:00.000Z</mondayEndTime>
+        <mondayStartTime>00:00:00.000Z</mondayStartTime>
+        <name>Adelaide Time: 00:00-07:00 Mon-Sun</name>
+        <saturdayEndTime>07:00:00.000Z</saturdayEndTime>
+        <saturdayStartTime>00:00:00.000Z</saturdayStartTime>
+        <sundayEndTime>07:00:00.000Z</sundayEndTime>
+        <sundayStartTime>00:00:00.000Z</sundayStartTime>
+        <thursdayEndTime>07:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>00:00:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Adelaide</timeZoneId>
+        <tuesdayEndTime>07:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>00:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>07:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>00:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>07:30:00.000Z</fridayEndTime>
+        <fridayStartTime>00:00:00.000Z</fridayStartTime>
+        <mondayEndTime>07:30:00.000Z</mondayEndTime>
+        <mondayStartTime>00:00:00.000Z</mondayStartTime>
+        <name>Adelaide Time: 00:00-07:30 Mon-Sun</name>
+        <saturdayEndTime>07:30:00.000Z</saturdayEndTime>
+        <saturdayStartTime>00:00:00.000Z</saturdayStartTime>
+        <sundayEndTime>07:30:00.000Z</sundayEndTime>
+        <sundayStartTime>00:00:00.000Z</sundayStartTime>
+        <thursdayEndTime>07:30:00.000Z</thursdayEndTime>
+        <thursdayStartTime>00:00:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Adelaide</timeZoneId>
+        <tuesdayEndTime>07:30:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>00:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>07:30:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>00:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>16:00:00.000Z</fridayEndTime>
+        <fridayStartTime>06:00:00.000Z</fridayStartTime>
+        <mondayEndTime>16:00:00.000Z</mondayEndTime>
+        <mondayStartTime>06:00:00.000Z</mondayStartTime>
+        <name>Adelaide Time: 06:00-16:00 Mon-Fri</name>
+        <thursdayEndTime>16:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>06:00:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Adelaide</timeZoneId>
+        <tuesdayEndTime>16:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>06:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>16:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>06:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>18:00:00.000Z</fridayEndTime>
+        <fridayStartTime>06:00:00.000Z</fridayStartTime>
+        <mondayEndTime>18:00:00.000Z</mondayEndTime>
+        <mondayStartTime>06:00:00.000Z</mondayStartTime>
+        <name>Adelaide Time: 06:00-18:00 Mon-Fri</name>
+        <thursdayEndTime>18:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>06:00:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Adelaide</timeZoneId>
+        <tuesdayEndTime>18:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>06:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>18:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>06:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>22:00:00.000Z</fridayEndTime>
+        <fridayStartTime>06:00:00.000Z</fridayStartTime>
+        <mondayEndTime>22:00:00.000Z</mondayEndTime>
+        <mondayStartTime>06:00:00.000Z</mondayStartTime>
+        <name>Adelaide Time: 06:00-22:00 Mon-Fri</name>
+        <thursdayEndTime>22:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>06:00:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Adelaide</timeZoneId>
+        <tuesdayEndTime>22:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>06:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>22:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>06:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>17:00:00.000Z</fridayEndTime>
+        <fridayStartTime>07:00:00.000Z</fridayStartTime>
+        <mondayEndTime>17:00:00.000Z</mondayEndTime>
+        <mondayStartTime>07:00:00.000Z</mondayStartTime>
+        <name>Adelaide Time: 07:00-17:00 Mon-Fri</name>
+        <thursdayEndTime>17:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>07:00:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Adelaide</timeZoneId>
+        <tuesdayEndTime>17:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>07:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>17:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>07:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>18:00:00.000Z</fridayEndTime>
+        <fridayStartTime>07:00:00.000Z</fridayStartTime>
+        <mondayEndTime>18:00:00.000Z</mondayEndTime>
+        <mondayStartTime>07:00:00.000Z</mondayStartTime>
+        <name>Adelaide Time: 07:00-18:00 Mon-Fri</name>
+        <thursdayEndTime>18:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>07:00:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Adelaide</timeZoneId>
+        <tuesdayEndTime>18:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>07:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>18:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>07:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>16:00:00.000Z</fridayEndTime>
+        <fridayStartTime>07:30:00.000Z</fridayStartTime>
+        <mondayEndTime>16:00:00.000Z</mondayEndTime>
+        <mondayStartTime>07:30:00.000Z</mondayStartTime>
+        <name>Adelaide Time: 07:30-16:00 Mon-Fri</name>
+        <thursdayEndTime>16:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>07:30:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Adelaide</timeZoneId>
+        <tuesdayEndTime>16:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>07:30:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>16:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>07:30:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>00:00:00.000Z</fridayEndTime>
+        <fridayStartTime>16:00:00.000Z</fridayStartTime>
+        <mondayEndTime>00:00:00.000Z</mondayEndTime>
+        <mondayStartTime>16:00:00.000Z</mondayStartTime>
+        <name>Adelaide Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</name>
+        <saturdayEndTime>00:00:00.000Z</saturdayEndTime>
+        <saturdayStartTime>07:30:00.000Z</saturdayStartTime>
+        <sundayEndTime>00:00:00.000Z</sundayEndTime>
+        <sundayStartTime>07:30:00.000Z</sundayStartTime>
+        <thursdayEndTime>00:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>16:00:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Adelaide</timeZoneId>
+        <tuesdayEndTime>00:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>16:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>00:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>16:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>00:00:00.000Z</fridayEndTime>
+        <fridayStartTime>18:00:00.000Z</fridayStartTime>
+        <mondayEndTime>00:00:00.000Z</mondayEndTime>
+        <mondayStartTime>18:00:00.000Z</mondayStartTime>
+        <name>Adelaide Time: 18:00-00:00 Mon-Sun</name>
+        <saturdayEndTime>00:00:00.000Z</saturdayEndTime>
+        <saturdayStartTime>18:00:00.000Z</saturdayStartTime>
+        <sundayEndTime>00:00:00.000Z</sundayEndTime>
+        <sundayStartTime>18:00:00.000Z</sundayStartTime>
+        <thursdayEndTime>00:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>18:00:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Adelaide</timeZoneId>
+        <tuesdayEndTime>00:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>18:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>00:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>18:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>00:00:00.000Z</fridayEndTime>
+        <fridayStartTime>00:00:00.000Z</fridayStartTime>
+        <mondayEndTime>00:00:00.000Z</mondayEndTime>
+        <mondayStartTime>00:00:00.000Z</mondayStartTime>
+        <name>Adelaide Time: Any time after Business Hours</name>
+        <saturdayEndTime>00:00:00.000Z</saturdayEndTime>
+        <saturdayStartTime>00:00:00.000Z</saturdayStartTime>
+        <sundayEndTime>00:00:00.000Z</sundayEndTime>
+        <sundayStartTime>00:00:00.000Z</sundayStartTime>
+        <thursdayEndTime>00:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>00:00:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Adelaide</timeZoneId>
+        <tuesdayEndTime>00:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>00:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>00:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>00:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>07:30:00.000Z</fridayEndTime>
+        <fridayStartTime>00:00:00.000Z</fridayStartTime>
+        <mondayEndTime>07:30:00.000Z</mondayEndTime>
+        <mondayStartTime>00:00:00.000Z</mondayStartTime>
+        <name>Brisbane Time: 00:00-07:30 Mon-Sun</name>
+        <saturdayEndTime>07:30:00.000Z</saturdayEndTime>
+        <saturdayStartTime>00:00:00.000Z</saturdayStartTime>
+        <sundayEndTime>07:30:00.000Z</sundayEndTime>
+        <sundayStartTime>00:00:00.000Z</sundayStartTime>
+        <thursdayEndTime>07:30:00.000Z</thursdayEndTime>
+        <thursdayStartTime>00:00:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Brisbane</timeZoneId>
+        <tuesdayEndTime>07:30:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>00:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>07:30:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>00:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>16:00:00.000Z</fridayEndTime>
+        <fridayStartTime>07:30:00.000Z</fridayStartTime>
+        <mondayEndTime>16:00:00.000Z</mondayEndTime>
+        <mondayStartTime>07:30:00.000Z</mondayStartTime>
+        <name>Brisbane Time: 07:30-16:00 Mon-Fri</name>
+        <thursdayEndTime>16:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>07:30:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Brisbane</timeZoneId>
+        <tuesdayEndTime>16:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>07:30:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>16:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>07:30:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>00:00:00.000Z</fridayEndTime>
+        <fridayStartTime>16:00:00.000Z</fridayStartTime>
+        <mondayEndTime>00:00:00.000Z</mondayEndTime>
+        <mondayStartTime>16:00:00.000Z</mondayStartTime>
+        <name>Brisbane Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</name>
+        <saturdayEndTime>00:00:00.000Z</saturdayEndTime>
+        <saturdayStartTime>07:30:00.000Z</saturdayStartTime>
+        <sundayEndTime>00:00:00.000Z</sundayEndTime>
+        <sundayStartTime>07:30:00.000Z</sundayStartTime>
+        <thursdayEndTime>00:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>16:00:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Brisbane</timeZoneId>
+        <tuesdayEndTime>00:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>16:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>00:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>16:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>00:00:00.000Z</fridayEndTime>
+        <fridayStartTime>00:00:00.000Z</fridayStartTime>
+        <mondayEndTime>00:00:00.000Z</mondayEndTime>
+        <mondayStartTime>00:00:00.000Z</mondayStartTime>
+        <name>Brisbane Time: Any time after Business Hours</name>
+        <saturdayEndTime>00:00:00.000Z</saturdayEndTime>
+        <saturdayStartTime>00:00:00.000Z</saturdayStartTime>
+        <sundayEndTime>00:00:00.000Z</sundayEndTime>
+        <sundayStartTime>00:00:00.000Z</sundayStartTime>
+        <thursdayEndTime>00:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>00:00:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Brisbane</timeZoneId>
+        <tuesdayEndTime>00:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>00:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>00:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>00:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>07:30:00.000Z</fridayEndTime>
+        <fridayStartTime>00:00:00.000Z</fridayStartTime>
+        <mondayEndTime>07:30:00.000Z</mondayEndTime>
+        <mondayStartTime>00:00:00.000Z</mondayStartTime>
+        <name>Darwin Time: 00:00-07:30 Mon-Sun</name>
+        <saturdayEndTime>07:30:00.000Z</saturdayEndTime>
+        <saturdayStartTime>00:00:00.000Z</saturdayStartTime>
+        <sundayEndTime>07:30:00.000Z</sundayEndTime>
+        <sundayStartTime>00:00:00.000Z</sundayStartTime>
+        <thursdayEndTime>07:30:00.000Z</thursdayEndTime>
+        <thursdayStartTime>00:00:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Darwin</timeZoneId>
+        <tuesdayEndTime>07:30:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>00:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>07:30:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>00:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>16:00:00.000Z</fridayEndTime>
+        <fridayStartTime>07:30:00.000Z</fridayStartTime>
+        <mondayEndTime>16:00:00.000Z</mondayEndTime>
+        <mondayStartTime>07:30:00.000Z</mondayStartTime>
+        <name>Darwin Time: 07:30-16:00 Mon-Fri</name>
+        <thursdayEndTime>16:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>07:30:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Darwin</timeZoneId>
+        <tuesdayEndTime>16:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>07:30:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>16:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>07:30:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>00:00:00.000Z</fridayEndTime>
+        <fridayStartTime>16:00:00.000Z</fridayStartTime>
+        <mondayEndTime>00:00:00.000Z</mondayEndTime>
+        <mondayStartTime>16:00:00.000Z</mondayStartTime>
+        <name>Darwin Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</name>
+        <saturdayEndTime>00:00:00.000Z</saturdayEndTime>
+        <saturdayStartTime>07:30:00.000Z</saturdayStartTime>
+        <sundayEndTime>00:00:00.000Z</sundayEndTime>
+        <sundayStartTime>07:30:00.000Z</sundayStartTime>
+        <thursdayEndTime>00:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>16:00:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Darwin</timeZoneId>
+        <tuesdayEndTime>00:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>16:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>00:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>16:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>00:00:00.000Z</fridayEndTime>
+        <fridayStartTime>00:00:00.000Z</fridayStartTime>
+        <mondayEndTime>00:00:00.000Z</mondayEndTime>
+        <mondayStartTime>00:00:00.000Z</mondayStartTime>
+        <name>Darwin Time: Any time after Business Hours</name>
+        <saturdayEndTime>00:00:00.000Z</saturdayEndTime>
+        <saturdayStartTime>00:00:00.000Z</saturdayStartTime>
+        <sundayEndTime>00:00:00.000Z</sundayEndTime>
+        <sundayStartTime>00:00:00.000Z</sundayStartTime>
+        <thursdayEndTime>00:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>00:00:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Darwin</timeZoneId>
+        <tuesdayEndTime>00:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>00:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>00:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>00:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>true</default>
+        <fridayEndTime>00:00:00.000Z</fridayEndTime>
+        <fridayStartTime>00:00:00.000Z</fridayStartTime>
+        <mondayEndTime>00:00:00.000Z</mondayEndTime>
+        <mondayStartTime>00:00:00.000Z</mondayStartTime>
+        <name>Default</name>
+        <saturdayEndTime>00:00:00.000Z</saturdayEndTime>
+        <saturdayStartTime>00:00:00.000Z</saturdayStartTime>
+        <sundayEndTime>00:00:00.000Z</sundayEndTime>
+        <sundayStartTime>00:00:00.000Z</sundayStartTime>
+        <thursdayEndTime>00:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>00:00:00.000Z</thursdayStartTime>
+        <timeZoneId>America/Los_Angeles</timeZoneId>
+        <tuesdayEndTime>00:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>00:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>00:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>00:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>07:30:00.000Z</fridayEndTime>
+        <fridayStartTime>00:00:00.000Z</fridayStartTime>
+        <mondayEndTime>07:30:00.000Z</mondayEndTime>
+        <mondayStartTime>00:00:00.000Z</mondayStartTime>
+        <name>Perth Time: 00:00-07:30 Mon-Sun</name>
+        <saturdayEndTime>07:30:00.000Z</saturdayEndTime>
+        <saturdayStartTime>00:00:00.000Z</saturdayStartTime>
+        <sundayEndTime>07:30:00.000Z</sundayEndTime>
+        <sundayStartTime>00:00:00.000Z</sundayStartTime>
+        <thursdayEndTime>07:30:00.000Z</thursdayEndTime>
+        <thursdayStartTime>00:00:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Perth</timeZoneId>
+        <tuesdayEndTime>07:30:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>00:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>07:30:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>00:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>16:00:00.000Z</fridayEndTime>
+        <fridayStartTime>07:30:00.000Z</fridayStartTime>
+        <mondayEndTime>16:00:00.000Z</mondayEndTime>
+        <mondayStartTime>07:30:00.000Z</mondayStartTime>
+        <name>Perth Time: 07:30-16:00 Mon-Fri</name>
+        <thursdayEndTime>16:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>07:30:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Perth</timeZoneId>
+        <tuesdayEndTime>16:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>07:30:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>16:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>07:30:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>00:00:00.000Z</fridayEndTime>
+        <fridayStartTime>16:00:00.000Z</fridayStartTime>
+        <mondayEndTime>00:00:00.000Z</mondayEndTime>
+        <mondayStartTime>16:00:00.000Z</mondayStartTime>
+        <name>Perth Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</name>
+        <saturdayEndTime>00:00:00.000Z</saturdayEndTime>
+        <saturdayStartTime>07:30:00.000Z</saturdayStartTime>
+        <sundayEndTime>00:00:00.000Z</sundayEndTime>
+        <sundayStartTime>07:30:00.000Z</sundayStartTime>
+        <thursdayEndTime>00:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>16:00:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Perth</timeZoneId>
+        <tuesdayEndTime>00:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>16:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>00:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>16:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>00:00:00.000Z</fridayEndTime>
+        <fridayStartTime>00:00:00.000Z</fridayStartTime>
+        <mondayEndTime>00:00:00.000Z</mondayEndTime>
+        <mondayStartTime>00:00:00.000Z</mondayStartTime>
+        <name>Perth Time: Any time after Business Hours</name>
+        <saturdayEndTime>00:00:00.000Z</saturdayEndTime>
+        <saturdayStartTime>00:00:00.000Z</saturdayStartTime>
+        <sundayEndTime>00:00:00.000Z</sundayEndTime>
+        <sundayStartTime>00:00:00.000Z</sundayStartTime>
+        <thursdayEndTime>00:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>00:00:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Perth</timeZoneId>
+        <tuesdayEndTime>00:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>00:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>00:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>00:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>07:30:00.000Z</fridayEndTime>
+        <fridayStartTime>00:00:00.000Z</fridayStartTime>
+        <mondayEndTime>07:30:00.000Z</mondayEndTime>
+        <mondayStartTime>00:00:00.000Z</mondayStartTime>
+        <name>Sydney Time: 00:00-07:30 Mon-Sun</name>
+        <saturdayEndTime>07:30:00.000Z</saturdayEndTime>
+        <saturdayStartTime>00:00:00.000Z</saturdayStartTime>
+        <sundayEndTime>07:30:00.000Z</sundayEndTime>
+        <sundayStartTime>00:00:00.000Z</sundayStartTime>
+        <thursdayEndTime>07:30:00.000Z</thursdayEndTime>
+        <thursdayStartTime>00:00:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Sydney</timeZoneId>
+        <tuesdayEndTime>07:30:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>00:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>07:30:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>00:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>16:00:00.000Z</fridayEndTime>
+        <fridayStartTime>07:30:00.000Z</fridayStartTime>
+        <mondayEndTime>16:00:00.000Z</mondayEndTime>
+        <mondayStartTime>07:30:00.000Z</mondayStartTime>
+        <name>Sydney Time: 07:30-16:00 Mon-Fri</name>
+        <thursdayEndTime>16:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>07:30:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Sydney</timeZoneId>
+        <tuesdayEndTime>16:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>07:30:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>16:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>07:30:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>00:00:00.000Z</fridayEndTime>
+        <fridayStartTime>16:00:00.000Z</fridayStartTime>
+        <mondayEndTime>00:00:00.000Z</mondayEndTime>
+        <mondayStartTime>16:00:00.000Z</mondayStartTime>
+        <name>Sydney Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</name>
+        <saturdayEndTime>00:00:00.000Z</saturdayEndTime>
+        <saturdayStartTime>07:30:00.000Z</saturdayStartTime>
+        <sundayEndTime>00:00:00.000Z</sundayEndTime>
+        <sundayStartTime>07:30:00.000Z</sundayStartTime>
+        <thursdayEndTime>00:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>16:00:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Sydney</timeZoneId>
+        <tuesdayEndTime>00:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>16:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>00:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>16:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>00:00:00.000Z</fridayEndTime>
+        <fridayStartTime>00:00:00.000Z</fridayStartTime>
+        <mondayEndTime>00:00:00.000Z</mondayEndTime>
+        <mondayStartTime>00:00:00.000Z</mondayStartTime>
+        <name>Sydney Time: Any time after Business Hours</name>
+        <saturdayEndTime>00:00:00.000Z</saturdayEndTime>
+        <saturdayStartTime>00:00:00.000Z</saturdayStartTime>
+        <sundayEndTime>00:00:00.000Z</sundayEndTime>
+        <sundayStartTime>00:00:00.000Z</sundayStartTime>
+        <thursdayEndTime>00:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>00:00:00.000Z</thursdayStartTime>
+        <timeZoneId>Australia/Sydney</timeZoneId>
+        <tuesdayEndTime>00:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>00:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>00:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>00:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <holidays>
+        <businessHours>Adelaide Time: 00:00-07:30 Mon-Sun</businessHours>
+        <businessHours>Adelaide Time: 06:00-18:00 Mon-Fri</businessHours>
+        <businessHours>Adelaide Time: 07:30-16:00 Mon-Fri</businessHours>
+        <businessHours>Adelaide Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</businessHours>
+        <businessHours>Adelaide Time: Any time after Business Hours</businessHours>
+        <businessHours>Brisbane Time: 00:00-07:30 Mon-Sun</businessHours>
+        <businessHours>Brisbane Time: 07:30-16:00 Mon-Fri</businessHours>
+        <businessHours>Brisbane Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</businessHours>
+        <businessHours>Darwin Time: 00:00-07:30 Mon-Sun</businessHours>
+        <businessHours>Darwin Time: 07:30-16:00 Mon-Fri</businessHours>
+        <businessHours>Darwin Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</businessHours>
+        <businessHours>Perth Time: 00:00-07:30 Mon-Sun</businessHours>
+        <businessHours>Perth Time: 07:30-16:00 Mon-Fri</businessHours>
+        <businessHours>Perth Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</businessHours>
+        <businessHours>Sydney Time: 00:00-07:30 Mon-Sun</businessHours>
+        <businessHours>Sydney Time: 07:30-16:00 Mon-Fri</businessHours>
+        <businessHours>Sydney Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</businessHours>
+        <isRecurring>true</isRecurring>
+        <name>Anzac Day</name>
+        <recurrenceDayOfMonth>25</recurrenceDayOfMonth>
+        <recurrenceMonthOfYear>April</recurrenceMonthOfYear>
+        <recurrenceStartDate>2019-04-25</recurrenceStartDate>
+        <recurrenceType>RecursYearly</recurrenceType>
+    </holidays>
+    <holidays>
+        <businessHours>Adelaide Time: 00:00-07:30 Mon-Sun</businessHours>
+        <businessHours>Adelaide Time: 06:00-18:00 Mon-Fri</businessHours>
+        <businessHours>Adelaide Time: 07:30-16:00 Mon-Fri</businessHours>
+        <businessHours>Adelaide Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</businessHours>
+        <businessHours>Adelaide Time: Any time after Business Hours</businessHours>
+        <businessHours>Brisbane Time: 00:00-07:30 Mon-Sun</businessHours>
+        <businessHours>Brisbane Time: 07:30-16:00 Mon-Fri</businessHours>
+        <businessHours>Brisbane Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</businessHours>
+        <businessHours>Darwin Time: 00:00-07:30 Mon-Sun</businessHours>
+        <businessHours>Darwin Time: 07:30-16:00 Mon-Fri</businessHours>
+        <businessHours>Darwin Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</businessHours>
+        <businessHours>Perth Time: 00:00-07:30 Mon-Sun</businessHours>
+        <businessHours>Perth Time: 07:30-16:00 Mon-Fri</businessHours>
+        <businessHours>Perth Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</businessHours>
+        <businessHours>Sydney Time: 00:00-07:30 Mon-Sun</businessHours>
+        <businessHours>Sydney Time: 07:30-16:00 Mon-Fri</businessHours>
+        <businessHours>Sydney Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</businessHours>
+        <isRecurring>true</isRecurring>
+        <name>Australia Day</name>
+        <recurrenceDayOfMonth>26</recurrenceDayOfMonth>
+        <recurrenceMonthOfYear>January</recurrenceMonthOfYear>
+        <recurrenceStartDate>2019-01-26</recurrenceStartDate>
+        <recurrenceType>RecursYearly</recurrenceType>
+    </holidays>
+    <holidays>
+        <businessHours>Adelaide Time: 00:00-07:30 Mon-Sun</businessHours>
+        <businessHours>Adelaide Time: 06:00-18:00 Mon-Fri</businessHours>
+        <businessHours>Adelaide Time: 07:30-16:00 Mon-Fri</businessHours>
+        <businessHours>Adelaide Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</businessHours>
+        <businessHours>Adelaide Time: Any time after Business Hours</businessHours>
+        <businessHours>Brisbane Time: 00:00-07:30 Mon-Sun</businessHours>
+        <businessHours>Brisbane Time: 07:30-16:00 Mon-Fri</businessHours>
+        <businessHours>Brisbane Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</businessHours>
+        <businessHours>Darwin Time: 00:00-07:30 Mon-Sun</businessHours>
+        <businessHours>Darwin Time: 07:30-16:00 Mon-Fri</businessHours>
+        <businessHours>Darwin Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</businessHours>
+        <businessHours>Perth Time: 00:00-07:30 Mon-Sun</businessHours>
+        <businessHours>Perth Time: 07:30-16:00 Mon-Fri</businessHours>
+        <businessHours>Perth Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</businessHours>
+        <businessHours>Sydney Time: 00:00-07:30 Mon-Sun</businessHours>
+        <businessHours>Sydney Time: 07:30-16:00 Mon-Fri</businessHours>
+        <businessHours>Sydney Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</businessHours>
+        <isRecurring>true</isRecurring>
+        <name>Boxing Day</name>
+        <recurrenceDayOfMonth>26</recurrenceDayOfMonth>
+        <recurrenceMonthOfYear>December</recurrenceMonthOfYear>
+        <recurrenceStartDate>2019-12-26</recurrenceStartDate>
+        <recurrenceType>RecursYearly</recurrenceType>
+    </holidays>
+    <holidays>
+        <businessHours>Adelaide Time: 00:00-07:30 Mon-Sun</businessHours>
+        <businessHours>Adelaide Time: 06:00-18:00 Mon-Fri</businessHours>
+        <businessHours>Adelaide Time: 07:30-16:00 Mon-Fri</businessHours>
+        <businessHours>Adelaide Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</businessHours>
+        <businessHours>Adelaide Time: Any time after Business Hours</businessHours>
+        <businessHours>Brisbane Time: 00:00-07:30 Mon-Sun</businessHours>
+        <businessHours>Brisbane Time: 07:30-16:00 Mon-Fri</businessHours>
+        <businessHours>Brisbane Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</businessHours>
+        <businessHours>Darwin Time: 00:00-07:30 Mon-Sun</businessHours>
+        <businessHours>Darwin Time: 07:30-16:00 Mon-Fri</businessHours>
+        <businessHours>Darwin Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</businessHours>
+        <businessHours>Perth Time: 00:00-07:30 Mon-Sun</businessHours>
+        <businessHours>Perth Time: 07:30-16:00 Mon-Fri</businessHours>
+        <businessHours>Perth Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</businessHours>
+        <businessHours>Sydney Time: 00:00-07:30 Mon-Sun</businessHours>
+        <businessHours>Sydney Time: 07:30-16:00 Mon-Fri</businessHours>
+        <businessHours>Sydney Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</businessHours>
+        <isRecurring>true</isRecurring>
+        <name>Christmas Day</name>
+        <recurrenceDayOfMonth>25</recurrenceDayOfMonth>
+        <recurrenceMonthOfYear>December</recurrenceMonthOfYear>
+        <recurrenceStartDate>2019-12-25</recurrenceStartDate>
+        <recurrenceType>RecursYearly</recurrenceType>
+    </holidays>
+    <holidays>
+        <businessHours>Adelaide Time: 00:00-07:30 Mon-Sun</businessHours>
+        <businessHours>Adelaide Time: 06:00-18:00 Mon-Fri</businessHours>
+        <businessHours>Adelaide Time: 07:30-16:00 Mon-Fri</businessHours>
+        <businessHours>Adelaide Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</businessHours>
+        <businessHours>Adelaide Time: Any time after Business Hours</businessHours>
+        <businessHours>Brisbane Time: 00:00-07:30 Mon-Sun</businessHours>
+        <businessHours>Brisbane Time: 07:30-16:00 Mon-Fri</businessHours>
+        <businessHours>Brisbane Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</businessHours>
+        <businessHours>Darwin Time: 00:00-07:30 Mon-Sun</businessHours>
+        <businessHours>Darwin Time: 07:30-16:00 Mon-Fri</businessHours>
+        <businessHours>Darwin Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</businessHours>
+        <businessHours>Perth Time: 00:00-07:30 Mon-Sun</businessHours>
+        <businessHours>Perth Time: 07:30-16:00 Mon-Fri</businessHours>
+        <businessHours>Perth Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</businessHours>
+        <businessHours>Sydney Time: 00:00-07:30 Mon-Sun</businessHours>
+        <businessHours>Sydney Time: 07:30-16:00 Mon-Fri</businessHours>
+        <businessHours>Sydney Time: 16:00-00:00 Mon-Fri 7:30-00:00 Sat-Sun</businessHours>
+        <isRecurring>true</isRecurring>
+        <name>New Year&#39;s Day</name>
+        <recurrenceDayOfMonth>1</recurrenceDayOfMonth>
+        <recurrenceMonthOfYear>January</recurrenceMonthOfYear>
+        <recurrenceStartDate>2019-01-01</recurrenceStartDate>
+        <recurrenceType>RecursYearly</recurrenceType>
+    </holidays>
+</BusinessHoursSettings>

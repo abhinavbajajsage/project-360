@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Limit_value__c</fullName>
+    <description>This field is used in the email template send to the client when the Customer Status = OK</description>
+    <externalId>false</externalId>
+    <formula>CASE(TEXT(Credit_Limit__c), 
+&quot;A&quot;, 1250000, 
+&quot;B&quot;, 750000,
+&quot;C&quot;, 300000,
+&quot;D&quot;, 100000,
+&quot;E&quot;, 50000,
+&quot;F&quot;, 20000,
+&quot;G&quot;, 10000,
+&quot;H&quot;, 5000,
+&quot;I&quot;, 2500,
+&quot;J&quot;, 1500,
+&quot;K&quot;, 25000,
+&quot;L&quot;, 500000,
+&quot;M&quot;, 150000,
+&quot;N&quot;, 75000,
+&quot;O&quot;, 250000,
+&quot;P&quot;, 30000,
+&quot;Q&quot;, 200000,
+&quot;R&quot;, 40000,
+&quot;S&quot;, 1000000,
+&quot;T&quot;, 15000,
+&quot;U&quot;, 35000,
+&quot;V&quot;, 120000,
+&quot;W&quot;, 65000,
+0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Credit Limit $ value</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <type>Currency</type>
+</CustomField>

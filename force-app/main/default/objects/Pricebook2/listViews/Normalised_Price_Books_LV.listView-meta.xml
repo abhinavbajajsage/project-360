@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Normalised_Price_Books_LV</fullName>
+    <columns>PRICEBOOK2.NAME</columns>
+    <columns>Contract_Type__c</columns>
+    <columns>Service_Territory__c</columns>
+    <columns>PRICEBOOK2.IS_ACTIVE</columns>
+    <columns>PRICEBOOK2.DESCRIPTION</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Service_Contract__c</field>
+        <operation>equals</operation>
+    </filters>
+    <label>Normalised Price Books</label>
+</ListView>

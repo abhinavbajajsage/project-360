@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Shows &quot;Project Code&quot; from the Service Contract. If it is not populated it shows &quot;Branch Code&quot; information from the related Service Territory --></help>
+    <label><!-- Company / Project Code --></label>
+    <name>Company_Code__c</name>
+</CustomFieldTranslation>

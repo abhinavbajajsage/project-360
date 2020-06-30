@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_ACC15_CustomerStatusOK_FinanceOnly</fullName>
+    <active>true</active>
+    <errorConditionFormula>(ISNEW() ||ISCHANGED(Customer_Status__c ))  &amp;&amp; ISPICKVAL(Customer_Status__c, &#39;OK&#39;) &amp;&amp;  $Profile.Name &lt;&gt; &#39;Finance&#39; &amp;&amp; RecordType.DeveloperName &lt;&gt; &quot;Supplier_Account_RT&quot;</errorConditionFormula>
+    <errorDisplayField>Customer_Status__c</errorDisplayField>
+    <errorMessage>Only Finance users can change status to OK</errorMessage>
+</ValidationRule>

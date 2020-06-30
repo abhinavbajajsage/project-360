@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Price_Book_Custom__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>This field has been created to have a customised related list</description>
+    <externalId>false</externalId>
+    <label>Price Book</label>
+    <referenceTo>Pricebook2</referenceTo>
+    <relationshipLabel>Pre Purchased Hours Rate</relationshipLabel>
+    <relationshipName>Price_Book_Entries</relationshipName>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldSets>
+        <label><!-- Capacity Service Columns --></label>
+        <name>FSL__Capacity_Service_Columns</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Crew Management --></label>
+        <name>FSL__CrewManagement</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Crew Management Tooltip --></label>
+        <name>FSL__CrewManagementTooltip</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Designated Work Fields --></label>
+        <name>FSL__Designated_Work_Fields</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Deprecated --></label>
+        <name>FSL__Emergency_Current_Service_Fields</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Gantt Filter --></label>
+        <name>FSL__Gantt_Filter</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Service Appointment Expanded --></label>
+        <name>FSL__Service_Appointment_Expanded</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Service Appointment List Columns --></label>
+        <name>FSL__Service_Appointment_List_Columns</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Service Appt Resource Calendar Display --></label>
+        <name>FSL__Service_Appt_Resource_Calendar_Display</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Service Appt Resource Calendar Tooltip --></label>
+        <name>FSL__Service_Appt_Resource_Calendar_Tooltip</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Service Info Window Map --></label>
+        <name>FSL__Service_Info_Window_Map</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Service Lightbox --></label>
+        <name>FSL__Service_Lightbox</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Service Lightbox Address --></label>
+        <name>FSL__Service_Lightbox_Address</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Service Lightbox Time --></label>
+        <name>FSL__Service_Lightbox_Time</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Service Tooltip Gantt --></label>
+        <name>FSL__Service_Tooltip_Gantt</name>
+    </fieldSets>
+    <layouts>
+        <layout>AllProfiles_ServiceAppointment_PL</layout>
+        <sections>
+            <label><!-- Technician Notes --></label>
+            <section>Technician Notes</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Add Material Cost --></label>
+        <name>Add_Equipment_Cost_CA</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Capture Purchase Order --></label>
+        <name>Capture_Purchase_Order_CA</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Capture Transaction --></label>
+        <name>Capture_Transaction_CA</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- SendEmail --></label>
+        <name>SendEmail</name>
+    </quickActions>
+    <validationRules>
+        <errorMessage><!-- New service appointment cannot be created in scheduled or  dispatched statuses. --></errorMessage>
+        <name>FSL__Dont_allow_scheduled_or_dispatched</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Select a valid dependency type. If the appointments must be assigned to the same resource, the dependency type can’t be Same Start. --></errorMessage>
+        <name>FSL__Related_Service_with_time_dependency</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Resource dependency is invalid. Time Dependency can&apos;t be Same Start when same resource is required. --></errorMessage>
+        <name>FSL__Same_Resource_Same_Start</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Both scheduled start and end are required --></errorMessage>
+        <name>FSL__Schedule_End_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Both scheduled start and end are required --></errorMessage>
+        <name>FSL__Schedule_Start_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Gantt color must be in hexadecimal format: (for example: #ffffff) --></errorMessage>
+        <name>FSL__Service_Color_HEX_Format</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please select Related Service. --></errorMessage>
+        <name>FSL__Time_dependency_with_related_service</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- DueDate field is required --></errorMessage>
+        <name>FSL__isDueDateExist</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Duration field is required --></errorMessage>
+        <name>FSL__isDurationExist</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- EarliestStartTime field is required --></errorMessage>
+        <name>FSL__isEarliestStartTimeExist</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Scheduled Start must be earlier than the Scheduled End. --></errorMessage>
+        <name>FSL__startTimeShouldPrecedeEndTime</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- SA cannot be created when the work order status is &apos;Completed&apos;, &apos;Awaiting Customer PO&apos; or &apos;Ready to Invoice&apos; --></errorMessage>
+        <name>VR_SAP01_CannotCreateSA</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Status cannot be &quot;Completed&quot; or &quot;Cannot Complete&quot; when &quot;Use of Pre Purchase Hours&quot;has not been populated. --></errorMessage>
+        <name>VR_SAP02_UsePrepurchaseHoursMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Status cannot be &quot;Completed&quot; or &quot;Cannot Complete&quot; when &quot;Initial Findings&quot;has not been populated. --></errorMessage>
+        <name>VR_SAP03_InitialFindingsMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This field is mandatory when the status is &quot;Completed&quot; or &quot;Cannot Complete&quot; --></errorMessage>
+        <name>VR_SAP04_ActionTakenMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This field is mandatory when the status is &quot;Completed&quot; --></errorMessage>
+        <name>VR_SAP05_WorkOrderCompletedMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Capturing Transaction is mandatory before changing the status to &quot;Completed&quot; or &quot;Cannot Complete&quot; --></errorMessage>
+        <name>VR_SAP06_TransactionsMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The related service contract does not have remote access --></errorMessage>
+        <name>VR_SAP07_RemoteJob</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Action Taken cannot be updated with the Service Appointment status is &apos;Completed&apos; --></errorMessage>
+        <name>VR_SAP08_ActionTakenReadOnly</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Suggested Follow Up cannot be updated with the Service Appointment status is &apos;Completed&apos; --></errorMessage>
+        <name>VR_SAP09_SuggestedFollowupReadOnly</name>
+    </validationRules>
+</CustomObjectTranslation>

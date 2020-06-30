@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Time_Zone__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Time Zone</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Australia/Adelaide</fullName>
+                <default>true</default>
+                <label>Australia/Adelaide</label>
+            </value>
+            <value>
+                <fullName>Australia/Sydney</fullName>
+                <default>false</default>
+                <label>Australia/Sydney</label>
+            </value>
+            <value>
+                <fullName>Australia/Brisbane</fullName>
+                <default>false</default>
+                <label>Australia/Brisbane</label>
+            </value>
+            <value>
+                <fullName>Australia/Darwin</fullName>
+                <default>false</default>
+                <label>Australia/Darwin</label>
+            </value>
+            <value>
+                <fullName>Australia/Perth</fullName>
+                <default>false</default>
+                <label>Australia/Perth</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

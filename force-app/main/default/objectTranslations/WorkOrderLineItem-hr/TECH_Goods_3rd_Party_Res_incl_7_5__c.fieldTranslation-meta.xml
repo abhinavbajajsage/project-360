@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Goods + 3rd Party Res. (incl. 7.5%) --></label>
+    <name>TECH_Goods_3rd_Party_Res_incl_7_5__c</name>
+</CustomFieldTranslation>

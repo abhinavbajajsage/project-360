@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Cannot Complete Reason --></label>
+    <name>Cannot_Complete_Reason__c</name>
+    <picklistValues>
+        <masterLabel>Awaiting Part</masterLabel>
+        <translation><!-- Awaiting Part --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Follow up Required</masterLabel>
+        <translation><!-- Follow up Required --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Materials_Total__c</fullName>
+    <externalId>false</externalId>
+    <label>Materials Total</label>
+    <summarizedField>WorkOrderLineItem.TECH_Total_ex_GST__c</summarizedField>
+    <summaryFilterItems>
+        <field>WorkOrderLineItem.StartDate</field>
+        <operation>equals</operation>
+        <value/>
+    </summaryFilterItems>
+    <summaryForeignKey>WorkOrderLineItem.WorkOrderId</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

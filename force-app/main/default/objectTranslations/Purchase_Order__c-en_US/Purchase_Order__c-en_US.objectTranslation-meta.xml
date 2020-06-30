@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Purchase Order</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Purchase Orders</value>
+    </caseValues>
+    <layouts>
+        <layout>InternalGroupLabour_PurchaseOrder_PL</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Delivery Information --></label>
+            <section>Delivery Information</section>
+        </sections>
+        <sections>
+            <label><!-- Integration Information --></label>
+            <section>Integration Information</section>
+        </sections>
+        <sections>
+            <label><!-- PO References --></label>
+            <section>PO References</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Supplier_PurchaseOrder_PL</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Delivery Information --></label>
+            <section>Delivery Information</section>
+        </sections>
+        <sections>
+            <label><!-- Integration Information --></label>
+            <section>Integration Information</section>
+        </sections>
+        <sections>
+            <label><!-- PO References --></label>
+            <section>PO References</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Edit PO --></label>
+        <name>Edit_PO_CA</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Update Pronto --></label>
+        <name>Update_Pronto</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Internal Group Labour --></label>
+        <name>InternalGroupLabour_PurchaseOrder_RT</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Supplier --></label>
+        <name>Supplier_PurchaseOrder_RT</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- The record cannot be updated as it is integrated with Pronto --></errorMessage>
+        <name>VR_POR01_RecordLocked</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This field is mandatory when Status = Cancelled --></errorMessage>
+        <name>VR_POR02_CancellationReason</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot cancel a PO when Work Order&apos;s related  Sales Order is integrated with Pronto --></errorMessage>
+        <name>VR_POR03_CannotCancel</name>
+    </validationRules>
+</CustomObjectTranslation>

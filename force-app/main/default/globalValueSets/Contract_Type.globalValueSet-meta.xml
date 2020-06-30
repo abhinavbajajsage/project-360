@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Bronze Support</fullName>
+        <default>false</default>
+        <label>Bronze Support</label>
+    </customValue>
+    <customValue>
+        <fullName>Silver Support</fullName>
+        <default>false</default>
+        <label>Silver Support</label>
+    </customValue>
+    <customValue>
+        <fullName>Gold Support</fullName>
+        <default>false</default>
+        <label>Gold Support</label>
+    </customValue>
+    <customValue>
+        <fullName>Platinum Support</fullName>
+        <default>false</default>
+        <label>Platinum Support</label>
+    </customValue>
+    <masterLabel>Contract Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

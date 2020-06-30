@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_ACC16_AccountCodeLocked</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISCHANGED( Pronto_Account_Code__c ) &amp;&amp; (Account_Created_in_Pronto__c ||
+(NOT(Account_Created_in_Pronto__c) &amp;&amp;  ISPICKVAL( Integration_Status__c ,&#39;Waiting Confirmation&#39;) ))</errorConditionFormula>
+    <errorDisplayField>Pronto_Account_Code__c</errorDisplayField>
+    <errorMessage>Account Code cannot be changed once the account is created in Pronto</errorMessage>
+</ValidationRule>

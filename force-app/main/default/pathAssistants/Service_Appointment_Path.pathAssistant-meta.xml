@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>ServiceAppointment</entityName>
+    <fieldName>Status</fieldName>
+    <masterLabel>Service Appointment Path</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Status</fieldNames>
+        <info>&lt;p&gt;&lt;u&gt;NOC Technician:&lt;/u&gt;&lt;/p&gt;&lt;ol&gt;&lt;li&gt;Use the component below to self assign the Service Appointment to yourself. The Status will be automatically set to In Progress&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Field Technician:&lt;/u&gt;&lt;/p&gt;&lt;ol&gt;&lt;li&gt;Change status to &lt;b&gt;In Progress.&lt;/b&gt;&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Note: You still have the capability to set the status to &lt;b&gt;Rejected&lt;/b&gt;.&lt;/p&gt;</info>
+        <picklistValueName>Accepted</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Arrived_Onsite_Timestamp__c</fieldNames>
+        <fieldNames>JSEA__c</fieldNames>
+        <fieldNames>Action_Taken__c</fieldNames>
+        <fieldNames>Suggested_Follow_up__c</fieldNames>
+        <fieldNames>Work_Order_Completed__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Input time for &lt;b&gt;Arrived Onsite Timestamp&lt;/b&gt;&lt;/li&gt;&lt;li&gt;Capture &lt;b&gt;JSEA #&lt;/b&gt; or upload customer JSEA&lt;/li&gt;&lt;li&gt;Capture&lt;b&gt; Initial Findings&lt;/b&gt; in WO Details section if not provided&lt;/li&gt;&lt;li&gt;Capture, &lt;b&gt;Action Taken&lt;/b&gt; (mandatory) and &lt;b&gt;Suggested Follow-up &lt;/b&gt;(optional)&lt;/li&gt;&lt;li&gt;Capture &lt;b&gt;Transactions&lt;/b&gt; using the button at the top&lt;/li&gt;&lt;li&gt;Capture &lt;b&gt;Use of Pre Purchase Hours&lt;/b&gt; in the WO Details section if not provided&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;Set &lt;/span&gt;&lt;b style=&quot;font-size: 13px;&quot;&gt;Work Order Completed?&lt;/b&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt; to Yes if you want to also set the WO status to Completed&lt;/span&gt;&lt;/li&gt;&lt;li&gt;Capture &lt;b&gt;Customer Purchase Order Number&lt;/b&gt; in the WO Details section (optional)&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;Click and select &lt;/span&gt;&lt;b style=&quot;font-size: 13px;&quot;&gt;Final Status&lt;/b&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt; above to &lt;/span&gt;&lt;b style=&quot;font-size: 13px;&quot;&gt;Completed / Cannot Complete&lt;/b&gt;&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Arrived Onsite</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>ActualEndTime</fieldNames>
+        <fieldNames>Cannot_Complete_Reason__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Please provide your &lt;b&gt;Actual End&lt;/b&gt; and &lt;b&gt;Cannot Complete Reason&lt;/b&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;Generate &lt;/span&gt;&lt;b style=&quot;font-size: 13px;&quot;&gt;Service Report &lt;/b&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;by clicking the button at the top of the page&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Cannot Complete</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>ActualEndTime</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;Please provide your &lt;/span&gt;&lt;b style=&quot;font-size: 13px;&quot;&gt;Actual End&lt;/b&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;Generate &lt;/span&gt;&lt;b style=&quot;font-size: 13px;&quot;&gt;Service Report &lt;/b&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;by clicking the button at the top of the page&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Completed</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <picklistValueName>Dispatched</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>ActualStartTime</fieldNames>
+        <fieldNames>Action_Taken__c</fieldNames>
+        <fieldNames>Suggested_Follow_up__c</fieldNames>
+        <fieldNames>Status</fieldNames>
+        <fieldNames>Work_Order_Completed__c</fieldNames>
+        <info>&lt;p&gt;Field Technician:&lt;/p&gt;&lt;ol&gt;&lt;li&gt;&lt;b&gt;Actual Start.&lt;/b&gt;&lt;/li&gt;&lt;li&gt;Change &lt;b&gt;Status&lt;/b&gt; to &amp;#39;Arrived Onsite&amp;#39;.&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;NOC Technician:&lt;/p&gt;&lt;ol&gt;&lt;li&gt;&lt;b style=&quot;font-size: 13px;&quot;&gt;Actual Start&lt;/b&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;Initial Findings&lt;/b&gt; in Work Order (WO) Details section if not provided.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Action Taken&lt;/b&gt; (mandatory) and &lt;b&gt;Suggested Follow-up &lt;/b&gt;(optional)&lt;/li&gt;&lt;li&gt;Create &lt;b&gt;Transactions&lt;/b&gt; using the button at the top of the page.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Use of Pre Purchase Hours&lt;/b&gt; in the WO Details section if not provided.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Customer Purchase Order Number&lt;/b&gt; in the WO Details section (optional)&lt;/li&gt;&lt;li&gt;Set &lt;b&gt;Work Order Completed?&lt;/b&gt; to Yes if you want to also set the WO status to Completed&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;Change status to &lt;/span&gt;&lt;b style=&quot;font-size: 13px;&quot;&gt;Completed / Cannot Complete&lt;/b&gt;&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>In Progress</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Rejection_Reason__c</fieldNames>
+        <fieldNames>Rejection_Other_Reason__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Please provide a &lt;b&gt;Rejection Reason&lt;/b&gt;.&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Note: This service appointment will be redispatched to a different technician by the NOC admin&lt;/p&gt;</info>
+        <picklistValueName>Rejected</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>SchedStartTime</fieldNames>
+        <fieldNames>SchedEndTime</fieldNames>
+        <picklistValueName>Scheduled</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>__MASTER__</recordTypeName>
+</PathAssistant>

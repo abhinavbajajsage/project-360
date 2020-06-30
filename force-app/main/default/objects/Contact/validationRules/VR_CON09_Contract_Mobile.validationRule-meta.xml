@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_CON09_Contract_Mobile</fullName>
+    <active>false</active>
+    <errorConditionFormula>ISBLANK(    MobilePhone     ) &amp;&amp; 
+ISPICKVAL( Contact_Type__c , &#39;Contract Manager&#39;)</errorConditionFormula>
+    <errorDisplayField>MobilePhone</errorDisplayField>
+    <errorMessage>This field is required when Contract Manager has been selected</errorMessage>
+</ValidationRule>

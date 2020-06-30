@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_SCO15_NextBillingNotBlankOnCreation</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISNEW() &amp;&amp; ISBLANK(Next_Contract_Billing_Date__c) &amp;&amp;
+TODAY() &lt; EndDate &amp;&amp; TODAY() &gt; StartDate &amp;&amp; NOT( ISPICKVAL(Type__c,&#39;Bronze Support&#39;) ) &amp;&amp; NOT( ISPICKVAL(Contract_Billing_Cycle__c, &#39;None&#39;) )</errorConditionFormula>
+    <errorDisplayField>Next_Contract_Billing_Date__c</errorDisplayField>
+    <errorMessage>This field is mandatory when the &#39;Contract Billing Cycle&#39; is not None</errorMessage>
+</ValidationRule>

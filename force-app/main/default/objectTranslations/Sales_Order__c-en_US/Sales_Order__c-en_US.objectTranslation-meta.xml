@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Sales Order</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Sales Orders</value>
+    </caseValues>
+    <layouts>
+        <layout>AggregatedBilling_SalesOrder_PL</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Integration Information --></label>
+            <section>Integration Information</section>
+        </sections>
+        <sections>
+            <label><!-- Sales Order References --></label>
+            <section>Sales Order References</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ContractFees_SalesOrder_PL</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Integration Information --></label>
+            <section>Integration Information</section>
+        </sections>
+        <sections>
+            <label><!-- Sales Order References --></label>
+            <section>Sales Order References</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>PrePurchasedHours_SalesOrder_PL</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Integration Information --></label>
+            <section>Integration Information</section>
+        </sections>
+        <sections>
+            <label><!-- Sales Order References --></label>
+            <section>Sales Order References</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>WorkOrder_SalesOrder_PL</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Integration Information --></label>
+            <section>Integration Information</section>
+        </sections>
+        <sections>
+            <label><!-- Sales Order References --></label>
+            <section>Sales Order References</section>
+        </sections>
+        <sections>
+            <label><!-- Work Order Information --></label>
+            <section>Work Order Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Update Pronto --></label>
+        <name>Update_Pronto</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Aggregated Billing --></label>
+        <name>AggregatedBilling_SalesOrder_RT</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Contract Fees --></label>
+        <name>ContractFees_SalesOrder_RT</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Pre Purchased Hours --></label>
+        <name>PrePurchasedHours_SalesOrder_RT</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Work Order --></label>
+        <name>WorkOrder_SalesOrder_RT</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- The record cannot be updated as it is integrated with Pronto --></errorMessage>
+        <name>VR_SO01_RecordLocked</name>
+    </validationRules>
+</CustomObjectTranslation>

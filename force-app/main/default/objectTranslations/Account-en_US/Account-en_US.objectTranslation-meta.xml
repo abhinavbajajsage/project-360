@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldSets>
+        <label><!-- Emergency Account Fields --></label>
+        <name>FSL__Emergency_Account_Fields</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Gantt Lightbox --></label>
+        <name>FSL__Gantt_Lightbox</name>
+    </fieldSets>
+    <layouts>
+        <layout>Cash_Account_PL</layout>
+        <sections>
+            <label><!-- Business Premises --></label>
+            <section>Business Premises</section>
+        </sections>
+        <sections>
+            <label><!-- Company Information --></label>
+            <section>Company Information</section>
+        </sections>
+        <sections>
+            <label><!-- Credit Information --></label>
+            <section>Credit Information</section>
+        </sections>
+        <sections>
+            <label><!-- Registered Business Information --></label>
+            <section>Registered Business Information</section>
+        </sections>
+        <sections>
+            <label><!-- Site Address Information --></label>
+            <section>Site Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Sole Trader Information --></label>
+            <section>Sole Trader Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Company_Account_PL</layout>
+        <sections>
+            <label><!-- Business Premises --></label>
+            <section>Business Premises</section>
+        </sections>
+        <sections>
+            <label><!-- Company Information --></label>
+            <section>Company Information</section>
+        </sections>
+        <sections>
+            <label><!-- Credit Information --></label>
+            <section>Credit Information</section>
+        </sections>
+        <sections>
+            <label><!-- Integration Information --></label>
+            <section>Integration Information</section>
+        </sections>
+        <sections>
+            <label><!-- Registered Business Information --></label>
+            <section>Registered Business Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Partnership_Account_PL</layout>
+        <sections>
+            <label><!-- Business Premises --></label>
+            <section>Business Premises</section>
+        </sections>
+        <sections>
+            <label><!-- Credit Information --></label>
+            <section>Credit Information</section>
+        </sections>
+        <sections>
+            <label><!-- Integration Information --></label>
+            <section>Integration Information</section>
+        </sections>
+        <sections>
+            <label><!-- Partnership Information --></label>
+            <section>Partnership Information</section>
+        </sections>
+        <sections>
+            <label><!-- Registered Business Information --></label>
+            <section>Registered Business Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>SoleTrader_Account_PL</layout>
+        <sections>
+            <label><!-- Business Premises --></label>
+            <section>Business Premises</section>
+        </sections>
+        <sections>
+            <label><!-- Credit Information --></label>
+            <section>Credit Information</section>
+        </sections>
+        <sections>
+            <label><!-- Integration Information --></label>
+            <section>Integration Information</section>
+        </sections>
+        <sections>
+            <label><!-- Registered Business Information --></label>
+            <section>Registered Business Information</section>
+        </sections>
+        <sections>
+            <label><!-- Sole Trader Information --></label>
+            <section>Sole Trader Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Supplier_Account_PL</layout>
+        <sections>
+            <label><!-- Company Information --></label>
+            <section>Company Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Child Account --></label>
+        <name>Child_Account</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Update Pronto --></label>
+        <name>Update_Pronto</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- View_Account_CA --></label>
+        <name>View_Account_CA</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Cash Account --></label>
+        <name>Cash_Account_RT</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Company --></label>
+        <name>Company_Account_RT</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Partnership --></label>
+        <name>Partnership_Account_RT</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Sole Trader --></label>
+        <name>Sole_Trader_Account_RT</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Supplier --></label>
+        <name>Supplier_Account_RT</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Please fill out the business street number and street name --></errorMessage>
+        <name>VR_ACC01_Business_Street_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill out the business city --></errorMessage>
+        <name>VR_ACC02_Business_City_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill out the business state --></errorMessage>
+        <name>VR_ACC03_Business_State_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill out the business postcode --></errorMessage>
+        <name>VR_ACC04_Business_Postcode_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill out the business country --></errorMessage>
+        <name>VR_ACC05_Business_Country_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill out the postal street number and street name --></errorMessage>
+        <name>VR_ACC06_Postal_Street_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill out the postal city --></errorMessage>
+        <name>VR_ACC07_Postal_City_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill out the postal state --></errorMessage>
+        <name>VR_ACC08_Postal_State_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill out the postal postcode --></errorMessage>
+        <name>VR_ACC09_Postal_Postcode_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill out the postal country --></errorMessage>
+        <name>VR_ACC10_Postal_Country_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This field is mandatory when Business Premises is &apos;Leased&apos; or &apos;Mortgaged&apos; --></errorMessage>
+        <name>VR_ACC11_BusinessPremisesDetails</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This field is mandatory when Nature Of Business value is &apos;Other&apos; --></errorMessage>
+        <name>VR_ACC12_OtherNatureOfBusiness</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Account Name cannot be updated after it has been integrated with Pronto --></errorMessage>
+        <name>VR_ACC13_CannotUpdateAccountName</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ABN field is required when the Customer Status = OK --></errorMessage>
+        <name>VR_ACC14_ABN_StatusOK</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only Finance users can change status to OK --></errorMessage>
+        <name>VR_ACC15_CustomerStatusOK_FinanceOnly</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Account Code cannot be changed once the account is created in Pronto --></errorMessage>
+        <name>VR_ACC16_AccountCodeLocked</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please create a Contact with &quot;Account Payable Contact&apos; set to true --></errorMessage>
+        <name>VR_ACC17_AccountPayable_StatusOK</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleNews --></label>
+        <name>GoogleNews</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+</CustomObjectTranslation>

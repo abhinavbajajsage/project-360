@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_SCO12_SilverPlusContractFees</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT(ISPICKVAL(Type__c , &#39;Bronze Support&#39;)) &amp;&amp; (ISPICKVAL(Contract_Billing_Cycle__c, &#39;None&#39;) ) &amp;&amp;  $Profile.Name &lt;&gt; &#39;NOC Admin&#39; &amp;&amp;  NOT(ISCHANGED(Number_of_Pre_Purchased_Hours__c))</errorConditionFormula>
+    <errorDisplayField>Contract_Billing_Cycle__c</errorDisplayField>
+    <errorMessage>Contract Billing Cycle cannot be &#39;None&#39; for Silver, Gold and Platinum support</errorMessage>
+</ValidationRule>

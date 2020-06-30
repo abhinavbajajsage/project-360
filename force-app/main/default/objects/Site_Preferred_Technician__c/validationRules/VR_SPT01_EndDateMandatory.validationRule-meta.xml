@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_SPT01_EndDateMandatory</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISBLANK(End_Date__c ) &amp;&amp;  ISPICKVAL(Service_Contract__r.Restricted_Site__c , &#39;Yes&#39;)</errorConditionFormula>
+    <errorDisplayField>End_Date__c</errorDisplayField>
+    <errorMessage>End Date is mandatory when the related Contract is for a Restricted Site</errorMessage>
+</ValidationRule>

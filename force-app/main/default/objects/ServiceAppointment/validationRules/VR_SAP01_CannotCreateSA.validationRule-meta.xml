@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_SAP01_CannotCreateSA</fullName>
+    <active>true</active>
+    <description>SA cannot be created when the work order status is Completed, Awaiting Customer PO or Ready to Invoice</description>
+    <errorConditionFormula>(ISPICKVAL(Work_Order__r.Status, &#39;Completed&#39;)
+||  ISPICKVAL(Work_Order__r.Status, &#39;Awaiting Customer PO&#39;)
+||  ISPICKVAL(Work_Order__r.Status, &#39;Ready to Invoice&#39;))
+&amp;&amp;
+ ISPICKVAL(Status,&#39;None&#39;)</errorConditionFormula>
+    <errorMessage>SA cannot be created when the work order status is &#39;Completed&#39;, &#39;Awaiting Customer PO&#39; or &#39;Ready to Invoice&#39;</errorMessage>
+</ValidationRule>

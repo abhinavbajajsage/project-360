@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Search_ABN_link__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(  ISBLANK(ABN__c),HYPERLINK(&quot;https://abr.business.gov.au/Search/ResultsActive?SearchText=&quot;&amp;SUBSTITUTE( Name , &#39; &#39;, &#39;%20&#39;), &quot;Click Here&quot;), &#39;&#39; )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This link redirects to the government website to search for the company ABN number when ABN field is not populated</inlineHelpText>
+    <label>Search ABN link</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

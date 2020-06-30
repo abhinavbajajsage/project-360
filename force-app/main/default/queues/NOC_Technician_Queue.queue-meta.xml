@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>NOC_Technician_Queue</name>
+    <queueMembers>
+        <users>
+            <user>andrewo@sageautomation.com</user>
+            <user>henry.rooney@sageautomation.com</user>
+            <user>peter.drury@sageautomation.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>ServiceAppointment</sobjectType>
+    </queueSobject>
+    <queueSobject>
+        <sobjectType>WorkOrder</sobjectType>
+    </queueSobject>
+</Queue>

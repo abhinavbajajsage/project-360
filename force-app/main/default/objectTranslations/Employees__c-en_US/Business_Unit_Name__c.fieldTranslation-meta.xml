@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Business Unit Name --></label>
+    <name>Business_Unit_Name__c</name>
+    <picklistValues>
+        <masterLabel>BO - MES</masterLabel>
+        <translation><!-- BO - MES --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Engineering Team 320</masterLabel>
+        <translation><!-- Engineering Team 320 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Engineering Team 520</masterLabel>
+        <translation><!-- Engineering Team 520 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Site Installation</masterLabel>
+        <translation><!-- Site Installation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Transport (National)</masterLabel>
+        <translation><!-- Transport (National) --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

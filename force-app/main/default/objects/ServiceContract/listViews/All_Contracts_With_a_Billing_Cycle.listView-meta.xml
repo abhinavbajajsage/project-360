@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Contracts_With_a_Billing_Cycle</fullName>
+    <columns>Account_Code__c</columns>
+    <columns>CONTRACT.NAME</columns>
+    <columns>CONTRACT.STATUS</columns>
+    <columns>Contract_Billing_Cycle__c</columns>
+    <columns>Next_Contract_Billing_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTRACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>ServiceContract.Customer_Contract_RT</value>
+    </filters>
+    <filters>
+        <field>Contract_Billing_Cycle__c</field>
+        <operation>equals</operation>
+        <value>Monthly,Quarterly,Half Yearly,Yearly</value>
+    </filters>
+    <filters>
+        <field>CONTRACT.STATUS</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>All Contracts - With a Billing Cycle</label>
+    <sharedTo>
+        <group>NOC_Admin</group>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dave_s_Work_Orders</fullName>
+    <columns>Name</columns>
+    <columns>Subject</columns>
+    <columns>Account</columns>
+    <columns>Status</columns>
+    <columns>Case</columns>
+    <columns>ParentWorkOrder</columns>
+    <columns>Pricebook2</columns>
+    <columns>RootWorkOrder</columns>
+    <columns>SA_Number__c</columns>
+    <columns>ServiceContract</columns>
+    <columns>ServiceTerritory</columns>
+    <columns>STATE</columns>
+    <columns>StatusCategory</columns>
+    <columns>FSL__VisitingHours__c</columns>
+    <columns>WorkType</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Notify_NOC_Admin__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>NOTIFY NOC ADMIN = Y</label>
+    <sharedTo>
+        <group>NOC</group>
+    </sharedTo>
+</ListView>

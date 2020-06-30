@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Sales Order</label>
+    <protected>false</protected>
+    <values>
+        <field>Batch_Query__c</field>
+        <value xsi:type="xsd:string">SELECT Id, OwnerId, IsDeleted, Name, RecordTypeId, CreatedDate, CreatedById, LastModifiedDate, LastModifiedById, LastActivityDate, LastViewedDate, LastReferencedDate, User__c, Pronto_Sales_Order_Number__c, Company_Code__c, Case__c, Initial_Findings__c, Customer_Reference__c, Reported_Fault__c, Currency__c, Action_Taken__c, Sales_Order_Type__c, Suggested_Follow_up__c, Case_Number__c, Call__c, Site__c, Order_Date__c, Integration_Status__c, Sync_With_Pronto__c, Work_Order__c, Days_till_Integration__c, SC_Project_Code__c, TECH_Company_Code__c, Account__c, Customer_No__c, Service_Contract__c, Pre_Purchased_Hours_Detail__c, Project_Category__c, Service_Territory__c, Sales_Type__c, Warehouse_Code__c, Customer_Type__c, TECH_Work_Order_Territory_Branch_Code__c , SystemModstamp FROM Sales_Order__c where Integration_Status__c != &#39;Successful&#39; and Integration_Status__c != &#39;Waiting Confirmation&#39;   and Days_till_Integration__c = 0</value>
+    </values>
+</CustomMetadata>

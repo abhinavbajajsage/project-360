@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Execute_Retry</name>
+        <label>Execute Retry</label>
+        <locationX>372</locationX>
+        <locationY>66</locationY>
+        <actionName>ContractFeesRetry</actionName>
+        <actionType>apex</actionType>
+        <inputParameters>
+            <name>contractids</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <interviewLabel>SF_SCO01_GenerateContractFeesSalesOrder {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>SF_SCO01_GenerateContractFeesSalesOrder</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <screens>
+        <name>Message_Screen</name>
+        <label>Message Screen</label>
+        <locationX>235</locationX>
+        <locationY>61</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Execute_Retry</targetReference>
+        </connector>
+        <fields>
+            <name>Message</name>
+            <fieldText>&lt;p&gt;Click &lt;b&gt;Next&lt;/b&gt; to generate  a &lt;b&gt;Sales Order&lt;/b&gt;  of type &lt;u&gt;Contract Fees&lt;/u&gt; on this Contract.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;After coming back to the contract page refresh the page after 5 seconds and open &lt;u&gt;Sales Order tab&lt;/u&gt; to check if your Sales Order has been created.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;In case the Sales Order is not generated please look at the &lt;u&gt;Error log related list&lt;/u&gt; on the same tab&lt;u&gt; &lt;/u&gt;that will indicate the failure reason&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Message_Screen</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

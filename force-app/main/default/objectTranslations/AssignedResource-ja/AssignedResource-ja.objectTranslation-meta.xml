@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <validationRules>
+        <errorMessage><!-- Completed work order cannot be reassigned --></errorMessage>
+        <name>VR_ASR01_Prevent_Reassignment</name>
+    </validationRules>
+</CustomObjectTranslation>

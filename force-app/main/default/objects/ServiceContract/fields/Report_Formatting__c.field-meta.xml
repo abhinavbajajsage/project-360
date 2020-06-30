@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Report_Formatting__c</fullName>
+    <externalId>false</externalId>
+    <label>Report Formatting</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Template A</fullName>
+                <default>false</default>
+                <label>Template A</label>
+            </value>
+            <value>
+                <fullName>Template B</fullName>
+                <default>false</default>
+                <label>Template B</label>
+            </value>
+            <value>
+                <fullName>DPTI Invoice</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>DPTI Invoice</label>
+            </value>
+            <value>
+                <fullName>Sydney Airport Invoice</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Sydney Airport Invoice</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

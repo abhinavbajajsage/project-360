@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OpenWorkOrder_LV</fullName>
+    <columns>Name</columns>
+    <columns>CreatedDate</columns>
+    <columns>Account</columns>
+    <columns>ServiceContract</columns>
+    <columns>Priority_Image__c</columns>
+    <columns>ServiceTerritory</columns>
+    <columns>Status</columns>
+    <columns>Dispatch_Response__c</columns>
+    <columns>WorkType</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status</field>
+        <operation>notEqual</operation>
+        <value>Awaiting Customer PO,Ready To Invoice</value>
+    </filters>
+    <label>Open Work Orders</label>
+</ListView>

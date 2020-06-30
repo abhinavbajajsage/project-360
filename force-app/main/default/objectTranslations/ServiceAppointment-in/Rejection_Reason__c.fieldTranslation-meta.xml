@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Rejection Reason --></label>
+    <name>Rejection_Reason__c</name>
+    <picklistValues>
+        <masterLabel>Busy with Customer</masterLabel>
+        <translation><!-- Busy with Customer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Not Suited to Work Order</masterLabel>
+        <translation><!-- Not Suited to Work Order --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation><!-- Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Personal Reasons</masterLabel>
+        <translation><!-- Personal Reasons --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

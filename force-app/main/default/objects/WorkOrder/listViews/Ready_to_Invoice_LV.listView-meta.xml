@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ready_to_Invoice_LV</fullName>
+    <columns>Name</columns>
+    <columns>Case</columns>
+    <columns>Account</columns>
+    <columns>ServiceContract</columns>
+    <columns>ServiceTerritory</columns>
+    <columns>Status</columns>
+    <columns>Customer_Purchase_Order_number__c</columns>
+    <columns>X7_days_reminder_sent__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status</field>
+        <operation>equals</operation>
+        <value>Ready To Invoice</value>
+    </filters>
+    <label>Ready to Invoice</label>
+</ListView>

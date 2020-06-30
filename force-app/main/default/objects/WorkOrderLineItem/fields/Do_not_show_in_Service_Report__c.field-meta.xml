@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Do_not_show_in_Service_Report__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field is used to filter records to be displayed on the service report</description>
+    <externalId>false</externalId>
+    <label>Do not show in Service Report</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

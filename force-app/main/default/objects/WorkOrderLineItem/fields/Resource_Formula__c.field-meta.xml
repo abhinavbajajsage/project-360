@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Resource_Formula__c</fullName>
+    <description>This field is used in Service Report</description>
+    <externalId>false</externalId>
+    <formula>IF(Employee__c &lt;&gt; NULL,  Employee__r.Name ,  IF(Resource__c &lt;&gt; NULL,  Resource__r.Name , &#39;Material/Equipment&#39;))</formula>
+    <label>Resource</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

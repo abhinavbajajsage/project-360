@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_SCO10_BronzeNoServiceBillingCycle</fullName>
+    <active>false</active>
+    <errorConditionFormula>ISPICKVAL(Type__c , &#39;Bronze Support&#39;) &amp;&amp; ISPICKVAL(Billing_Terms__c, &#39;Aggregated Billing&#39;)</errorConditionFormula>
+    <errorDisplayField>Billing_Terms__c</errorDisplayField>
+    <errorMessage>Bronze Support Contract cannot have Service Billing Cycle</errorMessage>
+</ValidationRule>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GST__c</fullName>
+    <description>This field is used to calculate GST from WOLI. This field is to be used in a process builder and Service Report</description>
+    <externalId>false</externalId>
+    <label>GST</label>
+    <summarizedField>WorkOrderLineItem.GST__c</summarizedField>
+    <summaryForeignKey>WorkOrderLineItem.WorkOrderId</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_SAP07_RemoteJob</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISPICKVAL(Remote_Job2__c, &#39;Yes&#39;) &amp;&amp; ISPICKVAL( Contract_Remote_Job__c , &#39;No&#39;)</errorConditionFormula>
+    <errorDisplayField>Remote_Job2__c</errorDisplayField>
+    <errorMessage>The related service contract does not have remote access</errorMessage>
+</ValidationRule>

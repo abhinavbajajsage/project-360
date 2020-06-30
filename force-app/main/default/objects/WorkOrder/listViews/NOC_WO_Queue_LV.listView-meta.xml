@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NOC_WO_Queue_LV</fullName>
+    <columns>Name</columns>
+    <columns>CreatedDate</columns>
+    <columns>Account</columns>
+    <columns>ServiceContract</columns>
+    <columns>Priority_Image__c</columns>
+    <columns>ServiceTerritory</columns>
+    <columns>Status</columns>
+    <columns>Dispatch_Response__c</columns>
+    <columns>WorkType</columns>
+    <filterScope>Queue</filterScope>
+    <label>NOC WO Queue</label>
+    <queue>NOC_Technician_Queue</queue>
+</ListView>

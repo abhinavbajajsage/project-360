@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_ACC03_Business_State_Mandatory</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISBLANK(BillingState) &amp;&amp; NOT(ISCHANGED(Account_Payable_Contact__c)) &amp;&amp; RecordType.DeveloperName &lt;&gt; &quot;Supplier_Account_RT&quot; &amp;&amp; RecordType.DeveloperName &lt;&gt;  &quot;Cash_Account_RT&quot;</errorConditionFormula>
+    <errorDisplayField>BillingState</errorDisplayField>
+    <errorMessage>Please fill out the business state</errorMessage>
+</ValidationRule>

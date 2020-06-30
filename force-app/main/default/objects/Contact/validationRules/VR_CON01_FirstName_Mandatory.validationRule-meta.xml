@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_CON01_FirstName_Mandatory</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISBLANK(FirstName) &amp;&amp;  ISPICKVAL(Contact_Type__c , &#39;Contract Manager&#39;)</errorConditionFormula>
+    <errorDisplayField>FirstName</errorDisplayField>
+    <errorMessage>First Name is mandatory for Contract Manager Contact</errorMessage>
+</ValidationRule>

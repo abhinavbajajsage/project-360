@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_HTTP01_Timeout</fullName>
+    <active>true</active>
+    <errorConditionFormula>Timeout__c &gt; 120000</errorConditionFormula>
+    <errorDisplayField>Timeout__c</errorDisplayField>
+    <errorMessage>Please input a value less than 120,000 milliseconds</errorMessage>
+</ValidationRule>

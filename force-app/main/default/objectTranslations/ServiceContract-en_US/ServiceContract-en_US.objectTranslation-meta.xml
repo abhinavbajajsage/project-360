@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Customer_ServiceContract_PL</layout>
+        <sections>
+            <label><!-- Financial Information --></label>
+            <section>Financial Information</section>
+        </sections>
+        <sections>
+            <label><!-- KPIs and Service Time --></label>
+            <section>KPIs and Service Time</section>
+        </sections>
+        <sections>
+            <label><!-- Reporting --></label>
+            <section>Reporting</section>
+        </sections>
+        <sections>
+            <label><!-- Service Billing Cycle --></label>
+            <section>Service Billing Cycle</section>
+        </sections>
+        <sections>
+            <label><!-- Site Information --></label>
+            <section>Site Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Template_ServiceContract_PL</layout>
+        <sections>
+            <label><!-- Service Time --></label>
+            <section>Service Time</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Aggregate Billing Format --></label>
+        <name>Aggregate_Billing_Format_CA</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Aggregated Billing --></label>
+        <name>New_Aggregated_Billing_CA</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Case --></label>
+        <name>New_Case_CA</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Retry Contract Fees --></label>
+        <name>Retry_Contract_Fees_CA</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- View_Service_Contract_CA --></label>
+        <name>View_Service_Contract_CA</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Customer Contract --></label>
+        <name>Customer_Contract_RT</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Template Contract --></label>
+        <name>Template_Contract_RT</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- The Contract Contact does not have an email address, please update the Contact or select a different contact --></errorMessage>
+        <name>VR_SCO01_Contact_have_email</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill out the site street number and street name --></errorMessage>
+        <name>VR_SCO02_Street_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill out the site suburb --></errorMessage>
+        <name>VR_SCO03_City_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill out the site postcode --></errorMessage>
+        <name>VR_SCO04_Postcode_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill out the site state --></errorMessage>
+        <name>VR_SCO05_State_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill out the site country --></errorMessage>
+        <name>VR_SCO06_Country_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Service Contract can only be linked to the generated Pricebook from this service contract --></errorMessage>
+        <name>VR_SCO07_1TO1Relationship</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Bronze Support Contract cannot have Contract Billing Cycle --></errorMessage>
+        <name>VR_SCO08_BronzeNoContractFees</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Bronze Support Contract cannot have Next Contract Billing Cycle --></errorMessage>
+        <name>VR_SCO09_BronzeNoNextContractBillingDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Bronze Support Contract cannot have Service Billing Cycle --></errorMessage>
+        <name>VR_SCO10_BronzeNoServiceBillingCycle</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Annual Service Amount is mandatory from Silver Customer Support --></errorMessage>
+        <name>VR_SCO11_AnnualServiceAmount</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Contract Billing Cycle cannot be &apos;None&apos; for Silver, Gold and Platinum support --></errorMessage>
+        <name>VR_SCO12_SilverPlusContractFees</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Next Contract Billing Date cannot be after End Date of the Contract --></errorMessage>
+        <name>VR_SCO13_NextBillingCannotBeAfterEndDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This field is mandatory when the contract has a contract billing cycle --></errorMessage>
+        <name>VR_SCO14_BillingCycleType</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This field is mandatory when the &apos;Contract Billing Cycle&apos; is not None --></errorMessage>
+        <name>VR_SCO15_NextBillingNotBlankOnCreation</name>
+    </validationRules>
+</CustomObjectTranslation>

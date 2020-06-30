@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Contract_RT</fullName>
+    <active>true</active>
+    <label>Customer Contract</label>
+    <picklistValues>
+        <picklist>ApprovalStatus</picklist>
+        <values>
+            <fullName>Activated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Draft</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>In Approval Process</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Billing_Cycle_Type__c</picklist>
+        <values>
+            <fullName>In Advance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Arrears</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Billing_Terms__c</picklist>
+        <values>
+            <fullName>Aggregated Billing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Individual Work Orders</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>None</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Contract_Billing_Cycle__c</picklist>
+        <values>
+            <fullName>Half Yearly</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Monthly</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>None</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quarterly</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yearly</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Remote_Access__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Report_Formatting__c</picklist>
+        <values>
+            <fullName>Template A</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Template B</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Restricted_Site__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Bronze Support</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gold Support</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Platinum Support</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Silver Support</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

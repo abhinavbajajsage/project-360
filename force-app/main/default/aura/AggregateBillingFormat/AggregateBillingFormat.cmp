@@ -1,0 +1,68 @@
+<aura:component implements="lightning:actionOverride,force:hasRecordId,force:lightningQuickActionWithoutHeader,lightning:availableForFlowScreens"
+                             controller="AggregateBillingFormatController">
+    
+    <!-- Attribute declaration -->
+    <aura:attribute name="contractRecord" type="ServiceContract" default="{ 'sobjectType': 'ServiceContract'}"/>
+    <aura:attribute name="listOptions" type="List" default="[]"/>
+    <aura:attribute name="defaultOptions" type="List" default="[]"/>
+    <aura:attribute name="requiredOptions" type="List" default="[]"/>
+    <aura:attribute name="labelOptions" type="List" default="[]"/>
+    <aura:attribute name="recordId" type="String" />
+    
+    <aura:attribute name="showListBox" type="boolean" default="true"/> 
+    <aura:attribute name="showTable" type="boolean" default="false"/>
+    <aura:attribute name="setMessage" type="String"/>
+    
+   
+    
+    <!-- hadlerMethod declaration -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <!--/ hadlerMethod declaration -->
+    
+    <div class="slds-grid slds-grid--vertical forceListViewManager adapetr-config-main">
+        <!--********* HEADER ********* -->
+        <div class="slds-page-header adapetr-header">
+            <div class="slds-media">
+                <div class="slds-media__body">
+                    <aura:renderIf isTrue="{!v.showListBox}">
+                        <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate">Salesforce Wizard 1 of 2</h1>
+                        <p class="slds-text-title--caps slds-line-height--reset">Select Aggregate Billing Format</p>
+                    </aura:renderIf>
+                    
+                    <aura:renderIf isTrue="{!v.showTable}">
+                        <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate">Salesforce Wizard 2 of 2</h1>
+                        <p class="slds-text-title--caps slds-line-height--reset">Select Labels for the Format</p>
+                    </aura:renderIf>
+                </div>
+            </div>
+        </div>
+        <aura:renderIf isTrue="{!v.showListBox}">
+            <lightning:dualListbox aura:id="selectOptions" name="Select Options"  label="Select Options" 
+                           sourceLabel="Available Options" 
+                           selectedLabel="Selected Options" 
+                           options="{! v.listOptions }"
+                           value="{! v.defaultOptions }"
+                           requiredOptions="{! v.requiredOptions }"/>
+        </aura:renderIf>
+        <aura:renderIf isTrue="{!v.showTable}">
+            <aura:iteration items="{! v.labelOptions }" var="item">
+                <lightning:input type="text" name="input1" label="{!item.value}" value="{!item.label}"/>
+            </aura:iteration>
+        </aura:renderIf>
+        <br></br>
+        <div class="slds-grid  slds-grid--align-center">
+            <aura:renderIf isTrue="{!v.showListBox}">
+                <button class="slds-button slds-button--brand" onclick="{!c.nextTab}">Next</button>
+            </aura:renderIf>
+            <aura:renderIf isTrue="{!v.showTable}">        
+                <button class="slds-button slds-button--brand" onclick="{!c.prevTab}" >Back</button> 
+                <button class="slds-button slds-button--brand" onclick="{!c.saveRecord}" >Save</button>
+            </aura:renderIf>
+            
+        </div>
+    </div>
+    
+
+    
+
+</aura:component>

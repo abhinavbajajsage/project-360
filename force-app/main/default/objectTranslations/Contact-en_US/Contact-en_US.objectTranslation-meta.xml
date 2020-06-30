@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <validationRules>
+        <errorMessage><!-- First Name is mandatory for Contract Manager Contact --></errorMessage>
+        <name>VR_CON01_FirstName_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- One phone number is mandatory for a Service Contact --></errorMessage>
+        <name>VR_CON02_ServiceContact_Phone</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- For Finance Contact at least 1 phone or email needs to be provided --></errorMessage>
+        <name>VR_CON03_FinanceContactPhoneOrEmail</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- For Contract Manager at least 1 phone or email needs to be provided --></errorMessage>
+        <name>VR_CON04_ContractManagerPhoneOrEmail</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This field is required when Contract Manager has been selected --></errorMessage>
+        <name>VR_CON09_Contract_Mobile</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+</CustomObjectTranslation>

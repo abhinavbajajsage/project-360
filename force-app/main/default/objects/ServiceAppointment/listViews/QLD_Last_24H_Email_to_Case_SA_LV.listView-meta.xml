@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QLD_Last_24H_Email_to_Case_SA_LV</fullName>
+    <columns>Name</columns>
+    <columns>CreatedDate</columns>
+    <columns>Account</columns>
+    <columns>Subject</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Email_to_Case__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Status</field>
+        <operation>equals</operation>
+        <value>None</value>
+    </filters>
+    <filters>
+        <field>CreatedDate</field>
+        <operation>greaterOrEqual</operation>
+        <value>YESTERDAY</value>
+    </filters>
+    <filters>
+        <field>ServiceTerritory</field>
+        <operation>equals</operation>
+        <value>QLD</value>
+    </filters>
+    <label>Last 24H Email to Case QLD</label>
+    <sharedTo>
+        <group>QLD</group>
+    </sharedTo>
+</ListView>

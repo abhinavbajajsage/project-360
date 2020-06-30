@@ -1,0 +1,36 @@
+<aura:component implements="lightning:actionOverride,force:hasRecordId,force:lightningQuickActionWithoutHeader,lightning:availableForFlowScreens" access="global" controller="AggregateBillingFormatController">
+    <aura:attribute name="contractRecord" type="ServiceContract" default="{ 'sobjectType': 'ServiceContract'}"/>
+    <aura:attribute name="recordId" type="String" />
+    
+	<aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    
+    <aura:attribute name="selectedRowsCount" type="Integer" default="0"/>
+    <aura:attribute name="selectedRowsDetails" type="Object" />
+    <aura:attribute name="selectedRowsList" type="List" />
+    <aura:attribute name="selectedRows" type="List" />
+    
+    <aura:attribute name="sortedBy" type="String"/>
+    <aura:attribute name="sortedDirection" type="String"/>
+    <aura:attribute name="defaultSortDirection" type="String"/>
+    
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <h1>Ready to Invoice Work Orders</h1>
+    <div style="height: 300px;border: 1px solid #ddd;">
+
+        <lightning:datatable data="{! v.data}" 
+            columns="{! v.columns}" 
+            keyField="id"
+            onrowselection="{! c.updateSelectedText }"
+            selectedRows="{! v.selectedRows }"
+            sortedBy="{! v.sortedBy }"
+            sortedDirection="{! v.sortedDirection }"
+            defaultSortDirection="{! v.defaultSortDirection }"
+            onsort="{! c.updateColumnSorting }"/>
+    </div>
+    <br></br>
+    <div class="slds-grid  slds-grid--align-center">
+	    <lightning:button label="Create Sales Order"  variant="brand" onclick="{!c.handleSelect}"/>
+    </div>    
+</aura:component>

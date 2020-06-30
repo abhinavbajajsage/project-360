@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Press Save to confirm Pronto Update --></label>
+    <name>Press_Save_to_confirm_your_action__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Warehouse Code --></label>
+    <name>Warehouse_Code__c</name>
+    <picklistValues>
+        <masterLabel>2/216 Turner St Port Melbourne</masterLabel>
+        <translation><!-- 2/216 Turner St Port Melbourne --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>2/491 Hammond Rd Dandenong Sth</masterLabel>
+        <translation><!-- 2/491 Hammond Rd Dandenong Sth --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Burnie Warehouse</masterLabel>
+        <translation><!-- Burnie Warehouse --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Consignment Stock</masterLabel>
+        <translation><!-- Consignment Stock --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Electronics St Warehouse</masterLabel>
+        <translation><!-- Electronics St Warehouse --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Embedded Expertise</masterLabel>
+        <translation><!-- Embedded Expertise --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Hobart Warehouse</masterLabel>
+        <translation><!-- Hobart Warehouse --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Launceston Warehouse</masterLabel>
+        <translation><!-- Launceston Warehouse --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Main Warehouse</masterLabel>
+        <translation><!-- Main Warehouse --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>NT - Katherine Warehouse</masterLabel>
+        <translation><!-- NT - Katherine Warehouse --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>North Ryde Warehouse</masterLabel>
+        <translation><!-- North Ryde Warehouse --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Northern Territory Warehouse</masterLabel>
+        <translation><!-- Northern Territory Warehouse --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Nukon Company Warehouse</masterLabel>
+        <translation><!-- Nukon Company Warehouse --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Skills Lab Warehouse</masterLabel>
+        <translation><!-- Skills Lab Warehouse --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Tonsley Warehouse</masterLabel>
+        <translation><!-- Tonsley Warehouse --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>WA Warehouse</masterLabel>
+        <translation><!-- WA Warehouse --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Whyalla Warehouse</masterLabel>
+        <translation><!-- Whyalla Warehouse --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_ACC13_CannotUpdateAccountName</fullName>
+    <active>false</active>
+    <errorConditionFormula>ISCHANGED(Name) &amp;&amp; RecordType.DeveloperName &lt;&gt; &quot;Supplier_Account_RT&quot; &amp;&amp;  Account_Created_in_Pronto__c = TRUE</errorConditionFormula>
+    <errorDisplayField>Name</errorDisplayField>
+    <errorMessage>Account Name cannot be updated after it has been integrated with Pronto</errorMessage>
+</ValidationRule>

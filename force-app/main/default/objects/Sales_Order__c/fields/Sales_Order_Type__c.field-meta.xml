@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Order_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Sales Order Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pre Purchased Hours</fullName>
+                <default>false</default>
+                <label>Pre Purchased Hours</label>
+            </value>
+            <value>
+                <fullName>Work Order</fullName>
+                <default>false</default>
+                <label>Work Order</label>
+            </value>
+            <value>
+                <fullName>Contract Fees</fullName>
+                <default>false</default>
+                <label>Contract Fees</label>
+            </value>
+            <value>
+                <fullName>Service Billing Cycle</fullName>
+                <default>false</default>
+                <label>Service Billing Cycle</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Business Unit Code --></label>
+    <name>Business_Unit_Code__c</name>
+    <picklistValues>
+        <masterLabel>320</masterLabel>
+        <translation><!-- 320 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>431</masterLabel>
+        <translation><!-- 431 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>520</masterLabel>
+        <translation><!-- 520 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>525</masterLabel>
+        <translation><!-- 525 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>531</masterLabel>
+        <translation><!-- 531 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>N18</masterLabel>
+        <translation><!-- N18 --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manage_my_Inductions_LV</fullName>
+    <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+    <columns>NAME</columns>
+    <columns>Service_Contract__c</columns>
+    <columns>End_Date__c</columns>
+    <columns>Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Current</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Expired</value>
+    </filters>
+    <filters>
+        <field>My_Induction__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Manage my Site Inductions</label>
+</ListView>

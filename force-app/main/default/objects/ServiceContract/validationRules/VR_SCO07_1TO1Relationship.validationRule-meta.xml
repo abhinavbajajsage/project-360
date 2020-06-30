@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_SCO07_1TO1Relationship</fullName>
+    <active>false</active>
+    <description>Only the Pricebook generated from the service contract creation (automation) can be attached to the service contract</description>
+    <errorConditionFormula>RecordType.DeveloperName  = &#39;Customer_Contract_RTv&#39; &amp;&amp;
+ Id &lt;&gt;  Pricebook2.Service_Contract__c</errorConditionFormula>
+    <errorDisplayField>Pricebook2Id</errorDisplayField>
+    <errorMessage>Service Contract can only be linked to the generated Pricebook from this service contract</errorMessage>
+</ValidationRule>

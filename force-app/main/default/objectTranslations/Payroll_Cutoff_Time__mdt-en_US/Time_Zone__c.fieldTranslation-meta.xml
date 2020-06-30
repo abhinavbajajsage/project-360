@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Time Zone --></label>
+    <name>Time_Zone__c</name>
+    <picklistValues>
+        <masterLabel>Australia/Adelaide</masterLabel>
+        <translation><!-- Australia/Adelaide --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Australia/Brisbane</masterLabel>
+        <translation><!-- Australia/Brisbane --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Australia/Darwin</masterLabel>
+        <translation><!-- Australia/Darwin --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Australia/Perth</masterLabel>
+        <translation><!-- Australia/Perth --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Australia/Sydney</masterLabel>
+        <translation><!-- Australia/Sydney --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

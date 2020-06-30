@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>WOLI</label>
+    <protected>false</protected>
+    <values>
+        <field>Batch_Query__c</field>
+        <value xsi:type="xsd:string">Select Id , Integration_Status__c,Sync_With_Pronto__c ,SA_Completed__c FROM WorkOrderLineItem WHERE Integration_Status__c = &#39;Failed&#39; AND StartDate != null limit 50000</value>
+    </values>
+</CustomMetadata>

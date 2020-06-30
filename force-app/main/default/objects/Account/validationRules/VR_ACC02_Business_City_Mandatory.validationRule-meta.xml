@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_ACC02_Business_City_Mandatory</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISBLANK(BillingCity) &amp;&amp; NOT(ISCHANGED(Account_Payable_Contact__c))&amp;&amp;
+RecordType.DeveloperName &lt;&gt; &quot;Supplier_Account_RT&quot; &amp;&amp; RecordType.DeveloperName &lt;&gt;  &quot;Cash_Account_RT&quot;</errorConditionFormula>
+    <errorDisplayField>BillingCity</errorDisplayField>
+    <errorMessage>Please fill out the business city</errorMessage>
+</ValidationRule>

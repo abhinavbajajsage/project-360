@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Account_Code_Missing_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Account_Code_Missing_CL</shortDescription>
+        <value>&#39;{&quot;response&quot;: {&quot;Status&quot;: &quot;Failure&quot;, &quot;message&quot;: &quot;Missing query parameter: account_code&quot;}}&#39;</value>
+    </labels>
+    <labels>
+        <fullName>Account_Integration_Trigger_Points_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Account_Integration_Trigger_Points_CL</shortDescription>
+        <value>Name,Postal_Name__c,ShippingStreet,ShippingCity,ShippingPostalCode,ShippingState,ShippingCountry,Registered_Business_Name__c,BillingStreet,BillingCity,BillingPostalCode,BillingState,BillingCountry,Phone,Fax,ABN__c,ACN__c,Registered_Office_Address__c,Pronto_Account_Code__c,Contact_Name__c,Customer_Status__c,Email__c,Contact_Name__c ,Account_Payable_Contact__c,Service_Territory__c, recordTypeId, Notes__c,Industry, Credit_Limit__c</value>
+    </labels>
+    <labels>
+        <fullName>Account_Not_Found</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Account_Not_Found_CL</shortDescription>
+        <value>&#39;{&quot;response&quot;: {&quot;Status&quot;: &quot;Failure&quot;, &quot;message&quot;: &quot;Supplier not found&quot;}}&#39;</value>
+    </labels>
+    <labels>
+        <fullName>Account_Not_Found_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Account_Not_Found_CL</shortDescription>
+        <value>&#39;{&quot;response&quot;: {&quot;Status&quot;: &quot;Failure&quot;, &quot;message&quot;: &quot;Supplier not found&quot;}}&#39;</value>
+    </labels>
+    <labels>
+        <fullName>Case_Email_Subject_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case_Email_Subject_CL</shortDescription>
+        <value>Call Service Message</value>
+    </labels>
+    <labels>
+        <fullName>Contact_Email_Required_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contact_Email_Required_CL</shortDescription>
+        <value>This field is mandatory as this contact has been set as the main Contact on the following Contract: &quot;{0}&quot;. Please input a value or Update the Contact on the Service Contract.</value>
+    </labels>
+    <labels>
+        <fullName>ContractFees_LineDescription_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ContractFees_LineDescription_CL</shortDescription>
+        <value>Service Level Subscription Fee</value>
+    </labels>
+    <labels>
+        <fullName>ContractFees_NextBillingDateError_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ContractFees_NextBillingDateError_CL</shortDescription>
+        <value>Service Contract fields that affected this error:</value>
+    </labels>
+    <labels>
+        <fullName>ContractFees_SOError_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ContractFees_SOError_CL</shortDescription>
+        <value>Sales Order fields that affected this error:</value>
+    </labels>
+    <labels>
+        <fullName>ContractFees_SOLIError_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ContractFees_SOLIError_CL</shortDescription>
+        <value>Sales Order Line Item fields that affected this error:</value>
+    </labels>
+    <labels>
+        <fullName>Customer_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Customer_CL</shortDescription>
+        <value>Customer</value>
+    </labels>
+    <labels>
+        <fullName>Customer_Status_Pending_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Customer Status Pending</shortDescription>
+        <value>Pending</value>
+    </labels>
+    <labels>
+        <fullName>Duplicate_Record_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Duplicate_Record_CL</shortDescription>
+        <value>&#39;{&quot;response&quot;: {&quot;Status&quot;: &quot;Failure&quot;, &quot;message&quot;: &quot;Duplicate record found based on the name or the account code&quot;}}&#39;</value>
+    </labels>
+    <labels>
+        <fullName>Integration_Denied_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Integration Denied</shortDescription>
+        <value>Not Applicable</value>
+    </labels>
+    <labels>
+        <fullName>Integration_Invalid_Industry_Code_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Integration_Invalid_Industry_Code</shortDescription>
+        <value>The industry code on this account is not valid. Please review the codes in the metadata tyoe Nature of Business.</value>
+    </labels>
+    <labels>
+        <fullName>Integration_Status_Cancelled_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Integration_Status_Cancelled_CL</shortDescription>
+        <value>Integration Cancelled</value>
+    </labels>
+    <labels>
+        <fullName>Integration_Status_Failure_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Integration_Status_Failure_CL</shortDescription>
+        <value>Failed</value>
+    </labels>
+    <labels>
+        <fullName>Integration_Status_Payroll_Validated_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Integration_Status_Payroll_Validated_CL</shortDescription>
+        <value>Payroll Period Validated</value>
+    </labels>
+    <labels>
+        <fullName>Integration_Status_Pending_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Integration_Status_Pending_CL</shortDescription>
+        <value>Integration Pending</value>
+    </labels>
+    <labels>
+        <fullName>Integration_Status_Successful_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Integration_Status_Successful_CL</shortDescription>
+        <value>Successful</value>
+    </labels>
+    <labels>
+        <fullName>Integration_Status_Unexpected_Exception_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Integration_Status_Unexpected_Exception_CL</shortDescription>
+        <value>Unexpected exception</value>
+    </labels>
+    <labels>
+        <fullName>Integration_Status_Waiting_Confirmation_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Integration_Status_Waiting_Confirmation_CL</shortDescription>
+        <value>Waiting Confirmation</value>
+    </labels>
+    <labels>
+        <fullName>MANDATORY_ATTRIBUTES_MISSING_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MANDATORY_ATTRIBUTES_MISSING_CL</shortDescription>
+        <value>&#39;{&quot;response&quot;: {&quot;Status&quot;: &quot;Failure&quot;, &quot;message&quot;: &quot;Mandatory attributes Account Code or Supplier name missing&quot;}}&#39;</value>
+    </labels>
+    <labels>
+        <fullName>Malformed_Body_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Malformed_Body_CL</shortDescription>
+        <value>&#39;{&quot;response&quot;: {&quot;Status&quot;: &quot;Failure&quot;, &quot;message&quot;: &quot;Your request has no body. Please provide a body&quot;}}&#39;</value>
+    </labels>
+    <labels>
+        <fullName>Missing_Query_Parameter_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Missing_Query_Parameter_CL</shortDescription>
+        <value>&#39;{&quot;response&quot;: {&quot;Status&quot;: &quot;Failure&quot;, &quot;message&quot;: &quot;Mandatory query parameter Account_Code or Salesforce Id missing&quot;}}&#39;</value>
+    </labels>
+    <labels>
+        <fullName>NOC_Admin_Email_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NOC_Admin_Email_CL</shortDescription>
+        <value>cyrille.jeufo@proquestit.com</value>
+    </labels>
+    <labels>
+        <fullName>NewLine</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NewLine</shortDescription>
+        <value>-
+-</value>
+    </labels>
+    <labels>
+        <fullName>Record_Locked_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Record Locked CL</shortDescription>
+        <value>Cannot update to Pronto as the record is already created in Pronto</value>
+    </labels>
+    <labels>
+        <fullName>Response_Time_WO_Entitlement</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Response Time WO Entitlement</shortDescription>
+        <value>5503i000000cGuIAAU</value>
+    </labels>
+    <labels>
+        <fullName>Sales_Order_Delete_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales_Order_Delete_CL</shortDescription>
+        <value>Sales Order with Integration Status &#39;Successful&#39; cannot be deleted</value>
+    </labels>
+    <labels>
+        <fullName>Server_Denied_Request_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Server_Denied_Request_CL</shortDescription>
+        <value>The server understood the request but refuses to fulfill it.</value>
+    </labels>
+    <labels>
+        <fullName>ServiceReportEmailCC</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ServiceReportEmailCC</shortDescription>
+        <value>service.admin@gotosage.com</value>
+    </labels>
+    <labels>
+        <fullName>ServiceReportEmailTemplateId</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ServiceReportEmailTemplateId</shortDescription>
+        <value>00X3i000000tfPn</value>
+    </labels>
+    <labels>
+        <fullName>TERRITORY_MISSING_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TERRITORY_MISSING__CL</shortDescription>
+        <value>Territory is missing from:</value>
+    </labels>
+    <labels>
+        <fullName>WorkOrderLineItem_Locked_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkOrderLineItem_Locked_CL</shortDescription>
+        <value>Transactions cannot be edited or created after your service appointment is Completed/Cannot Complete</value>
+    </labels>
+    <labels>
+        <fullName>WorkOrderLineItem_PayrollCutOffTime_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkOrderLineItem_PayrollCutOffTime_CL</shortDescription>
+        <value>The Start Date Time is outside the payroll period</value>
+    </labels>
+    <labels>
+        <fullName>WorkOrderLineItem_StartDate_Update_NotAllowed_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkOrderLineItem_StartDate_Update_NotAllowed_CL</shortDescription>
+        <value>The Start Date Time cannot be updated as the Sales Order is created in Pronto</value>
+    </labels>
+    <labels>
+        <fullName>YVW_Account_Code_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YVW_Account_Code_CL</shortDescription>
+        <value>YARR3002</value>
+    </labels>
+    <labels>
+        <fullName>YVW_Account_Missing_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YVW_Account_Missing_CL</shortDescription>
+        <value>Account with Account Code &quot;{0}&quot; cannot be found.</value>
+    </labels>
+    <labels>
+        <fullName>YVW_Contract_Missing_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YVW_Contract_Missing_CL</shortDescription>
+        <value>Service Contract with Pronto Code &quot;{0}&quot; cannot be found.</value>
+    </labels>
+    <labels>
+        <fullName>YVW_Datetime_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YVW_Datetime_CL</shortDescription>
+        <value>DateTime</value>
+    </labels>
+    <labels>
+        <fullName>YVW_Priority_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YVW_Priority_CL</shortDescription>
+        <value>Priority</value>
+    </labels>
+    <labels>
+        <fullName>YVW_Pronto_Contract_No_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YVW_Pronto_Contract_No_CL</shortDescription>
+        <value>427-02</value>
+    </labels>
+    <labels>
+        <fullName>YVW_Source_CL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YVW_Source_CL</shortDescription>
+        <value>Source</value>
+    </labels>
+</CustomLabels>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Billing Cycle Type --></label>
+    <name>Billing_Cycle_Type__c</name>
+    <picklistValues>
+        <masterLabel>In Advance</masterLabel>
+        <translation><!-- In Advance --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>In Arrears</masterLabel>
+        <translation><!-- In Arrears --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

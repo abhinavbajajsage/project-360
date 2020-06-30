@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_Unit_Name__c</fullName>
+    <externalId>false</externalId>
+    <label>Business Unit Name</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>BO - MES</fullName>
+                <default>false</default>
+                <label>BO - MES</label>
+            </value>
+            <value>
+                <fullName>Engineering Team 320</fullName>
+                <default>false</default>
+                <label>Engineering Team 320</label>
+            </value>
+            <value>
+                <fullName>Site Installation</fullName>
+                <default>false</default>
+                <label>Site Installation</label>
+            </value>
+            <value>
+                <fullName>Transport (National)</fullName>
+                <default>false</default>
+                <label>Transport (National)</label>
+            </value>
+            <value>
+                <fullName>Engineering Team 520</fullName>
+                <default>false</default>
+                <label>Engineering Team 520</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

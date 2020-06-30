@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Calculated_Priority__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(Priority,&#39;1&#39;, &#39;5&#39;,&#39;2&#39;, &#39;4&#39;,&#39;3&#39;,&#39;3&#39;, &#39;4&#39;, &#39;2&#39;, &#39;1&#39;) &amp; &#39;-&#39; &amp;
+CASE(Service_Contract__r.Type__c,&#39;Bronze Support&#39;, &#39;1&#39;,&#39;Silver Support&#39;, &#39;2&#39;,&#39;Gold Support&#39;,&#39;3&#39;, &#39;4&#39;) &amp; &#39;-&#39; &amp;
+lpad(text(floor(((NOW() - CreatedDate)*24*60))),18,&quot;0&quot;) &amp;&quot;.&quot;&amp; lpad(text((((NOW() - CreatedDate)*24*60)-floor(((NOW() - CreatedDate)*24*60)))*100),2,&quot;0&quot;)</formula>
+    <label>Calculated Priority</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

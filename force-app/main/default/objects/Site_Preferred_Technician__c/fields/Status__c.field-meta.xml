@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(TODAY() &gt; Service_Contract__r.EndDate , &#39;Contract Expired&#39;, 
+ IF(Service_Contract__r.StartDate&gt; TODAY(), &#39;Contract Not Started&#39;, 
+  IF(NOT(ISPICKVAL(Service_Contract__r.Restricted_Site__c,&#39;Yes&#39;)),&#39;Not a restricted site&#39; , 
+   IF( End_Date__c  &gt;=  TODAY(), &#39;Current&#39;, 
+    IF( End_Date__c &lt; TODAY(), &#39;Expired&#39;, &#39;&#39;)))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Account</label>
+    <protected>false</protected>
+    <values>
+        <field>Batch_Query__c</field>
+        <value xsi:type="xsd:string">select Id, name, recordtypeId, Integration_Status__c , Customer_Status__c from account WHERE RecordType.DeveloperName IN (&#39;Company_Account_RT&#39;, &#39;Partnership_Account_RT&#39;, &#39;Sole_Trader_Account_RT&#39;) and Integration_Status__c != &#39;Successful&#39; and Integration_Status__c != &#39;Waiting Confirmation&#39;  and Customer_Status__c != &#39;Pending&#39;</value>
+    </values>
+</CustomMetadata>

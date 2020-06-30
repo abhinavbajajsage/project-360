@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Sales_Orders_Not_from_work_orders</fullName>
+    <columns>NAME</columns>
+    <columns>RECORDTYPE</columns>
+    <columns>Account__c</columns>
+    <columns>Service_Territory__c</columns>
+    <columns>Service_Contract__c</columns>
+    <columns>Work_Order__c</columns>
+    <columns>Customer_Reference__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Days_till_Integration__c</columns>
+    <columns>Integration_Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Sales_Order__c.AggregatedBilling_SalesOrder_RT,Sales_Order__c.ContractFees_SalesOrder_RT,Sales_Order__c.PrePurchasedHours_SalesOrder_RT</value>
+    </filters>
+    <label>All Sales Orders - Not from work orders</label>
+    <sharedTo>
+        <group>NOC_Admin</group>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_SAP04_ActionTakenMandatory</fullName>
+    <active>true</active>
+    <description>Action Taken field is mandatory when the status is &quot;Completed&quot; or &quot;Cannot Complete&quot;</description>
+    <errorConditionFormula>ISBLANK(  Action_Taken__c   ) &amp;&amp; (ISPICKVAL(Status, &#39;Cannot Complete&#39;) || ISPICKVAL(Status, &#39;Completed&#39;))</errorConditionFormula>
+    <errorDisplayField>Action_Taken__c</errorDisplayField>
+    <errorMessage>This field is mandatory when the status is &quot;Completed&quot; or &quot;Cannot Complete&quot;</errorMessage>
+</ValidationRule>

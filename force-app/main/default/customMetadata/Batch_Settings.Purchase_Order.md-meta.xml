@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Purchase Order</label>
+    <protected>false</protected>
+    <values>
+        <field>Batch_Query__c</field>
+        <value xsi:type="xsd:string">Select Id, Work_Order__c, Name, Account_Code__c, Line_of_Business_Code__c, Order_Date__c, Due_Date__c, Delivery_Instructions__c, Pronto_PO_Number__c, Warehouse_Code__c, Currency__c, Currency_Rate__c, User__c, SC_Project_Code__c, Company__c, Delivery_Address_Name__c, Postal_Street__c, Postal_City__c, Postal_State__c, Postal_Country__c, Postal_Postcode__c, LastModifiedDate, CreatedDate, TECH_Work_Order_Territory_Branch_Code__c, Type__c, Notes__c From Purchase_Order__c Where (Status__c = &#39;Approved&#39; OR Status__c = &#39;Cancelled&#39;) AND Integration_Status__c != &#39;Successful&#39; AND Integration_Status__c != &#39;Waiting Confirmation&#39;</value>
+    </values>
+</CustomMetadata>

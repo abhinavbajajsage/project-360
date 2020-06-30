@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_ACC14_ABN_StatusOK</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISPICKVAL( Customer_Status__c , &#39;OK&#39;) &amp;&amp; ISBLANK( ABN__c ) &amp;&amp;  RecordType.DeveloperName &lt;&gt; &#39;Supplier_Account_RT&#39;</errorConditionFormula>
+    <errorDisplayField>ABN__c</errorDisplayField>
+    <errorMessage>ABN field is required when the Customer Status = OK</errorMessage>
+</ValidationRule>

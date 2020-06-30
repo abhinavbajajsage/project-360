@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Business Premises --></label>
+    <name>Business_Premises__c</name>
+    <picklistValues>
+        <masterLabel>Finance to Validate</masterLabel>
+        <translation><!-- Finance to Validate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Leased</masterLabel>
+        <translation><!-- Leased --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mortgaged</masterLabel>
+        <translation><!-- Mortgaged --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Owned</masterLabel>
+        <translation><!-- Owned --></translation>
+    </picklistValues>
+</CustomFieldTranslation>
