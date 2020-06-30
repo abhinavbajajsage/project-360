@@ -1,4 +1,3 @@
-
 ####################################################
 # The docker image the jobs initialize with.
 # We use nodejs, so a node image makes sense.
@@ -90,7 +89,9 @@ create-scratch-org:
       - ENVIRONMENT.html
       - SCRATCH_ORG_USERNAME.txt
       - SCRATCH_ORG_AUTH_URL.txt
-
+  tags:
+    - docker
+    - linux
 
 ####################################################
 # Runs tests on the scratch org, such as Apex tests.
@@ -129,7 +130,9 @@ test-apex:
     paths:
       - tests/
   coverage: '/name="testRunCoverage" value="([\d]+%)"/'
-
+  tags:
+    - docker
+    - linux
 
 
 ####################################################
@@ -158,7 +161,9 @@ delete-scratch-org:
   environment:
     name: scratch/$CI_COMMIT_REF_SLUG
     action: stop
-
+  tags:
+    - docker
+    - linux
 
 ####################################################
 # Creates a new package version for deployment.
@@ -185,6 +190,9 @@ create-package-version:
     paths:
       - PACKAGE_ID.txt
       - SUBSCRIBER_PACKAGE_VERSION_ID.txt
+  tags:
+    - docker
+    - linux
 
 ####################################################
 # Deploy a package into the sandbox org.
@@ -211,6 +219,9 @@ deploy-sandbox-package:
     - authenticate SANDBOX $SANDBOX_AUTH_URL
     - package_version_id=$(cat SUBSCRIBER_PACKAGE_VERSION_ID.txt)
     - install_package_version SANDBOX $package_version_id
+  tags:
+    - docker
+    - linux
 
 ####################################################
 # Deploy metadata into the sandbox org.
@@ -233,6 +244,9 @@ deploy-sandbox-metadata:
     - install_jq
     - authenticate SANDBOX $SANDBOX_AUTH_URL
     - deploy_metadata SANDBOX
+  tags:
+    - docker
+    - linux
 
 ####################################################
 # Promotes and installs the package version created
@@ -264,6 +278,9 @@ deploy-production-package:
     - promote_package_version DEVHUB $package_version_id
     - authenticate PRODUCTION $PRODUCTION_AUTH_URL $DEVHUB_AUTH_URL
     - install_package_version PRODUCTION $package_version_id
+  tags:
+    - docker
+    - linux
 
 ####################################################
 # Deploy metadata into the production org.
@@ -286,6 +303,9 @@ deploy-production-metadata:
     - install_jq
     - authenticate PRODUCTION $PRODUCTION_AUTH_URL $DEVHUB_AUTH_URL
     - deploy_metadata PRODUCTION
+  tags:
+    - docker
+    - linux
 
 .sfdx_helpers: &sfdx_helpers |
 
