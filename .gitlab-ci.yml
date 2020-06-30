@@ -50,7 +50,9 @@ test-lwc:
     - install_jq
     - install_lwc_jest
     - test_lwc_jest
-
+  tags:
+    - docker
+    - linux
 
 ####################################################
 # Creates a new scratch org and deploys the project
