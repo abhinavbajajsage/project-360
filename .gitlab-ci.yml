@@ -40,19 +40,19 @@ stages:
 # Set `allow_failure: true` to not hold up the
 # pipeline on failure.
 ####################################################
-test-lwc:
-  stage: preliminary-testing
-  except:
-    variables:
-      - $TEST_DISABLED
-  allow_failure: false
-  script:
-    - install_jq
-    - install_lwc_jest
-    - test_lwc_jest
-  tags:
-    - docker
-    - linux
+# test-lwc:
+#   stage: preliminary-testing
+#   except:
+#     variables:
+#       - $TEST_DISABLED
+#   allow_failure: false
+#   script:
+#     - install_jq
+#     - install_lwc_jest
+#     - test_lwc_jest
+#   tags:
+#     - docker
+#     - linux
 
 ####################################################
 # Creates a new scratch org and deploys the project
