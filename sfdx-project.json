@@ -11,7 +11,12 @@
     "namespace": "",
     "sfdcLoginUrl": "https://login.salesforce.com",
     "sourceApiVersion": "47.0",
+    "features": ["FieldService"],
+    "settings": {
+        "fieldServiceSettings": { "fieldServiceOrgPref": true }
+    },
     "packageAliases": {
         "Project360Update": "0Ho4a0000000035CAA"
     }
+    
 }
