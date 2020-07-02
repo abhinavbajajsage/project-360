@@ -1,5 +1,12 @@
+
 {
-  "orgName": "abhinav company",
-  "edition": "Developer",
-  "features": []
+  "orgName": "Sage Automation",
+  "edition": "Enterprise",
+  "features": ["FieldService"], 
+  "settings": { "fieldServiceSettings": { "fieldServiceOrgPref": true },
+                "omniChannelSettings": {
+    "enableOmniChannel": true},
+ "entitlementSettings" : {
+       "enableEntitlements":true}
+     }
 }
