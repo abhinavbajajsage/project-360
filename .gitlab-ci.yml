@@ -869,7 +869,7 @@ deploy-production-metadata:
     # If no "scratch:deploy" script property, then add one
     if [[ -z "$scriptValue" || $scriptValue == null ]]; then
       local tmp=$(mktemp)
-      jq '.scripts["scratch:deploy"]="sfdx force:source:push --json"' package.json > $tmp
+      jq '.scripts["scratch:deploy"]="sfdx force:source:push -w 120 --json"' package.json > $tmp
       mv $tmp package.json
       echo "added scratch:deploy script property to package.json" >&2
       cat package.json >&2
