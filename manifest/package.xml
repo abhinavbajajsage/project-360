@@ -3746,5 +3746,5 @@
 		<members>WorkOrder.WOR_UPD_Update_NotifyNOCAdmin</members>
 		<name>WorkflowFieldUpdate</name>
 	</types>
-	<version>48.0</version>
+	<version>47.0</version>
 </Package>
