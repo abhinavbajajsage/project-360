@@ -66,34 +66,34 @@ stages:
 # Note that we always delete previous scratch orgs on
 # the same ref (branch) before creating and deploying.
 ####################################################
-create-scratch-org:
-  stage: create-scratch-org
-  only:
-    variables:
-      - $CI_COMMIT_REF_NAME == 'master'
-      - $DEPLOY_SCRATCH_ON_EVERY_COMMIT == 'true'
-  except:
-    variables:
-      - $SCRATCH_DISABLED
-  allow_failure: false
-  script:
-    - install_salesforce_cli
-    - install_jq
-    - authenticate DEVHUB $DEVHUB_AUTH_URL $PRODUCTION_AUTH_URL
-    - delete_scratch_orgs DEVHUB "scratch/$CI_COMMIT_REF_SLUG"
-    - deploy_scratch_org DEVHUB "scratch/$CI_COMMIT_REF_SLUG"
-  environment:
-    name: scratch/$CI_COMMIT_REF_SLUG
-    url: $CI_PROJECT_URL/-/jobs/$CI_JOB_ID/artifacts/file/ENVIRONMENT.html
-    on_stop: delete-scratch-org
-  artifacts:
-    paths:
-      - ENVIRONMENT.html
-      - SCRATCH_ORG_USERNAME.txt
-      - SCRATCH_ORG_AUTH_URL.txt
-  tags:
-    - docker
-    - linux
+# create-scratch-org:
+# stage: create-scratch-org
+#  only:
+#  variables:
+#      - $CI_COMMIT_REF_NAME == 'master'
+#      - $DEPLOY_SCRATCH_ON_EVERY_COMMIT == 'true'
+#  except:
+#    variables:
+#      - $SCRATCH_DISABLED
+#  allow_failure: false
+#  script:
+#    - install_salesforce_cli
+#    - install_jq
+#    - authenticate DEVHUB $DEVHUB_AUTH_URL $PRODUCTION_AUTH_URL
+#    - delete_scratch_orgs DEVHUB "scratch/$CI_COMMIT_REF_SLUG"
+#    - deploy_scratch_org DEVHUB "scratch/$CI_COMMIT_REF_SLUG"
+#  environment:
+#    name: scratch/$CI_COMMIT_REF_SLUG
+#    url: $CI_PROJECT_URL/-/jobs/$CI_JOB_ID/artifacts/file/ENVIRONMENT.html
+#    on_stop: delete-scratch-org
+#  artifacts:
+#    paths:
+#      - ENVIRONMENT.html
+#      - SCRATCH_ORG_USERNAME.txt
+#      - SCRATCH_ORG_AUTH_URL.txt
+#  tags:
+#    - docker
+#    - linux
 
 ####################################################
 # Runs tests on the scratch org, such as Apex tests.
@@ -106,35 +106,35 @@ create-scratch-org:
 # The scratch org will be set as the default username
 # when the test script executes.
 ####################################################
-test-apex:
-  stage: test-scratch-org
-  only:
-    variables:
-      - $CI_COMMIT_REF_NAME == 'master'
-      - $DEPLOY_SCRATCH_ON_EVERY_COMMIT == 'true'
-  except:
-    variables:
-      - $SCRATCH_DISABLED
-      - $TEST_DISABLED
-  allow_failure: false
-  dependencies:
-    - create-scratch-org
-  script:
-    - install_salesforce_cli
-    - install_jq
-    - scratch_org_username=$(cat SCRATCH_ORG_USERNAME.txt)
-    - scratch_org_auth_url=$(cat SCRATCH_ORG_AUTH_URL.txt)
-    - authenticate $scratch_org_username $scratch_org_auth_url
-    - test_scratch_org $scratch_org_username
-  artifacts:
-    reports:
-      junit: tests/apex/*-junit.xml
-    paths:
-      - tests/
-  coverage: '/name="testRunCoverage" value="([\d]+%)"/'
-  tags:
-    - docker
-    - linux
+#test-apex:
+#  stage: test-scratch-org
+#  only:
+#    variables:
+#      - $CI_COMMIT_REF_NAME == 'master'
+#      - $DEPLOY_SCRATCH_ON_EVERY_COMMIT == 'true'
+#  except:
+#    variables:
+#      - $SCRATCH_DISABLED
+#      - $TEST_DISABLED
+#  allow_failure: false
+#  dependencies:
+#    - create-scratch-org
+#  script:
+#    - install_salesforce_cli
+#    - install_jq
+#    - scratch_org_username=$(cat SCRATCH_ORG_USERNAME.txt)
+#    - scratch_org_auth_url=$(cat SCRATCH_ORG_AUTH_URL.txt)
+#    - authenticate $scratch_org_username $scratch_org_auth_url
+#    - test_scratch_org $scratch_org_username
+#  artifacts:
+#    reports:
+#      junit: tests/apex/*-junit.xml
+#    paths:
+#      - tests/
+#  coverage: '/name="testRunCoverage" value="([\d]+%)"/'
+#  tags:
+#    - docker
+#    - linux
 
 
 ####################################################
@@ -142,30 +142,30 @@ test-apex:
 # Technically this deletes ALL the scratch orgs for the ref.
 # See https://docs.gitlab.com/ee/ci/environments.html#stopping-an-environment
 ####################################################
-delete-scratch-org:
-  stage: create-scratch-org
-  variables:
-    GIT_STRATEGY: none
-  only:
-    variables:
-      - $CI_COMMIT_REF_NAME == 'master'
-      - $DEPLOY_SCRATCH_ON_EVERY_COMMIT == 'true'
-  except:
-    variables:
-      - $SCRATCH_DISABLED
-  when: manual
-  allow_failure: true
-  script:
-    - install_salesforce_cli
-    - install_jq
-    - authenticate DEVHUB $DEVHUB_AUTH_URL $PRODUCTION_AUTH_URL
-    - delete_scratch_orgs DEVHUB "scratch/$CI_COMMIT_REF_SLUG"
-  environment:
-    name: scratch/$CI_COMMIT_REF_SLUG
-    action: stop
-  tags:
-    - docker
-    - linux
+#delete-scratch-org:
+#  stage: create-scratch-org
+#  variables:
+#    GIT_STRATEGY: none
+#  only:
+#    variables:
+#      - $CI_COMMIT_REF_NAME == 'master'
+#      - $DEPLOY_SCRATCH_ON_EVERY_COMMIT == 'true'
+#  except:
+#    variables:
+#      - $SCRATCH_DISABLED
+#  when: manual
+#  allow_failure: true
+#  script:
+#    - install_salesforce_cli
+#    - install_jq
+#    - authenticate DEVHUB $DEVHUB_AUTH_URL $PRODUCTION_AUTH_URL
+#    - delete_scratch_orgs DEVHUB "scratch/$CI_COMMIT_REF_SLUG"
+#  environment:
+#    name: scratch/$CI_COMMIT_REF_SLUG
+#    action: stop
+#  tags:
+#    - docker
+#    - linux
 
 ####################################################
 # Creates a new package version for deployment.
