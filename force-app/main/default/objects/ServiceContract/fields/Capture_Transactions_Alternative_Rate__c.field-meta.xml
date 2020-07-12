@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Capture_Transactions_Alternative_Rate__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Allow Service Resources to be able to capture manual transaction</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Check if you would like to allow Service Resources to be able to capture transactions with alternative rate</inlineHelpText>
+    <label>Capture Transactions (Alternative Rate)</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>
