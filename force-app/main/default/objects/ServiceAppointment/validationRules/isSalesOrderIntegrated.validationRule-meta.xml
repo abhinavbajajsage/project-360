@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>isSalesOrderIntegrated</fullName>
+    <active>true</active>
+    <description>Can not allow changing Service Appointment from Completed / Cannot Complete to Arrived on Site if Sales Order has been moved to Pronto</description>
+    <errorConditionFormula>AND((TEXT(PRIORVALUE(Status)) == &apos;Completed&apos; || TEXT(PRIORVALUE(Status)) == &apos;Cannot Complete&apos;) 
+    &amp;&amp; TEXT(Status) == &apos;Arrived Onsite&apos;,TEXT(Work_Order__r.Sales_Order__r.Integration_Status__c)  = &apos;Successful&apos;)</errorConditionFormula>
+    <errorMessage>Can not allow changing Service Appointment from Completed to Arrived on Site if Sales Order has been moved to Pronto</errorMessage>
+</ValidationRule>
