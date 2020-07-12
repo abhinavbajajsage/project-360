@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Update_Status_of_Service_Appointment</fullName>
+        <field>Status</field>
+        <literalValue>In Progress</literalValue>
+        <name>Update Status of Service Appointment</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>MoveStagefromAcceptedtoInProgress</fullName>
+        <actions>
+            <name>Update_Status_of_Service_Appointment</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Move Stage from Accepted to In Progress on Service Appointment</description>
+        <formula>TEXT(PRIORVALUE(Status)) == &apos;Accepted&apos; &amp;&amp; TEXT(Status) == &apos;Rejected&apos; &amp;&amp; ISBLANK(TEXT(Rejection_Reason__c))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>
