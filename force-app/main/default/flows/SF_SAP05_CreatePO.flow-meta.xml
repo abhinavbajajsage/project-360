@@ -45,7 +45,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>More_Line_Supplier</targetReference>
+            <targetReference>More_lines_for_supplier</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -307,7 +307,7 @@
     </assignments>
     <assignments>
         <name>Customer_s_Site_PO_Assignment</name>
-        <label>Customer&#39;s Site PO Assignment</label>
+        <label>Customer&apos;s Site PO Assignment</label>
         <locationX>310</locationX>
         <locationY>637</locationY>
         <assignmentItems>
@@ -625,10 +625,10 @@
     </choices>
     <choices>
         <name>CustomerSite</name>
-        <choiceText>Customer&#39;s Site</choiceText>
+        <choiceText>Customer&apos;s Site</choiceText>
         <dataType>String</dataType>
         <value>
-            <stringValue>Customer&#39;s Site</stringValue>
+            <stringValue>Customer&apos;s Site</stringValue>
         </value>
     </choices>
     <choices>
@@ -728,13 +728,6 @@
                 <operator>NotEqualTo</operator>
                 <rightValue>
                     <stringValue>Ready To Invoice</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>WORecord.Status</leftValueReference>
-                <operator>NotEqualTo</operator>
-                <rightValue>
-                    <stringValue>Completed</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -883,10 +876,10 @@
             <name>X1_more_line_item</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Would_you_like_to_capture_a_new_line_item</leftValueReference>
+                <leftValueReference>Finish_Adding_Lines</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <elementReference>Yes</elementReference>
+                    <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -945,6 +938,7 @@
             <label>Supplier selected</label>
         </rules>
     </decisions>
+    <description>POLI Description - Validate Input</description>
     <dynamicChoiceSets>
         <name>POType</name>
         <dataType>Picklist</dataType>
@@ -1807,6 +1801,10 @@
             <fieldText>Description</fieldText>
             <fieldType>LargeTextArea</fieldType>
             <isRequired>true</isRequired>
+            <validationRule>
+                <errorMessage>&lt;p&gt;&lt;span style=&quot;color: rgb(218, 46, 46);&quot;&gt;Description can not be more than 60 characters. &lt;/span&gt;&lt;/p&gt;</errorMessage>
+                <formulaExpression>LEN({!Description_POLI})&lt;60</formulaExpression>
+            </validationRule>
         </fields>
         <fields>
             <name>Cost2</name>
@@ -1846,7 +1844,20 @@
         <fields>
             <name>Date_Expected</name>
             <dataType>Date</dataType>
+            <defaultValue>
+                <elementReference>varDateExpected</elementReference>
+            </defaultValue>
             <fieldText>Date Expected</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Finish_Adding_Lines</name>
+            <dataType>Boolean</dataType>
+            <defaultValue>
+                <booleanValue>false</booleanValue>
+            </defaultValue>
+            <fieldText>Finish Adding Lines</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>true</isRequired>
         </fields>
@@ -1870,29 +1881,6 @@
             <choiceReferences>No</choiceReferences>
             <dataType>String</dataType>
             <fieldText>Do you want to link this PO against the current Work Order?</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <isRequired>true</isRequired>
-        </fields>
-        <showFooter>true</showFooter>
-        <showHeader>false</showHeader>
-    </screens>
-    <screens>
-        <name>More_Line_Supplier</name>
-        <label>More Line Supplier</label>
-        <locationX>805</locationX>
-        <locationY>772</locationY>
-        <allowBack>true</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
-        <connector>
-            <targetReference>More_lines_for_supplier</targetReference>
-        </connector>
-        <fields>
-            <name>Would_you_like_to_capture_a_new_line_item</name>
-            <choiceReferences>Yes</choiceReferences>
-            <choiceReferences>No</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Would you like to capture a new line item?</fieldText>
             <fieldType>DropdownBox</fieldType>
             <isRequired>true</isRequired>
         </fields>
@@ -1988,6 +1976,9 @@
         <fields>
             <name>Due_Date</name>
             <dataType>Date</dataType>
+            <defaultValue>
+                <elementReference>varDueDate</elementReference>
+            </defaultValue>
             <fieldText>Due Date</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>true</isRequired>
@@ -2168,8 +2159,8 @@
     <screens>
         <name>Select_Supplie_Screen</name>
         <label>Select Supplie Screen</label>
-        <locationX>472</locationX>
-        <locationY>556</locationY>
+        <locationX>473</locationX>
+        <locationY>555</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -2379,6 +2370,28 @@
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Variable to store todays date</description>
+        <name>varDateExpected</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>$Flow.CurrentDate</elementReference>
+        </value>
+    </variables>
+    <variables>
+        <description>Variable to store today&apos;s date</description>
+        <name>varDueDate</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>$Flow.CurrentDate</elementReference>
+        </value>
     </variables>
     <variables>
         <name>WarehouseRecord</name>
