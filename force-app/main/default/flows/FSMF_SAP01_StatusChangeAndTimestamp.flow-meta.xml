@@ -162,20 +162,13 @@
     <assignments>
         <name>WO_Assignment</name>
         <label>WO Assignment</label>
-        <locationX>1319</locationX>
-        <locationY>687</locationY>
+        <locationX>1380</locationX>
+        <locationY>567</locationY>
         <assignmentItems>
             <assignToReference>WorkOrderRecord.Status</assignToReference>
             <operator>Assign</operator>
             <value>
                 <elementReference>Status3</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>WorkOrderRecord.Customer_Purchase_Order_number__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Customer_Purchase_Order_Number</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -260,7 +253,7 @@
         <locationX>1088</locationX>
         <locationY>1548</locationY>
         <defaultConnector>
-            <targetReference>Customer_PO_Screen</targetReference>
+            <targetReference>PO_provided</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -307,8 +300,8 @@
     <decisions>
         <name>Decision_on_Accepted</name>
         <label>Decision on Accepted</label>
-        <locationX>525</locationX>
-        <locationY>457</locationY>
+        <locationX>600</locationX>
+        <locationY>461</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Accepted2</name>
@@ -389,6 +382,21 @@
             </connector>
             <label>Rejected1</label>
         </rules>
+        <rules>
+            <name>In_Progress2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Accept_Reject1</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>InProgress</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>In_Progress_Time_Screen</targetReference>
+            </connector>
+            <label>In Progress2</label>
+        </rules>
     </decisions>
     <decisions>
         <name>Decision_on_Onsite</name>
@@ -430,8 +438,8 @@
     <decisions>
         <name>Does_customer_uses_pre_purchased_hours</name>
         <label>Does customer uses pre purchased hours?</label>
-        <locationX>1168</locationX>
-        <locationY>706</locationY>
+        <locationX>1180</locationX>
+        <locationY>669</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Customer_can_use</name>
@@ -556,7 +564,7 @@
             <name>PO_Provided_By_Customer</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Customer_PO_Number</leftValueReference>
+                <leftValueReference>Customer_PO_NumberNew</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
@@ -692,7 +700,7 @@
     <decisions>
         <name>Transaction_captured</name>
         <label>Transaction captured?</label>
-        <locationX>985</locationX>
+        <locationX>980</locationX>
         <locationY>307</locationY>
         <defaultConnector>
             <targetReference>Job_Detail_Error_Message</targetReference>
@@ -749,7 +757,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Input_Customer_PO</targetReference>
+                <targetReference>WO_Assignment</targetReference>
             </connector>
             <label>WO is Awaiting for Customer PO</label>
         </rules>
@@ -884,8 +892,8 @@
     <recordLookups>
         <name>Get_Service_Appointment</name>
         <label>Get Service Appointment</label>
-        <locationX>199</locationX>
-        <locationY>55</locationY>
+        <locationX>330</locationX>
+        <locationY>33</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Status_Check</targetReference>
@@ -1029,7 +1037,7 @@
         <inputAssignments>
             <field>Customer_Purchase_Order_number__c</field>
             <value>
-                <elementReference>Customer_PO_Number</elementReference>
+                <elementReference>Customer_PO_NumberNew</elementReference>
             </value>
         </inputAssignments>
         <object>WorkOrder</object>
@@ -1074,6 +1082,7 @@
             <name>Accept_Reject1</name>
             <choiceReferences>Accept</choiceReferences>
             <choiceReferences>Reject</choiceReferences>
+            <choiceReferences>InProgress</choiceReferences>
             <dataType>String</dataType>
             <fieldText>Accept / Reject</fieldText>
             <fieldType>DropdownBox</fieldType>
@@ -1193,22 +1202,8 @@
             <fieldType>DropdownBox</fieldType>
             <isRequired>true</isRequired>
         </fields>
-        <showFooter>true</showFooter>
-        <showHeader>false</showHeader>
-    </screens>
-    <screens>
-        <name>Customer_PO_Screen</name>
-        <label>Customer PO Screen</label>
-        <locationX>952</locationX>
-        <locationY>1512</locationY>
-        <allowBack>true</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
-        <connector>
-            <targetReference>PO_provided</targetReference>
-        </connector>
         <fields>
-            <name>Customer_PO_Number</name>
+            <name>Customer_PO_NumberNew</name>
             <dataType>String</dataType>
             <fieldText>Customer Purchase Order Number</fieldText>
             <fieldType>InputField</fieldType>
@@ -1220,8 +1215,8 @@
     <screens>
         <name>In_Progress_Time_Screen</name>
         <label>In Progress Time Screen</label>
-        <locationX>552</locationX>
-        <locationY>678</locationY>
+        <locationX>569</locationX>
+        <locationY>657</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -1242,37 +1237,19 @@
         <showHeader>false</showHeader>
     </screens>
     <screens>
-        <name>Input_Customer_PO</name>
-        <label>Input Customer PO</label>
-        <locationX>1399</locationX>
-        <locationY>516</locationY>
+        <name>Job_Detail_Error_Message</name>
+        <label>Job Detail Error Message</label>
+        <locationX>1119</locationX>
+        <locationY>265</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>WO_Assignment</targetReference>
+            <targetReference>User_Prompts</targetReference>
         </connector>
         <fields>
-            <name>Customer_Purchase_Order_Number</name>
-            <dataType>String</dataType>
-            <fieldText>Customer Purchase Order Number</fieldText>
-            <fieldType>InputField</fieldType>
-            <isRequired>false</isRequired>
-        </fields>
-        <showFooter>true</showFooter>
-        <showHeader>false</showHeader>
-    </screens>
-    <screens>
-        <name>Job_Detail_Error_Message</name>
-        <label>Job Detail Error Message</label>
-        <locationX>1069</locationX>
-        <locationY>518</locationY>
-        <allowBack>true</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
-        <fields>
             <name>JobDetailTodo</name>
-            <fieldText>&lt;p&gt;Please capture your transaction before changing the status to Completed or Cannot Complete&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;Are you sure you want to proceed without Capturing Transaction?&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -1281,8 +1258,8 @@
     <screens>
         <name>JSEAScreen</name>
         <label>JSEAScreen</label>
-        <locationX>910</locationX>
-        <locationY>990</locationY>
+        <locationX>930</locationX>
+        <locationY>982</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -1301,12 +1278,12 @@
         <name>Last_Status_Screen</name>
         <label>Last Status Screen</label>
         <locationX>1227</locationX>
-        <locationY>510</locationY>
+        <locationY>511</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Input_Customer_PO</targetReference>
+            <targetReference>WO_Assignment</targetReference>
         </connector>
         <fields>
             <name>Status3</name>
@@ -1376,7 +1353,7 @@
         <allowPause>true</allowPause>
         <fields>
             <name>FinishMessage</name>
-            <fieldText>&lt;p&gt;The work order status is &#39;Ready To Invoice&#39;. The finance team is following up with this work order payment. &lt;/p&gt;&lt;p&gt;Please call your finance team if you want more information on the payment.&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;The work order status is &apos;Ready To Invoice&apos;. The finance team is following up with this work order payment. &lt;/p&gt;&lt;p&gt;Please call your finance team if you want more information on the payment.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -1432,6 +1409,25 @@
         <showHeader>false</showHeader>
     </screens>
     <screens>
+        <name>User_Prompts</name>
+        <label>User Prompts</label>
+        <locationX>1112</locationX>
+        <locationY>432</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Complete_Status_Screen</targetReference>
+        </connector>
+        <fields>
+            <name>UserPrompts</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Have you captured Job Details? &lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
         <name>Warning_Open_PO_Screen</name>
         <label>Warning Open PO Screen</label>
         <locationX>1193</locationX>
@@ -1464,7 +1460,7 @@
         <showHeader>false</showHeader>
     </screens>
     <startElementReference>Get_Service_Appointment</startElementReference>
-    <status>Draft</status>
+    <status>Active</status>
     <variables>
         <name>Id</name>
         <dataType>String</dataType>
