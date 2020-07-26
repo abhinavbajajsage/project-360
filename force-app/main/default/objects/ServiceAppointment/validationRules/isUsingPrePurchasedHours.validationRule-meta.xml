@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>isUsingPrePurchasedHours</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND((TEXT(PRIORVALUE(Status)) == &apos;Completed&apos; || TEXT(PRIORVALUE(Status)) == &apos;Cannot Complete&apos;)
+
+&amp;&amp; TEXT(Status) == &apos;Arrived Onsite&apos;,
+
+ISPICKVAL(Work_Order__r.Use_Pre_purchased_Hours__c,&apos;Yes&apos;))</errorConditionFormula>
+    <errorMessage>Can not move Service Appointment back to Arrived Onsite if using Pre-purchased hours</errorMessage>
+</ValidationRule>
