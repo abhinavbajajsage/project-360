@@ -141,18 +141,24 @@
         <processMetadataValues>
             <name>originalFormula</name>
             <value>
-                <stringValue>(ISNEW() &amp;&amp; ISPICKVAL([Account].Customer_Status__c , &#39;OK&#39;))
+                <stringValue>(ISNEW() &amp;&amp; ISPICKVAL([Account].Customer_Status__c , &apos;OK&apos;) &amp;&amp; [Account].Dont_Send_Welcome_Email__c = false)   
+
+
 ||
-(ISCHANGED([Account].Customer_Status__c ) &amp;&amp; ISPICKVAL([Account].Customer_Status__c , &#39;OK&#39;) &amp;&amp;  ISPICKVAL(PRIORVALUE([Account].Customer_Status__c), &#39;Pending&#39;))</stringValue>
+
+(ISCHANGED([Account].Customer_Status__c ) &amp;&amp; ISPICKVAL([Account].Customer_Status__c , &apos;OK&apos;) &amp;&amp;  ISPICKVAL(PRIORVALUE([Account].Customer_Status__c), &apos;Pending&apos;) &amp;&amp; [Account].Dont_Send_Welcome_Email__c = false)</stringValue>
             </value>
         </processMetadataValues>
         <name>formula_myRule_1</name>
         <dataType>Boolean</dataType>
-        <expression>(ISNEW() &amp;&amp; ISPICKVAL({!myVariable_current.Customer_Status__c} , &#39;OK&#39;))
+        <expression>(ISNEW() &amp;&amp; ISPICKVAL({!myVariable_current.Customer_Status__c} , &apos;OK&apos;) &amp;&amp; {!myVariable_current.Dont_Send_Welcome_Email__c} = false)   
+
+
 ||
-(ISCHANGED({!myVariable_current.Customer_Status__c} ) &amp;&amp; ISPICKVAL({!myVariable_current.Customer_Status__c} , &#39;OK&#39;) &amp;&amp;  ISPICKVAL(PRIORVALUE({!myVariable_current.Customer_Status__c}), &#39;Pending&#39;))</expression>
+
+(ISCHANGED({!myVariable_current.Customer_Status__c} ) &amp;&amp; ISPICKVAL({!myVariable_current.Customer_Status__c} , &apos;OK&apos;) &amp;&amp;  ISPICKVAL(PRIORVALUE({!myVariable_current.Customer_Status__c}), &apos;Pending&apos;) &amp;&amp; {!myVariable_current.Dont_Send_Welcome_Email__c} = false)</expression>
     </formulas>
-    <interviewLabel>PB_ACC01_Account_Process-3_InterviewLabel</interviewLabel>
+    <interviewLabel>PB_ACC01_Account_Process-6_InterviewLabel</interviewLabel>
     <label>PB_ACC01_Account_Process</label>
     <processMetadataValues>
         <name>ObjectType</name>
