@@ -10,82 +10,17 @@
         <processMetadataValues>
             <name>flowSelection</name>
             <value>
-                <stringValue>ALF_WOR03_UpdateCaseToFinishStatus</stringValue>
-            </value>
-        </processMetadataValues>
-        <name>myRule_19_A1</name>
-        <label>Update Case</label>
-        <locationX>1900</locationX>
-        <locationY>200</locationY>
-        <actionName>ALF_WOR03_UpdateCaseToFinishStatus</actionName>
-        <actionType>flow</actionType>
-        <connector>
-            <targetReference>myRule_19_A2</targetReference>
-        </connector>
-        <inputParameters>
-            <processMetadataValues>
-                <name>dataType</name>
-                <value>
-                    <stringValue>String</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>isRequired</name>
-                <value>
-                    <booleanValue>false</booleanValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideLabel</name>
-                <value>
-                    <stringValue>CaseId</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>maxOccurs</name>
-                <value>
-                    <numberValue>1.0</numberValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>objectType</name>
-                <value>
-                    <stringValue/>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>rightHandSideType</name>
-                <value>
-                    <stringValue>Reference</stringValue>
-                </value>
-            </processMetadataValues>
-            <name>CaseId</name>
-            <value>
-                <elementReference>myVariable_current.CaseId</elementReference>
-            </value>
-        </inputParameters>
-    </actionCalls>
-    <actionCalls>
-        <processMetadataValues>
-            <name>ActionCallType</name>
-            <value>
-                <stringValue>flow</stringValue>
-            </value>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>flowSelection</name>
-            <value>
                 <stringValue>ALF_WOR04_UpdatePrePurchasedHoursOnContract</stringValue>
             </value>
         </processMetadataValues>
-        <name>myRule_19_A2</name>
+        <name>myRule_19_A1</name>
         <label>Update Contract Pre Purchased Hours</label>
         <locationX>1900</locationX>
-        <locationY>300</locationY>
+        <locationY>200</locationY>
         <actionName>ALF_WOR04_UpdatePrePurchasedHoursOnContract</actionName>
         <actionType>flow</actionType>
         <connector>
-            <targetReference>myRule_19_A3</targetReference>
+            <targetReference>myRule_19_A2</targetReference>
         </connector>
         <inputParameters>
             <processMetadataValues>
@@ -286,78 +221,13 @@
         <processMetadataValues>
             <name>flowSelection</name>
             <value>
-                <stringValue>ALF_WOR03_UpdateCaseToFinishStatus</stringValue>
-            </value>
-        </processMetadataValues>
-        <name>myRule_22_A2</name>
-        <label>Update Case Status</label>
-        <locationX>2200</locationX>
-        <locationY>300</locationY>
-        <actionName>ALF_WOR03_UpdateCaseToFinishStatus</actionName>
-        <actionType>flow</actionType>
-        <connector>
-            <targetReference>myRule_22_A3</targetReference>
-        </connector>
-        <inputParameters>
-            <processMetadataValues>
-                <name>dataType</name>
-                <value>
-                    <stringValue>String</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>isRequired</name>
-                <value>
-                    <booleanValue>false</booleanValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideLabel</name>
-                <value>
-                    <stringValue>CaseId</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>maxOccurs</name>
-                <value>
-                    <numberValue>1.0</numberValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>objectType</name>
-                <value>
-                    <stringValue/>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>rightHandSideType</name>
-                <value>
-                    <stringValue>Reference</stringValue>
-                </value>
-            </processMetadataValues>
-            <name>CaseId</name>
-            <value>
-                <elementReference>myVariable_current.CaseId</elementReference>
-            </value>
-        </inputParameters>
-    </actionCalls>
-    <actionCalls>
-        <processMetadataValues>
-            <name>ActionCallType</name>
-            <value>
-                <stringValue>flow</stringValue>
-            </value>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>flowSelection</name>
-            <value>
                 <stringValue>ALF_WOR05_GenerateSalesOrder</stringValue>
             </value>
         </processMetadataValues>
-        <name>myRule_22_A3</name>
+        <name>myRule_22_A2</name>
         <label>Generate Sales Order</label>
         <locationX>2200</locationX>
-        <locationY>400</locationY>
+        <locationY>300</locationY>
         <actionName>ALF_WOR05_GenerateSalesOrder</actionName>
         <actionType>flow</actionType>
         <connector>
@@ -467,6 +337,9 @@
         <locationY>200</locationY>
         <actionName>ALF_WOR05_GenerateSalesOrder</actionName>
         <actionType>flow</actionType>
+        <connector>
+            <targetReference>myDecision30</targetReference>
+        </connector>
         <inputParameters>
             <processMetadataValues>
                 <name>dataType</name>
@@ -549,6 +422,68 @@
             <name>ServiceContractId</name>
             <value>
                 <elementReference>myVariable_current.ServiceContractId</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>ActionCallType</name>
+            <value>
+                <stringValue>flow</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>flowSelection</name>
+            <value>
+                <stringValue>ALF_WOR03_UpdateCaseToFinishStatus</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_33_A1</name>
+        <label>Update Case to Finished</label>
+        <locationX>3300</locationX>
+        <locationY>200</locationY>
+        <actionName>ALF_WOR03_UpdateCaseToFinishStatus</actionName>
+        <actionType>flow</actionType>
+        <inputParameters>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>CaseId</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>maxOccurs</name>
+                <value>
+                    <numberValue>1.0</numberValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>objectType</name>
+                <value>
+                    <stringValue/>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Reference</stringValue>
+                </value>
+            </processMetadataValues>
+            <name>CaseId</name>
+            <value>
+                <elementReference>myVariable_current.CaseId</elementReference>
             </value>
         </inputParameters>
     </actionCalls>
@@ -796,78 +731,13 @@
         <processMetadataValues>
             <name>flowSelection</name>
             <value>
-                <stringValue>ALF_WOR03_UpdateCaseToFinishStatus</stringValue>
-            </value>
-        </processMetadataValues>
-        <name>myWaitEvent_myWait_myRule_26_event_1_SA2</name>
-        <label>Update Case Status</label>
-        <locationX>2600</locationX>
-        <locationY>300</locationY>
-        <actionName>ALF_WOR03_UpdateCaseToFinishStatus</actionName>
-        <actionType>flow</actionType>
-        <connector>
-            <targetReference>myWaitEvent_myWait_myRule_26_event_1_SA3</targetReference>
-        </connector>
-        <inputParameters>
-            <processMetadataValues>
-                <name>dataType</name>
-                <value>
-                    <stringValue>String</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>isRequired</name>
-                <value>
-                    <booleanValue>false</booleanValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideLabel</name>
-                <value>
-                    <stringValue>CaseId</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>maxOccurs</name>
-                <value>
-                    <numberValue>1.0</numberValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>objectType</name>
-                <value>
-                    <stringValue/>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>rightHandSideType</name>
-                <value>
-                    <stringValue>Reference</stringValue>
-                </value>
-            </processMetadataValues>
-            <name>CaseId</name>
-            <value>
-                <elementReference>myVariable_current.CaseId</elementReference>
-            </value>
-        </inputParameters>
-    </actionCalls>
-    <actionCalls>
-        <processMetadataValues>
-            <name>ActionCallType</name>
-            <value>
-                <stringValue>flow</stringValue>
-            </value>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>flowSelection</name>
-            <value>
                 <stringValue>ALF_WOR05_GenerateSalesOrder</stringValue>
             </value>
         </processMetadataValues>
-        <name>myWaitEvent_myWait_myRule_26_event_1_SA3</name>
+        <name>myWaitEvent_myWait_myRule_26_event_1_SA2</name>
         <label>Generate Sales Order</label>
         <locationX>2600</locationX>
-        <locationY>400</locationY>
+        <locationY>300</locationY>
         <actionName>ALF_WOR05_GenerateSalesOrder</actionName>
         <actionType>flow</actionType>
         <connector>
@@ -2137,6 +2007,9 @@
         <label>myDecision27</label>
         <locationX>50</locationX>
         <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>myDecision30</targetReference>
+        </defaultConnector>
         <defaultConnectorLabel>default</defaultConnectorLabel>
         <rules>
             <name>myRule_28</name>
@@ -2238,6 +2111,182 @@
                 <targetReference>myRule_28_A1</targetReference>
             </connector>
             <label>Status is Ready To Invoice</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>10.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision30</name>
+        <label>myDecision30</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>myDecision32</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_31</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <processMetadataValues>
+                    <name>inputDataType</name>
+                    <value>
+                        <stringValue>Picklist</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>leftHandSideType</name>
+                    <value>
+                        <stringValue>Picklist</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>operatorDataType</name>
+                    <value>
+                        <stringValue>String</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>rightHandSideType</name>
+                    <value>
+                        <stringValue>Picklist</stringValue>
+                    </value>
+                </processMetadataValues>
+                <leftValueReference>myVariable_current.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Completed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <processMetadataValues>
+                    <name>inputDataType</name>
+                    <value>
+                        <stringValue>Picklist</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>leftHandSideType</name>
+                    <value>
+                        <stringValue>Picklist</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>operatorDataType</name>
+                    <value>
+                        <stringValue>String</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>rightHandSideType</name>
+                    <value>
+                        <stringValue>Picklist</stringValue>
+                    </value>
+                </processMetadataValues>
+                <leftValueReference>myVariable_current.Use_Pre_purchased_Hours__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <processMetadataValues>
+                    <name>inputDataType</name>
+                    <value>
+                        <stringValue>Boolean</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>leftHandSideType</name>
+                    <value>
+                        <stringValue>Number</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>operatorDataType</name>
+                    <value>
+                        <stringValue>Number</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>rightHandSideType</name>
+                    <value>
+                        <stringValue>Boolean</stringValue>
+                    </value>
+                </processMetadataValues>
+                <leftValueReference>myVariable_current.Total_Consumed_Pre_Purchased_Hours__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <processMetadataValues>
+                    <name>inputDataType</name>
+                    <value>
+                        <stringValue>Currency</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>leftHandSideType</name>
+                    <value>
+                        <stringValue>Currency</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>operatorDataType</name>
+                    <value>
+                        <stringValue>Currency</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>rightHandSideType</name>
+                    <value>
+                        <stringValue>Currency</stringValue>
+                    </value>
+                </processMetadataValues>
+                <leftValueReference>myVariable_current.Materials_Total__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_31_A1</targetReference>
+            </connector>
+            <label>Pre-purchased Hours Used</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>11.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision32</name>
+        <label>myDecision32</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_33</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_33</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_33_A1</targetReference>
+            </connector>
+            <label>Status is Closed</label>
         </rules>
     </decisions>
     <decisions>
@@ -2782,16 +2831,17 @@
             <label>Previously Met - Prev</label>
         </rules>
     </decisions>
+    <description>Moving final status to Invoiced when Sales Order has been integrated. Updating case status</description>
     <formulas>
         <processMetadataValues>
             <name>originalFormula</name>
             <value>
-                <stringValue>IF([WorkOrder].Current_PrePurchase_Hours_Balance__c &gt; 0, TEXT([WorkOrder].Use_Pre_purchased_Hours__c) , &#39;N/A&#39;  )</stringValue>
+                <stringValue>IF([WorkOrder].Current_PrePurchase_Hours_Balance__c &gt; 0, TEXT([WorkOrder].Use_Pre_purchased_Hours__c) , &apos;N/A&apos;  )</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_17_myRule_15_A2_0069473330</name>
+        <name>formula_17_myRule_15_A2_9444209865</name>
         <dataType>String</dataType>
-        <expression>IF({!myVariable_current.Current_PrePurchase_Hours_Balance__c} &gt; 0, TEXT({!myVariable_current.Use_Pre_purchased_Hours__c}) , &#39;N/A&#39;  )</expression>
+        <expression>IF({!myVariable_current.Current_PrePurchase_Hours_Balance__c} &gt; 0, TEXT({!myVariable_current.Use_Pre_purchased_Hours__c}) , &apos;N/A&apos;  )</expression>
     </formulas>
     <formulas>
         <processMetadataValues>
@@ -2804,7 +2854,12 @@
         <dataType>Boolean</dataType>
         <expression>ISNEW()</expression>
     </formulas>
-    <interviewLabel>PB_WOR01_Process-10_InterviewLabel</interviewLabel>
+    <formulas>
+        <name>formula_myRule_33</name>
+        <dataType>Boolean</dataType>
+        <expression>true</expression>
+    </formulas>
+    <interviewLabel>PB_WOR01_Process-19_InterviewLabel</interviewLabel>
     <label>PB_WOR01_WorkOrder_Process</label>
     <processMetadataValues>
         <name>ObjectType</name>
@@ -3069,7 +3124,7 @@
             </processMetadataValues>
             <field>Use_Pre_purchased_Hours__c</field>
             <value>
-                <elementReference>formula_17_myRule_15_A2_0069473330</elementReference>
+                <elementReference>formula_17_myRule_15_A2_9444209865</elementReference>
             </value>
         </inputAssignments>
         <object>WorkOrder</object>
@@ -3099,10 +3154,10 @@
         <processMetadataValues>
             <name>referenceTargetField</name>
         </processMetadataValues>
-        <name>myRule_19_A3</name>
+        <name>myRule_19_A2</name>
         <label>Update Service Template status</label>
         <locationX>1900</locationX>
-        <locationY>400</locationY>
+        <locationY>300</locationY>
         <connector>
             <targetReference>myDecision21</targetReference>
         </connector>
@@ -3451,6 +3506,89 @@
             <field>Status</field>
             <value>
                 <stringValue>Awaiting Customer PO</stringValue>
+            </value>
+        </inputAssignments>
+        <object>WorkOrder</object>
+    </recordUpdates>
+    <recordUpdates>
+        <processMetadataValues>
+            <name>evaluationType</name>
+            <value>
+                <stringValue>always</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>extraTypeInfo</name>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>isChildRelationship</name>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>reference</name>
+            <value>
+                <stringValue>[WorkOrder]</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>referenceTargetField</name>
+        </processMetadataValues>
+        <name>myRule_31_A1</name>
+        <label>Update Status to Closed</label>
+        <locationX>3100</locationX>
+        <locationY>200</locationY>
+        <connector>
+            <targetReference>myDecision32</targetReference>
+        </connector>
+        <filters>
+            <processMetadataValues>
+                <name>implicit</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>Picklist</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Status</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue/>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Picklist</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>Status</field>
+            <value>
+                <stringValue>Closed</stringValue>
             </value>
         </inputAssignments>
         <object>WorkOrder</object>
