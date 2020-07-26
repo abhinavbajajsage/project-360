@@ -55,6 +55,7 @@ public class WorkOrderLineItemHandler {
         Map <Id,Id> woToContractRTMap = new Map <Id,Id>();
         Map <id, String> usePrePurchaseMap = new Map <Id,String>();
         Set <Id> pricebookIds = new Set <Id>();
+       
         Map <Id,String> contractTypeMap = new Map <Id,String>();
         Id recTypeId = Schema.SObjectType.ServiceContract.getRecordTypeInfosByName().get(Constants.SCO_CustomerContract_RT).getRecordTypeId();
       
@@ -152,7 +153,8 @@ public class WorkOrderLineItemHandler {
                 if(BusinessHours.isWithin(businessHoursBH, woli.StartDate )){
                     
                     Id entryId = entryMap.get(entryKey+'Business Hours');                              
-                    woli.Description = 'Business Hours Labour';                
+                    //woli.Description = 'Business Hours Labour'; 
+                    woli.Description =   entryKey.replace('Silver','').replace('Gold','').replace('Silver','').replace('Bronze','').replace('Platinum','').replace('Support', ' ') + ' - Normal Time';
                     woli.PricebookEntryId = entryId;         
                     woli.UnitPrice = unitPriceMap.get(entryId); 
                     woliProcessed = true;
@@ -184,7 +186,8 @@ public class WorkOrderLineItemHandler {
                 if(BusinessHours.isWithin(overtimeHoursBH, woli.StartDate) && woliProcessed == false ){
                     
                     Id entryId = entryMap.get(entryKey+'Overtime');
-                    woli.Description = 'After Hours Labour';
+                    //woli.Description = 'After Hours Labour';
+                    woli.Description =   entryKey.replace('Silver','').replace('Gold','').replace('Silver','').replace('Bronze','').replace('Platinum','').replace('Support', ' ') + ' - Overtime';
                     woli.PricebookEntryId = entryId; 
                     woli.UnitPrice = unitPriceMap.get(entryId); 
                                   
@@ -218,8 +221,9 @@ public class WorkOrderLineItemHandler {
                     //Transaction start within Night Hours
                     if(BusinessHours.isWithin(nightHoursBH, woli.StartDate )){
     
-                        Id entryId = entryMap.get(entryKey+'Night Time');
-                        woli.Description = 'Night Time Labour';
+                        Id entryId = entryMap.get(entryKey +'Night Time');
+                        //woli.Description = 'Night Time Labour';
+          				woli.Description =   entryKey.replace('Silver','').replace('Gold','').replace('Silver','').replace('Bronze','').replace('Platinum','').replace('Support', ' ') + ' - Night Time';
                         woli.PricebookEntryId = entryId; 
                         woli.UnitPrice = unitPriceMap.get(entryId);  
                     
@@ -252,7 +256,8 @@ public class WorkOrderLineItemHandler {
                     && BusinessHours.isWithin(nightHoursBH, woli.StartDate)== FALSE){
     
                         Id entryId = entryMap.get(entryKey+'Night Time');
-                        woli.Description = 'Night Time Labour';
+                        //woli.Description = 'Night Time Labour';
+            			woli.Description =   entryKey.replace('Silver','').replace('Gold','').replace('Silver','').replace('Bronze','').replace('Platinum','').replace('Support', ' ') + ' - Night Time';
                         woli.PricebookEntryId = entryId; 
                         woli.UnitPrice = unitPriceMap.get(entryId); 
                                         
@@ -303,7 +308,8 @@ public class WorkOrderLineItemHandler {
                     if(BusinessHours.isWithin(businessHoursBH, woli.StartDate )== FALSE){
                         
                         Id entryId = entryMap.get(entryKey+'Overtime');
-                        woli.Description = 'After Hours Labour';
+                       // woli.Description = 'After Hours Labour';
+                        woli.Description =   entryKey.replace('Silver','').replace('Gold','').replace('Silver','').replace('Bronze','').replace('Platinum','').replace('Support', ' ') + ' - Overtime';
                         woli.PricebookEntryId = entryId; 
                         woli.UnitPrice = unitPriceMap.get(entryId); 
                         
