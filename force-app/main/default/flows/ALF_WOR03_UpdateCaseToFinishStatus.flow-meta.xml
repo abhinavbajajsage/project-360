@@ -3,7 +3,7 @@
     <assignments>
         <name>NotAll_Ready_to_Invoice_check</name>
         <label>NotAll Ready to Invoice check</label>
-        <locationX>447</locationX>
+        <locationX>624</locationX>
         <locationY>411</locationY>
         <assignmentItems>
             <assignToReference>NotAllReadyToInvoiceCHeckbox</assignToReference>
@@ -19,8 +19,8 @@
     <decisions>
         <name>All_WO_Ready_to_invoice</name>
         <label>All WO Ready to invoice?</label>
-        <locationX>261</locationX>
-        <locationY>335</locationY>
+        <locationX>373</locationX>
+        <locationY>340</locationY>
         <defaultConnector>
             <targetReference>Check_WO_Status</targetReference>
         </defaultConnector>
@@ -32,7 +32,7 @@
                 <leftValueReference>SingleWO.Status</leftValueReference>
                 <operator>NotEqualTo</operator>
                 <rightValue>
-                    <stringValue>Ready To Invoice</stringValue>
+                    <stringValue>Closed</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -44,7 +44,7 @@
     <decisions>
         <name>Check_Checkbox</name>
         <label>Check Checkbox</label>
-        <locationX>544</locationX>
+        <locationX>721</locationX>
         <locationY>56</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -63,12 +63,13 @@
             <label>Checkbox False</label>
         </rules>
     </decisions>
+    <description>Work Order Status check Closed NOT Ready to Invoice</description>
     <interviewLabel>ALF_WOR03_UpdateCaseToFinishStatus {!$Flow.CurrentDateTime}</interviewLabel>
     <label>ALF_WOR03_UpdateCaseToFinishStatus</label>
     <loops>
         <name>Check_WO_Status</name>
         <label>Check WO Status</label>
-        <locationX>369</locationX>
+        <locationX>546</locationX>
         <locationY>50</locationY>
         <assignNextValueToReference>SingleWO</assignNextValueToReference>
         <collectionReference>Get_All_WO_records</collectionReference>
@@ -96,7 +97,7 @@
     <recordLookups>
         <name>Get_All_WO_records</name>
         <label>Get All WO records</label>
-        <locationX>213</locationX>
+        <locationX>390</locationX>
         <locationY>50</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -118,7 +119,7 @@
     <recordUpdates>
         <name>Update_Case</name>
         <label>Update Case</label>
-        <locationX>554</locationX>
+        <locationX>731</locationX>
         <locationY>221</locationY>
         <filters>
             <field>Id</field>
