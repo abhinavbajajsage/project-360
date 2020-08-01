@@ -1,7 +1,6 @@
 ####################################################
 # The docker image the jobs initialize with.
 # We use nodejs, so a node image makes sense.
-# https://docs.gitlab.com/ee/ci/yaml/README.html#image
 ####################################################
 image: "node:latest"
 
@@ -22,221 +21,22 @@ cache:
 ####################################################
 # The sequential stages of this pipeline.
 # Jobs within a stage run in parallel.
-# https://docs.gitlab.com/ee/ci/yaml/README.html#stages
 ####################################################
 stages:
- - preliminary-testing
- - create-scratch-org
- - test-scratch-org
- - package
  - staging
  - production
 
-
 ####################################################
-# Runs LWC tests on the runner. No org needed.
-# This is a good predeploy stage to avoid creating
-# a scratch org if tests are already failing.
-# Set `allow_failure: true` to not hold up the
-# pipeline on failure.
-####################################################
-# test-lwc:
-#   stage: preliminary-testing
-#   except:
-#     variables:
-#       - $TEST_DISABLED
-#   allow_failure: false
-#   script:
-#     - install_jq
-#     - install_lwc_jest
-#     - test_lwc_jest
-#   tags:
-#     - docker
-#     - linux
-
-####################################################
-# Creates a new scratch org and deploys the project
-# metadata into it.
-#
-# Customize the deployment by providing in project.json
-# a script entry for "scratch:deploy". The GitLab
-# pipeline deploys to the scratch org by delegating
-# to the `npm run scratch:deploy` script.
-# By default, `sfdx force:source:push` is done.
-# Note that we always delete previous scratch orgs on
-# the same ref (branch) before creating and deploying.
-####################################################
-# create-scratch-org:
-# stage: create-scratch-org
-#  only:
-#  variables:
-#      - $CI_COMMIT_REF_NAME == 'master'
-#      - $DEPLOY_SCRATCH_ON_EVERY_COMMIT == 'true'
-#  except:
-#    variables:
-#      - $SCRATCH_DISABLED
-#  allow_failure: false
-#  script:
-#    - install_salesforce_cli
-#    - install_jq
-#    - authenticate DEVHUB $DEVHUB_AUTH_URL $PRODUCTION_AUTH_URL
-#    - delete_scratch_orgs DEVHUB "scratch/$CI_COMMIT_REF_SLUG"
-#    - deploy_scratch_org DEVHUB "scratch/$CI_COMMIT_REF_SLUG"
-#  environment:
-#    name: scratch/$CI_COMMIT_REF_SLUG
-#    url: $CI_PROJECT_URL/-/jobs/$CI_JOB_ID/artifacts/file/ENVIRONMENT.html
-#    on_stop: delete-scratch-org
-#  artifacts:
-#    paths:
-#      - ENVIRONMENT.html
-#      - SCRATCH_ORG_USERNAME.txt
-#      - SCRATCH_ORG_AUTH_URL.txt
-#  tags:
-#    - docker
-#    - linux
-
-####################################################
-# Runs tests on the scratch org, such as Apex tests.
-#
-# Customize the testing by providing in project.json
-# a script entry for "test:apex". The GitLab
-# pipeline tests the scratch org by delegating
-# to the `npm run test:apex` script.
-# By default, `sfdx force:apex:test:run` is done.
-# The scratch org will be set as the default username
-# when the test script executes.
-####################################################
-#test-apex:
-#  stage: test-scratch-org
-#  only:
-#    variables:
-#      - $CI_COMMIT_REF_NAME == 'master'
-#      - $DEPLOY_SCRATCH_ON_EVERY_COMMIT == 'true'
-#  except:
-#    variables:
-#      - $SCRATCH_DISABLED
-#      - $TEST_DISABLED
-#  allow_failure: false
-#  dependencies:
-#    - create-scratch-org
-#  script:
-#    - install_salesforce_cli
-#    - install_jq
-#    - scratch_org_username=$(cat SCRATCH_ORG_USERNAME.txt)
-#    - scratch_org_auth_url=$(cat SCRATCH_ORG_AUTH_URL.txt)
-#    - authenticate $scratch_org_username $scratch_org_auth_url
-#    - test_scratch_org $scratch_org_username
-#  artifacts:
-#    reports:
-#      junit: tests/apex/*-junit.xml
-#    paths:
-#      - tests/
-#  coverage: '/name="testRunCoverage" value="([\d]+%)"/'
-#  tags:
-#    - docker
-#    - linux
-
-
-####################################################
-# Deletes the scratch org.
-# Technically this deletes ALL the scratch orgs for the ref.
-# See https://docs.gitlab.com/ee/ci/environments.html#stopping-an-environment
-####################################################
-#delete-scratch-org:
-#  stage: create-scratch-org
-#  variables:
-#    GIT_STRATEGY: none
-#  only:
-#    variables:
-#      - $CI_COMMIT_REF_NAME == 'master'
-#      - $DEPLOY_SCRATCH_ON_EVERY_COMMIT == 'true'
-#  except:
-#    variables:
-#      - $SCRATCH_DISABLED
-#  when: manual
-#  allow_failure: true
-#  script:
-#    - install_salesforce_cli
-#    - install_jq
-#    - authenticate DEVHUB $DEVHUB_AUTH_URL $PRODUCTION_AUTH_URL
-#    - delete_scratch_orgs DEVHUB "scratch/$CI_COMMIT_REF_SLUG"
-#  environment:
-#    name: scratch/$CI_COMMIT_REF_SLUG
-#    action: stop
-#  tags:
-#    - docker
-#    - linux
-
-####################################################
-# Creates a new package version for deployment.
-####################################################
-create-package-version:
-  stage: package
-  only:
-    variables:
-      - $CI_COMMIT_REF_NAME == 'master'
-  except:
-    variables:
-      - $SALESFORCE_DEPLOYMENT_APPROACH != 'PACKAGING' && $SALESFORCE_DEPLOYMENT_APPROACH
-  script:
-    - install_salesforce_cli
-    - install_jq
-    - authenticate DEVHUB $DEVHUB_AUTH_URL $PRODUCTION_AUTH_URL
-    - assert_within_limits DEVHUB Package2VersionCreates
-    - package_id=$(get_package_id DEVHUB $PACKAGE_NAME)
-    - echo $package_id > PACKAGE_ID.txt
-    - add_package_alias DEVHUB $package_id
-    - package_version_id=$(build_package_version DEVHUB $package_id)
-    - echo $package_version_id > SUBSCRIBER_PACKAGE_VERSION_ID.txt
-  artifacts:
-    paths:
-      - PACKAGE_ID.txt
-      - SUBSCRIBER_PACKAGE_VERSION_ID.txt
-  tags:
-    - docker
-    - linux
-
-####################################################
-# Deploy a package into the sandbox org.
+# Connect to Sandbox, run local tests and deploy
 ####################################################
 deploy-sandbox-package:
   stage: staging
   only:
     variables:
-      - $CI_COMMIT_REF_NAME == 'master'
+      - $CI_COMMIT_REF_NAME == 'development'
   except:
     variables:
       - $SANDBOX_DISABLED
-      - $SALESFORCE_DEPLOYMENT_APPROACH != 'PACKAGING' && $SALESFORCE_DEPLOYMENT_APPROACH 
-  when: manual
-  allow_failure: false
-  dependencies:
-    - create-package-version
-  environment:
-    name: sandbox
-    url: https://test.salesforce.com
-  script:
-    - install_salesforce_cli
-    - install_jq
-    - authenticate SANDBOX $SANDBOX_AUTH_URL
-    - package_version_id=$(cat SUBSCRIBER_PACKAGE_VERSION_ID.txt)
-    - install_package_version SANDBOX $package_version_id
-  tags:
-    - docker
-    - linux
-
-####################################################
-# Deploy metadata into the sandbox org.
-####################################################
-deploy-sandbox-metadata:
-  stage: staging
-  only:
-    variables:
-      - $CI_COMMIT_REF_NAME == 'master' && $SALESFORCE_DEPLOYMENT_APPROACH == 'ORG_BASED'
-  except:
-    variables:
-      - $SANDBOX_DISABLED
-  when: manual
   allow_failure: false
   environment:
     name: sandbox
@@ -245,53 +45,29 @@ deploy-sandbox-metadata:
     - install_salesforce_cli
     - install_jq
     - authenticate SANDBOX $SANDBOX_AUTH_URL
-    - deploy_metadata SANDBOX
+    - sfdx force:source:convert --rootdir force-app --outputdir tmp_convert
+    - apt-get install -y zip   
+    #- zip r SFDXPackage.zip tmp_convert 
+    - (cd tmp_convert && zip -r ../SFDXPackage.zip .)
+    - rm -r tmp_convert
+    - unzip -l SFDXPackage.zip
+    - sfdx force:mdapi:deploy --checkonly --zipfile SFDXPackage.zip --targetusername SANDBOX --testlevel RunLocalTests --singlepackage --json > deployResult.json 
+    - sleep 300
+    - cat deployResult.json
+    - sfdx force:mdapi:deploy:report --jobid $(cat deployResult.json | jq '.result.id' -r) 
+    - sfdx force:mdapi:deploy --targetusername SANDBOX --validateddeployrequestid $(cat deployResult.json | jq '.result.id' -r) 
   tags:
     - docker
     - linux
 
 ####################################################
-# Promotes and installs the package version created
-# and installed in the sandbox in the prior stage.
+# Connect to Production, run local tests and deploy
 ####################################################
-deploy-production-package:
+deploy-production:
   stage: production
   only:
     variables:
-      - $CI_COMMIT_REF_NAME == 'master'
-  except:
-    variables:
-      - $PRODUCTION_DISABLED
-      - $SALESFORCE_DEPLOYMENT_APPROACH != 'PACKAGING' && $SALESFORCE_DEPLOYMENT_APPROACH
-  when: manual
-  allow_failure: false
-  dependencies:
-    - create-package-version
-  environment:
-    name: production
-    url: https://login.salesforce.com
-  script:
-    - install_salesforce_cli
-    - install_jq
-    - package_id=$(cat PACKAGE_ID.txt)
-    - package_version_id=$(cat SUBSCRIBER_PACKAGE_VERSION_ID.txt)
-    - authenticate DEVHUB $DEVHUB_AUTH_URL $PRODUCTION_AUTH_URL
-    - add_package_alias DEVHUB $package_id
-    - promote_package_version DEVHUB $package_version_id
-    - authenticate PRODUCTION $PRODUCTION_AUTH_URL $DEVHUB_AUTH_URL
-    - install_package_version PRODUCTION $package_version_id
-  tags:
-    - docker
-    - linux
-
-####################################################
-# Deploy metadata into the production org.
-####################################################
-deploy-production-metadata:
-  stage: production
-  only:
-    variables:
-      - $CI_COMMIT_REF_NAME == 'master' && $SALESFORCE_DEPLOYMENT_APPROACH == 'ORG_BASED'
+      - $CI_COMMIT_REF_NAME == 'development'
   except:
     variables:
       - $PRODUCTION_DISABLED
@@ -303,11 +79,22 @@ deploy-production-metadata:
   script:
     - install_salesforce_cli
     - install_jq
-    - authenticate PRODUCTION $PRODUCTION_AUTH_URL $DEVHUB_AUTH_URL
-    - deploy_metadata PRODUCTION
+    - authenticate PRODUCTION $DEVHUB_AUTH_URL
+    - sfdx force:source:convert --rootdir force-app --outputdir tmp_convert
+    - apt-get install -y zip   
+    #- zip r SFDXPackage.zip tmp_convert 
+    - (cd tmp_convert && zip -r ../SFDXPackage.zip .)
+    - rm -r tmp_convert
+    - unzip -l SFDXPackage.zip
+    - sfdx force:mdapi:deploy --checkonly --zipfile SFDXPackage.zip --targetusername PRODUCTION --testlevel RunLocalTests --singlepackage --json > deployResult.json 
+    - sleep 300
+    - cat deployResult.json
+    - sfdx force:mdapi:deploy:report --jobid $(cat deployResult.json | jq '.result.id' -r) 
+  #  - sfdx force:mdapi:deploy --targetusername PRODUCTION --validateddeployrequestid $(cat deployResult.json | jq '.result.id' -r) 
   tags:
     - docker
     - linux
+
 
 .sfdx_helpers: &sfdx_helpers |
 
