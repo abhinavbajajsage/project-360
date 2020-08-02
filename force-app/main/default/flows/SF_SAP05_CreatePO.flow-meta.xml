@@ -90,8 +90,8 @@
     <assignments>
         <name>Assign_POLI_values</name>
         <label>Assign POLI values</label>
-        <locationX>1281</locationX>
-        <locationY>746</locationY>
+        <locationX>1280</locationX>
+        <locationY>747</locationY>
         <assignmentItems>
             <assignToReference>Single_POLI.Cost__c</assignToReference>
             <operator>Assign</operator>
@@ -131,7 +131,7 @@
             <assignToReference>Single_POLI.Supplier_Code__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>NukonAccountRecord.Pronto_Account_Code__c</elementReference>
+                <elementReference>AccountCodeId.Pronto_Account_Code__c</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -359,20 +359,13 @@
     <assignments>
         <name>PO_Assignment</name>
         <label>PO Assignment</label>
-        <locationX>984</locationX>
-        <locationY>462</locationY>
+        <locationX>992</locationX>
+        <locationY>528</locationY>
         <assignmentItems>
             <assignToReference>PurchaseOrderRecord.Work_Order__c</assignToReference>
             <operator>Assign</operator>
             <value>
                 <elementReference>WorkOrderId</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>PurchaseOrderRecord.Supplier__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>NukonAccountRecord.Id</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -476,6 +469,22 @@
         </assignmentItems>
         <connector>
             <targetReference>Resource_Type_Screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>PO_Assignment_0</name>
+        <label>PO Assignment</label>
+        <locationX>1416</locationX>
+        <locationY>640</locationY>
+        <assignmentItems>
+            <assignToReference>PurchaseOrderRecord.Supplier__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>CompanyName</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_POLI_values</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -737,6 +746,38 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Company_Selection_Decision</name>
+        <label>Company Selection Decision</label>
+        <locationX>1080</locationX>
+        <locationY>181</locationY>
+        <defaultConnector>
+            <targetReference>Error_Screen_0</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Same_Company_Selected</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Single_POLI.Supplier_Code__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>AccountCodeId.Pronto_Account_Code__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Single_POLI.Supplier_Code__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Time_Input_Screen</targetReference>
+            </connector>
+            <label>Same Company Selected</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Create_a_new_WO</name>
         <label>Create a new WO?</label>
         <locationX>762</locationX>
@@ -842,7 +883,7 @@
         <name>Existing_Other_WO_on_Case</name>
         <label>Existing Other WO on Case ?</label>
         <locationX>733</locationX>
-        <locationY>1189</locationY>
+        <locationY>1186</locationY>
         <defaultConnector>
             <targetReference>Select_WO_Screen</targetReference>
         </defaultConnector>
@@ -938,7 +979,7 @@
             <label>Supplier selected</label>
         </rules>
     </decisions>
-    <description>POLI Description - Validate Input</description>
+    <description>PO - Filter for NUKON, Smart and Quantum Control Systems when creating purchase orders for internal group employees. Not allowing new line items in PO with other companies</description>
     <dynamicChoiceSets>
         <name>POType</name>
         <dataType>Picklist</dataType>
@@ -966,6 +1007,20 @@
             </value>
         </filters>
         <filters>
+            <field>Company__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>SmartAccountRecord.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Company__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>QuantumAccountRecord.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
             <field>Name</field>
             <operator>Contains</operator>
             <value>
@@ -973,6 +1028,14 @@
             </value>
         </filters>
         <object>Employees__c</object>
+        <outputAssignments>
+            <assignToReference>AccountCodeId.Pronto_Account_Code__c</assignToReference>
+            <field>Account_Code__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>CompanyName</assignToReference>
+            <field>Company__c</field>
+        </outputAssignments>
         <outputAssignments>
             <assignToReference>EmployeeName</assignToReference>
             <field>Name</field>
@@ -1400,11 +1463,11 @@
     <recordLookups>
         <name>Get_Nukon_Account</name>
         <label>Get Nukon Account</label>
-        <locationX>986</locationX>
-        <locationY>237</locationY>
+        <locationX>989</locationX>
+        <locationY>222</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>PO_Assignment</targetReference>
+            <targetReference>Get_Smart_Account</targetReference>
         </connector>
         <filters>
             <field>Pronto_Account_Code__c</field>
@@ -1531,6 +1594,27 @@
         <queriedFields>Id</queriedFields>
     </recordLookups>
     <recordLookups>
+        <name>Get_Quantum_Account</name>
+        <label>Get Quantum Account</label>
+        <locationX>988</locationX>
+        <locationY>370</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>PO_Assignment</targetReference>
+        </connector>
+        <filters>
+            <field>Pronto_Account_Code__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>QUAN8646</stringValue>
+            </value>
+        </filters>
+        <object>Account</object>
+        <outputReference>QuantumAccountRecord</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Pronto_Account_Code__c</queriedFields>
+    </recordLookups>
+    <recordLookups>
         <name>Get_SA</name>
         <label>Get SA</label>
         <locationX>50</locationX>
@@ -1591,6 +1675,27 @@
             <assignToReference>recordId</assignToReference>
             <field>Id</field>
         </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Smart_Account</name>
+        <label>Get Smart Account</label>
+        <locationX>871</locationX>
+        <locationY>365</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Quantum_Account</targetReference>
+        </connector>
+        <filters>
+            <field>Pronto_Account_Code__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>SMAR501</stringValue>
+            </value>
+        </filters>
+        <object>Account</object>
+        <outputReference>SmartAccountRecord</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Pronto_Account_Code__c</queriedFields>
     </recordLookups>
     <recordLookups>
         <name>Get_User_Warehouse</name>
@@ -1774,6 +1879,22 @@
         <showHeader>false</showHeader>
     </screens>
     <screens>
+        <name>Error_Screen_0</name>
+        <label>Error Screen</label>
+        <locationX>1193</locationX>
+        <locationY>412</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>ErrorNotSameCompany</name>
+            <fieldText>&lt;p&gt;Your previous selection was {!Single_POLI.Employee__r.Name} who has {!Single_POLI.Supplier_Code__c} &lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(62, 62, 60);&quot;&gt;Suppler Code: &lt;/span&gt;Sorry, you cannot capture a new line within this Purchase Order with a different supplier.&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(62, 62, 60);&quot;&gt; &lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
         <name>Line_Item_Details</name>
         <label>Line Item Details</label>
         <locationX>299</locationX>
@@ -1890,13 +2011,13 @@
     <screens>
         <name>More_Lines</name>
         <label>More Lines?</label>
-        <locationX>1278</locationX>
-        <locationY>600</locationY>
+        <locationX>1289</locationX>
+        <locationY>627</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Assign_POLI_values</targetReference>
+            <targetReference>PO_Assignment_0</targetReference>
         </connector>
         <fields>
             <name>Do_you_want_to_include_another_resource_against_this_PO</name>
@@ -2072,13 +2193,13 @@
     <screens>
         <name>Resource_Selection</name>
         <label>Resource Selection</label>
-        <locationX>1097</locationX>
-        <locationY>225</locationY>
+        <locationX>1096</locationX>
+        <locationY>350</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Time_Input_Screen</targetReference>
+            <targetReference>Company_Selection_Decision</targetReference>
         </connector>
         <fields>
             <name>Name_Resource</name>
@@ -2094,8 +2215,8 @@
     <screens>
         <name>Resource_Type_Screen</name>
         <label>Resource Type Screen</label>
-        <locationX>1130</locationX>
-        <locationY>459</locationY>
+        <locationX>1125</locationX>
+        <locationY>592</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -2204,8 +2325,8 @@
     <screens>
         <name>Time_Input_Screen</name>
         <label>Time Input Screen</label>
-        <locationX>1130</locationX>
-        <locationY>67</locationY>
+        <locationX>1128</locationX>
+        <locationY>17</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -2256,6 +2377,28 @@
         </connector>
     </start>
     <status>Active</status>
+    <variables>
+        <name>AccountCodeId</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+    <variables>
+        <name>CompanyCode</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>CompanyName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
     <variables>
         <name>EmployeeName</name>
         <dataType>String</dataType>
@@ -2343,6 +2486,14 @@
         <objectType>Purchase_Order__c</objectType>
     </variables>
     <variables>
+        <name>QuantumAccountRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+    <variables>
         <name>recordId</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
@@ -2356,6 +2507,14 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>Purchase_Order_Line_Item__c</objectType>
+    </variables>
+    <variables>
+        <name>SmartAccountRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
     </variables>
     <variables>
         <name>SupplierAccountRTid</name>
