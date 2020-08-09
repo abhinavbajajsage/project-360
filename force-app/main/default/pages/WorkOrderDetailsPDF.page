@@ -1,0 +1,123 @@
+<apex:page standardController="ServiceContract" extensions="WorkOrderDetailsPDFExtn" docType="HTML-5.0" sidebar="false" showHeader="false" renderAs="pdf">
+     <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <head>
+            <meta charset="utf-8"/>
+            <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            
+            <apex:stylesheet value="{!URLFOR($Resource.WorkOrderDetailsPDF_StyleSheet)}"/>
+        </head>
+        <body>
+            <div class="coverPage">
+                <div class="container">
+                    <apex:image value="{!URLFOR($Resource.SageAutomationCoverPage)}" style="width: 100%;height: 816px;" />
+                    <div class="coverPageText">
+                        <table>
+                            <tr>
+                                <td>Contract Agreement Service Report</td>
+                            </tr>
+                            <tr>
+                                <td>{!reportMonthYear}</td>
+                            </tr>
+                            <tr>
+                               	<td>Prepared for {!ServiceContract.Account.Name}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="mainDiv">
+                <div class="row">
+                    <table>
+                        <tr>
+                        	<td class="alignRight">
+                        	    <apex:image value="{!URLFOR($Resource.SageAutomationLogo)}" style="width:200px; height: 100px;"/>
+                        	</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="row">
+                    <table>
+                        <tr>
+                            <td class="alignLeft">
+                                <div style="font-size: 14px; font-weight:500;">
+                                    Report Period: &nbsp;
+                                    <apex:outputText value="{0,date,dd/MM/yyyy}">
+                                        <apex:param value="{!workOrderFilter.Filter_Start_Date__c}"/>
+                                    </apex:outputText> 
+                                    &nbsp; - &nbsp;
+                                    <apex:outputText value="{0,date,dd/MM/yyyy}">
+                                        <apex:param value="{!workOrderFilter.Filter_End_Date__c}"/>
+                                    </apex:outputText> 
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="alignCenter">
+                                <div style="font-size: 16px; font-weight:600;">
+                                    <apex:outputText value="{!ServiceContract.Account.Name}" /> &nbsp; - &nbsp; Service Report for &nbsp; 
+                                    <apex:outputText value="{0,date,dd/MM/yyyy}">
+                                        <apex:param value="{!workOrderFilter.Filter_Start_Date__c}"/>
+                                    </apex:outputText> 
+                                    &nbsp; - &nbsp;
+                                    <apex:outputText value="{0,date,dd/MM/yyyy}">
+                                        <apex:param value="{!workOrderFilter.Filter_End_Date__c}"/>
+                                    </apex:outputText> 
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!--<div class="row clear-fix" style="margin: 50px 0;"></div>-->
+                <div class="row">
+                    <table class="tblDetail">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Work Order No.</th>
+                                <th>Customer Reference</th>
+                                <th>Technician Name</th>
+                                <th>Fault Description</th>
+                                <th>Action Taken</th>
+                                <th>Suggested Follow-up</th>
+                                <th>Billable Hours</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <apex:repeat value="{!workOrderWrapperList}" var="wrapper">
+                                <tr>
+                                    <td>
+                                        <apex:outputText value="{0,date,dd/MM/yyyy}">
+                                            <apex:param value="{!wrapper.workOrderRecord.CreatedDate}"/>
+                                        </apex:outputText> 
+                                    </td>
+                                    <td>
+                                        <apex:outputField value="{!wrapper.workOrderRecord.WorkOrderNumber}" />
+                                    </td>
+                                    <td>
+                                        <apex:outputField value="{!wrapper.workOrderRecord.Customer_Purchase_Order_number__c}" />
+                                    </td>
+                                    <td>
+                                        <apex:outputText value="{!wrapper.technicianName}" />
+                                    </td>
+                                    <td>
+                                        <apex:outputField value="{!wrapper.workOrderRecord.Subject}" />
+                                    </td>
+                                    <td>
+                                        <apex:outputField value="{!wrapper.workOrderRecord.Action_Taken__c}" />
+                                    </td>
+                                    <td>
+                                        <apex:outputField value="{!wrapper.workOrderRecord.Suggested_Follow_up__c}" />
+                                    </td>
+                                    <td>
+                                        <apex:outputField value="{!wrapper.workOrderRecord.Total_Billable_Hours__c}" />
+                                    </td>
+                                </tr>
+                            </apex:repeat>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </body>
+    </html>
+</apex:page>
