@@ -1,0 +1,270 @@
+<apex:page standardController="ServiceContract" extensions="WorkOrderDetailsExtn" docType="HTML-5.0" sidebar="false" showHeader="false">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+        <head>
+            <title>Work Order Report</title>
+            <meta charset="utf-8"/>
+            <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <apex:slds />
+            <style>
+                .slds-spinner_container {
+                    position:fixed !important;
+                }
+                
+                .messageText{
+                    text-align: center;
+                    color:white;
+                }
+                
+                .dateFormat {
+                    display: none;
+                }
+                
+                table, th, td {
+                    white-space: normal !important;
+                }
+                
+	            .requiredClass {
+                	border-left: 4px solid red !important;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="slds-scope" id="divBody">
+                <apex:form id="form1">
+                    <!-- For SLDS Spinner : Start -->
+                    <apex:actionStatus id="status">
+                        <apex:facet name="start">
+                           <div class="slds-spinner_container">
+                               <div class="slds-spinner--brand slds-spinner slds-spinner--medium" aria-hidden="false" role="alert">
+                                   <div class="slds-spinner__dot-a"></div>
+                                   <div class="slds-spinner__dot-b"></div>
+                               </div>
+                           </div>
+                       </apex:facet>
+                    </apex:actionStatus>
+                    <!-- For SLDS Spinner : End -->
+                    <!-- For Page Message : Start -->
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <div class="slds-m-vertical_x-small slds-m-horizontal_medium" id="dvMessage">
+                                <apex:pageMessages id="pgMsg"></apex:pageMessages>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <div class="slds-m-around_small">
+                                 <div style="text-align: right;">
+                                    <apex:image value="{!URLFOR($Resource.SageAutomationLogo)}" style="width:250px;"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <div class="slds-m-around_small">
+                                <p style="font-size: 14px; font-weight:500;">
+                                    Report Period: &nbsp;
+                                    <apex:outputText value="{0,date,dd/MM/yyyy}">
+                                        <apex:param value="{!workOrderFilter.Filter_Start_Date__c}"/>
+                                    </apex:outputText> 
+                                    &nbsp; - &nbsp;
+                                    <apex:outputText value="{0,date,dd/MM/yyyy}">
+                                        <apex:param value="{!workOrderFilter.Filter_End_Date__c}"/>
+                                    </apex:outputText> 
+                                </p>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <div class="slds-m-around_small slds-align_absolute-center">
+                                <p style="font-size: 18px; font-weight:600;">
+                                    <apex:outputText value="{!ServiceContract.Account.Name}" /> &nbsp; - Service Report for &nbsp; 
+                                    <apex:outputText value="{0,date,dd/MM/yyyy}">
+                                        <apex:param value="{!workOrderFilter.Filter_Start_Date__c}"/>
+                                    </apex:outputText> 
+                                    &nbsp; - &nbsp;
+                                    <apex:outputText value="{0,date,dd/MM/yyyy}">
+                                        <apex:param value="{!workOrderFilter.Filter_End_Date__c}"/>
+                                    </apex:outputText> 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-m-around_small slds-box" style="padding: 5px;">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-3 slds-medium-size_1-of-3 slds-large-size_1-of-3">
+                                <div class="slds-form slds-form-element slds-m-around_x-small">
+                                    <label class="slds-form-element__label">Start Date</label>
+                                    <div class="slds-form-element__control">
+                                        <apex:inputField styleClass="slds-input" value="{!workOrderFilter.Filter_Start_Date__c}" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-3 slds-medium-size_1-of-3 slds-large-size_1-of-3">
+                                <div class="slds-form slds-form-element slds-m-around_x-small">
+                                    <label class="slds-form-element__label">End Date</label>
+                                    <div class="slds-form-element__control">
+                                        <apex:inputField styleClass="slds-input" value="{!workOrderFilter.Filter_End_Date__c}" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-3 slds-medium-size_1-of-3 slds-large-size_1-of-3">
+                                <div class="slds-form slds-form-element slds-m-around_x-small">
+                                    <label class="slds-form-element__label">&nbsp;</label>
+                                    <div class="slds-form-element__control">
+                                        <apex:commandButton styleClass="slds-button slds-button_brand" value="Submit" action="{!fetchWorkOrder}" status="status" rerender="form1" oncomplete="overridePageMessages();" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <div class="slds-m-around_small">
+                                <div class="slds-align_absolute-center">
+                                    <apex:commandButton styleClass="slds-button slds-button_brand" value="Send Email" disabled="{!workOrderWrapperList.size == 0}" action="{!openSendEmailModal}" status="status" rerender="form1" oncomplete="overridePageMessages();" />
+      							    <apex:commandButton styleClass="slds-button slds-button_brand" value="Open and Save PDF" disabled="{!workOrderWrapperList.size == 0}" action="{!openAndSavePDF}" status="status" rerender="form1" oncomplete="overridePageMessages();" /> 
+                                      
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <div class="slds-m-around_small overflow: auto;">
+                                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered slds-no-row-hover" style="border: 1px solid #eee;">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Work Order No.</th>
+                                            <th>Customer Reference</th>
+                                            <th>Technician Name</th>
+                                            <th>Fault Description</th>
+                                            <th>Action Taken</th>
+                                            <th>Suggested Follow-up</th>
+                                            <th>Billable Hours</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <apex:repeat value="{!workOrderWrapperList}" var="wrapper">
+                                            <tr>
+                                                <td>
+                                                    <apex:outputText value="{0,date,dd/MM/yyyy}">
+                                                        <apex:param value="{!wrapper.workOrderRecord.CreatedDate}"/>
+                                                    </apex:outputText> 
+                                                </td>
+                                                <td>
+                                                    <apex:outputField value="{!wrapper.workOrderRecord.WorkOrderNumber}" />
+                                                </td>
+                                                <td>
+                                                    <apex:outputField value="{!wrapper.workOrderRecord.Customer_Purchase_Order_number__c}" />
+                                                </td>
+                                                <td>
+                                                    <apex:outputText value="{!wrapper.technicianName}" />
+                                                </td>
+                                                <td>
+                                                    <apex:outputField value="{!wrapper.workOrderRecord.Subject}" />
+                                                </td>
+                                                <td>
+                                                    <apex:outputField value="{!wrapper.workOrderRecord.Action_Taken__c}" />
+                                                </td>
+                                                <td>
+                                                    <apex:outputField value="{!wrapper.workOrderRecord.Suggested_Follow_up__c}" />
+                                                </td>
+                                                <td>
+                                                    <apex:outputField value="{!wrapper.workOrderRecord.Total_Billable_Hours__c}" />
+                                                </td>
+                                            </tr>
+                                        </apex:repeat>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <!-- Email Popup -->
+                            <apex:outputPanel rendered="{!isOpenSendEmailModal}">
+                                <div id="emailModal" >
+                                    <section role="dialog" tabindex="-1" aria-labelledby="headerEmail" aria-modal="true" aria-describedby="contentEmail" class="slds-modal slds-fade-in-open slds-modal_large">
+                                        <div class="slds-modal__container">
+                                            <header class="slds-modal__header">
+                                                <h2 id="headerEmail" class="slds-text-heading_medium slds-hyphenate" style="font-weight: 600;">Send Email</h2>
+                                            </header>
+                                            <div class="slds-modal__content slds-p-around_medium" id="contentEmail">
+                                                <div class="slds-form slds-form_stacked">
+                                                    <div class="slds-form-element slds-m-around_x-small">
+                                                        <label class="slds-form-element__label " style="font-size: 14px;font-weight: 600;">To &nbsp;</label>
+                                                        <div class="slds-form-element__control">
+                                                            <apex:inputText styleClass="slds-input txtToAddress requiredClass" value="{!emailAddress}" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="slds-form-element slds-m-around_x-small">
+                                                        <label class="slds-form-element__label">CC: </label>
+                                                        <div class="slds-form-element__control">
+                                                            <apex:inputText styleClass="slds-input" value="{!emailAddressCC}" html-placeholder="email1@test.com;email1@test.com"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slds-form-element slds-m-around_x-small">
+                                                        <label class="slds-form-element__label " style="font-size: 14px;font-weight: 600;">Subject</label>
+                                                        <div class="slds-form-element__control">
+                                                            <apex:inputText styleClass="slds-select requiredClass" value="{!emailSubject}"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slds-form-element slds-m-around_x-small">
+                                                        <label class="slds-form-element__label " style="font-size: 14px;font-weight: 600;">Body</label>
+                                                        <div class="slds-form-element__control">
+                                                            <apex:outputText value="{!emailBody}" escape="false"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <footer class="slds-modal__footer">
+                                                <apex:commandButton styleClass="slds-button slds-button_neutral" value="Cancel" status="status" action="{!closeSendEmailModal}" rerender="form1" oncomplete="overridePageMessages();" />
+                                                <apex:commandButton styleclass="slds-button slds-button_brand" action="{!sendEmail}" value="Send Email" status="status" rerender="form1" oncomplete="overridePageMessages();" />
+                                            </footer>
+                                        </div>
+                                    </section>
+                                    <div class="slds-backdrop slds-backdrop_open"></div>
+                                </div>
+                            </apex:outputPanel>
+                            <!-- / Email Popup -->
+                        </div>
+                    </div>
+                </apex:form>
+            </div>
+        </body>
+        
+        <script type="text/javascript">
+                j$ = jQuery.noConflict();
+            
+                j$(document).ready(function() {
+                    overridePageMessages();
+                });
+                
+                var messageCloseButton ='<button class="slds-button slds-notify__close slds-button--icon-inverse" title="Close" onclick="return closeMessage();">';
+                    messageCloseButton +='<svg aria-hidden="true" class="slds-button__icon"><use xlink:href="{!URLFOR($Asset.SLDS,"/assets/icons/utility-sprite/svg/symbols.svg#close")}">';
+                    messageCloseButton +='</use></svg><span class="slds-assistive-text">Close</span></button>';
+
+                function overridePageMessages() {  
+                    j$('#dvMessage').show();
+                    j$('.warningM3').addClass('slds-notify slds-notify--alert slds-theme--warning slds-theme--alert-texture').removeClass('message').removeClass('warningM3');          
+                    j$('.confirmM3').addClass('slds-notify slds-notify--alert slds-theme--success slds-theme--alert-texture').removeClass('message').removeClass('confirmM3');    
+                    j$('.errorM3').addClass('slds-notify slds-notify--alert slds-theme--error slds-theme--alert-texture').removeClass('message').removeClass('errorM3');                  
+                    j$('.infoM3').addClass('slds-notify slds-notify--alert slds-theme--info slds-theme--alert-texture').removeClass('message').removeClass('infoM3');    
+                    
+                    j$('.messageText').find('br').remove();
+                    j$('.messageText').find('h4').remove();
+                    j$('.messageText').append(j$(messageCloseButton)); 
+                    
+                    var messageCell = j$('.messageTable tbody td.messageCell');
+                    j$('.messageTable tbody td').remove();
+                    j$('.messageTable tbody').append(messageCell);
+                };
+                
+                function closeMessage(){
+                    j$('#dvMessage').hide();
+                    return false;
+                };
+            </script>
+    </html>
+</apex:page>
