@@ -1,0 +1,37 @@
+<apex:page standardController="ServiceContract" docType="HTML-5.0" sidebar="false" showHeader="false">
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+        <head>
+            <title>Work Order PDF Main</title>
+            <meta charset="utf-8"/>
+            <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+            <apex:slds />
+           
+        </head>
+        <body>
+            <div class="slds-scope" id="divBody">
+                <apex:form id="form1">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <div class="slds-m-around_small">
+                                <div class="slds-align_absolute-center">
+                                    <a class="slds-button slds-button_neutral" href="/apex/WorkOrderDetails?id={!ServiceContract.Id}">Back</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-1 slds-small-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                            <div class="slds-m-around_small">
+                                <div class="slds-align_absolute-center">
+                                    <iframe src="/apex/WorkOrderDetailsPDF?id={!ServiceContract.Id}&startdate={!$CurrentPage.parameters.startdate}&enddate={!$CurrentPage.parameters.enddate}" width="90%" height="1000px" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </apex:form>
+            </div>
+        </body>
+    </html>
+</apex:page>
