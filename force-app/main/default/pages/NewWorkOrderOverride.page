@@ -1,0 +1,13 @@
+<apex:page standardController="WorkOrder" docType="HTML-5.0" sidebar="false" showHeader="false">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+         <apex:image value="https://www.advancedfibrecluster.org.au/wp-content/uploads/2019/09/SAGE-A-Positive-RGB-2.png" styleClass="logo" />
+    <apex:sectionHeader title="Create Work Orders" 
+      subtitle="You can not create Work Orders from here. Please go to your desired Case to create a Work Order" />
+    </html>
+     <style>
+    .logo {
+      float: right;
+      width: 100px;
+    }
+     </style>
+</apex:page>
