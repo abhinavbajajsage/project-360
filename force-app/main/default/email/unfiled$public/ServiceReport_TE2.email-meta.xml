@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This template is used to send the email when a Service report is created on a Service Appointment</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Sage_Letterhead</letterhead>
+    <name>ServiceReport_TE2</name>
+    <style>formalLetter</style>
+    <subject>SAGE Service - Call {!ServiceAppointment.Case_Number__c} Report</subject>
+    <textOnly>{!Today}
+Hi {!ServiceAppointment.Contact}
+
+Attached is the copy of your Service Report for your kind reference.
+
+{!IF(ispickval(ServiceAppointment.Work_Order_Completed__c, &quot;No&quot;), &quot;Please note Interim Service Reports do not require any action on your behalf; a final report will be sent upon completion of works.&quot;, &quot;&quot;)}
+
+{!IF(AND(ServiceAppointment.Account_Type__c = &quot;Company&quot;, ispickval(ServiceAppointment.Work_Order_Completed__c, &quot;Yes&quot;)), &quot;Please provide a Purchase Order for this service report if required. An invoice will then be processed and forwarded to your accounts department for payment&quot;, &quot;&quot;)}
+
+{!IF(AND(ServiceAppointment.Account_Type__c = &quot;Cash Account&quot;, ispickval(ServiceAppointment.Work_Order_Completed__c, &quot;Yes&quot;)), &quot;Payment is required within 7 days. Please contact SAGE Reception on 08 8276 0700 to take a credit card payment, referencing the case number&quot;, &quot;&quot;)}
+
+Regards
+
+{!User.Name}
+
+Service Department
+SAGE Automation Pty Ltd
+Phone: 08 8276 0700
+SAGE Standard Terms and Conditions for suppliers are available on the website: https://www.sageautomation.com/terms-and-conditions</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

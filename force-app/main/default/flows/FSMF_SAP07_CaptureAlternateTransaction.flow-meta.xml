@@ -196,8 +196,8 @@
     <decisions>
         <name>SA_Status</name>
         <label>SA Status</label>
-        <locationX>481</locationX>
-        <locationY>58</locationY>
+        <locationX>480</locationX>
+        <locationY>57</locationY>
         <defaultConnector>
             <targetReference>Get_Current_Service_Resource</targetReference>
         </defaultConnector>
@@ -270,9 +270,23 @@
         </rules>
         <rules>
             <name>Job_not_completed</name>
-            <conditionLogic>and</conditionLogic>
+            <conditionLogic>or</conditionLogic>
             <conditions>
                 <leftValueReference>SA_Record.Action_Taken__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SA_Record.JSEA__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>WO_RecordInitial.Initial_Findings__c</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
@@ -309,6 +323,7 @@
             <label>Start Before End</label>
         </rules>
     </decisions>
+    <description>JSEA mandatory beforing capturing transactions | Finding missing values for Action Taken / Initial Findings / JSEA</description>
     <dynamicChoiceSets>
         <name>PriceBookEntry</name>
         <dataType>String</dataType>
@@ -603,11 +618,11 @@
     <recordLookups>
         <name>Get_SA</name>
         <label>Get SA</label>
-        <locationX>353</locationX>
-        <locationY>53</locationY>
+        <locationX>370</locationX>
+        <locationY>57</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>SA_Status</targetReference>
+            <targetReference>Get_WO</targetReference>
         </connector>
         <filters>
             <field>Id</field>
@@ -624,6 +639,7 @@
         <queriedFields>ParentRecordId</queriedFields>
         <queriedFields>Transaction_Completed__c</queriedFields>
         <queriedFields>Action_Taken__c</queriedFields>
+        <queriedFields>JSEA__c</queriedFields>
     </recordLookups>
     <recordLookups>
         <name>Get_Service_Contract</name>
@@ -645,6 +661,27 @@
         <outputReference>CurrentServiceContract</outputReference>
         <queriedFields>Id</queriedFields>
         <queriedFields>Capture_Transactions_Alternative_Rate__c</queriedFields>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_WO</name>
+        <label>Get WO</label>
+        <locationX>249</locationX>
+        <locationY>155</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>SA_Status</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>SA_Record.ParentRecordId</elementReference>
+            </value>
+        </filters>
+        <object>WorkOrder</object>
+        <outputReference>WO_RecordInitial</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Initial_Findings__c</queriedFields>
     </recordLookups>
     <recordLookups>
         <name>GetWO</name>
@@ -717,14 +754,14 @@
     <screens>
         <name>Capture_Job_detail_message</name>
         <label>Capture Job detail message</label>
-        <locationX>519</locationX>
+        <locationX>518</locationX>
         <locationY>390</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <fields>
             <name>Message</name>
-            <fieldText>&lt;p&gt;Please capture the job details before capturing your time spent on the job.&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;Please capture the job details before capturing your time spent on the job.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please populate &apos;JSEA&apos;, &apos;Initial Findings&apos; and &apos;Action Taken&apos; fields.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Current Values&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;JSEA: &lt;/b&gt;{!SA_Record.JSEA__c}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Initial Findings: &lt;/b&gt;{!WO_RecordInitial.Initial_Findings__c}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Action Taken: &lt;/b&gt;{!SA_Record.Action_Taken__c}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -926,8 +963,8 @@
     <screens>
         <name>Transaction_done_screen</name>
         <label>Transaction done screen</label>
-        <locationX>666</locationX>
-        <locationY>328</locationY>
+        <locationX>660</locationX>
+        <locationY>332</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -1075,6 +1112,14 @@
     </variables>
     <variables>
         <name>WO_Record</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>WorkOrder</objectType>
+    </variables>
+    <variables>
+        <name>WO_RecordInitial</name>
         <dataType>SObject</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>

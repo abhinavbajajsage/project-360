@@ -1972,6 +1972,7 @@
             <label>Recall PO</label>
         </rules>
     </decisions>
+    <description>Attempting to not copy Suggested Followup if empty &amp; Fixing Notes Being Duplicated</description>
     <formulas>
         <processMetadataValues>
             <name>originalFormula</name>
@@ -1979,7 +1980,7 @@
                 <stringValue>$Label.Response_Time_WO_Entitlement </stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_18_myRule_16_A3_7976762019</name>
+        <name>formula_18_myRule_16_A3_2096655419</name>
         <dataType>String</dataType>
         <expression>{!$Label.Response_Time_WO_Entitlement}</expression>
     </formulas>
@@ -1990,7 +1991,7 @@
                 <stringValue>NOW()</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_19_myRule_16_A3_2626437388</name>
+        <name>formula_19_myRule_16_A3_2890994535</name>
         <dataType>DateTime</dataType>
         <expression>NOW()</expression>
     </formulas>
@@ -2001,7 +2002,7 @@
                 <stringValue>$Label.Response_Time_WO_Entitlement </stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_20_myRule_16_A1_4773329808</name>
+        <name>formula_20_myRule_16_A1_9852894081</name>
         <dataType>String</dataType>
         <expression>{!$Label.Response_Time_WO_Entitlement}</expression>
     </formulas>
@@ -2012,7 +2013,7 @@
                 <stringValue>NOW()</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_21_myRule_16_A1_1523679429</name>
+        <name>formula_21_myRule_16_A1_9571942681</name>
         <dataType>DateTime</dataType>
         <expression>NOW()</expression>
     </formulas>
@@ -2020,95 +2021,119 @@
         <processMetadataValues>
             <name>originalFormula</name>
             <value>
-                <stringValue>IF(ISBLANK([ServiceAppointment].Work_Order__c.Action_Taken__c),
-[ServiceAppointment].Service_Resource_Name__c + &quot; &quot;+ TEXT(DAY(TODAY())) +&quot;/&quot;+TEXT(MONTH(TODAY()))+ &quot;/&quot;+ TEXT(YEAR(TODAY())) + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)  + [ServiceAppointment].Action_Taken__c ,
-[ServiceAppointment].Work_Order__c.Action_Taken__c + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)+ SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)+ [ServiceAppointment].Service_Resource_Name__c + &quot; &quot;+ TEXT(DAY(TODAY())) +&quot;/&quot;+TEXT(MONTH(TODAY()))+ &quot;/&quot;+ TEXT(YEAR(TODAY())) + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)  + [ServiceAppointment].Action_Taken__c )
-
+                <stringValue>IF(([ServiceAppointment].Action_Taken__c &lt;&gt;  [ServiceAppointment].Action_Taken_Copied__c),
+IF(ISBLANK([ServiceAppointment].Work_Order__c.Action_Taken__c),
+[ServiceAppointment].Service_Resource_Name__c + &quot; &quot;+ TEXT(DAY(DATEVALUE([ServiceAppointment].ActualStartTime ))) +&quot;/&quot;+ TEXT(MONTH(DATEVALUE([ServiceAppointment].ActualStartTime)))+ &quot;/&quot;+ TEXT(YEAR(DATEVALUE([ServiceAppointment].ActualStartTime))) + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)  + [ServiceAppointment].Action_Taken__c ,
+[ServiceAppointment].Work_Order__c.Action_Taken__c + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)+ SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)+ [ServiceAppointment].Service_Resource_Name__c + &quot; &quot;+ TEXT(DAY(DATEVALUE([ServiceAppointment].ActualStartTime ))) +&quot;/&quot;+ TEXT(MONTH(DATEVALUE([ServiceAppointment].ActualStartTime))) + &quot;/&quot;+ TEXT(YEAR(DATEVALUE([ServiceAppointment].ActualStartTime))) + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)  + [ServiceAppointment].Action_Taken__c ), [ServiceAppointment].Work_Order__c.Action_Taken__c)
 </stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_37_myRule_35_A1_3160571438</name>
+        <name>formula_37_myRule_35_A1_3350011134</name>
         <dataType>String</dataType>
-        <expression>IF(ISBLANK({!myVariable_current.Work_Order__r.Action_Taken__c}),
-{!myVariable_current.Service_Resource_Name__c} + &quot; &quot;+ TEXT(DAY(TODAY())) +&quot;/&quot;+TEXT(MONTH(TODAY()))+ &quot;/&quot;+ TEXT(YEAR(TODAY())) + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)  + {!myVariable_current.Action_Taken__c} ,
-{!myVariable_current.Work_Order__r.Action_Taken__c} + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)+ SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)+ {!myVariable_current.Service_Resource_Name__c} + &quot; &quot;+ TEXT(DAY(TODAY())) +&quot;/&quot;+TEXT(MONTH(TODAY()))+ &quot;/&quot;+ TEXT(YEAR(TODAY())) + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)  + {!myVariable_current.Action_Taken__c} )</expression>
+        <expression>IF(({!myVariable_current.Action_Taken__c} &lt;&gt;  {!myVariable_current.Action_Taken_Copied__c}),
+IF(ISBLANK({!myVariable_current.Work_Order__r.Action_Taken__c}),
+{!myVariable_current.Service_Resource_Name__c} + &quot; &quot;+ TEXT(DAY(DATEVALUE({!myVariable_current.ActualStartTime} ))) +&quot;/&quot;+ TEXT(MONTH(DATEVALUE({!myVariable_current.ActualStartTime})))+ &quot;/&quot;+ TEXT(YEAR(DATEVALUE({!myVariable_current.ActualStartTime}))) + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)  + {!myVariable_current.Action_Taken__c} ,
+{!myVariable_current.Work_Order__r.Action_Taken__c} + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)+ SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)+ {!myVariable_current.Service_Resource_Name__c} + &quot; &quot;+ TEXT(DAY(DATEVALUE({!myVariable_current.ActualStartTime} ))) +&quot;/&quot;+ TEXT(MONTH(DATEVALUE({!myVariable_current.ActualStartTime}))) + &quot;/&quot;+ TEXT(YEAR(DATEVALUE({!myVariable_current.ActualStartTime}))) + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)  + {!myVariable_current.Action_Taken__c} ), {!myVariable_current.Work_Order__r.Action_Taken__c})</expression>
     </formulas>
     <formulas>
         <processMetadataValues>
             <name>originalFormula</name>
             <value>
-                <stringValue>IF(ISBLANK([ServiceAppointment].Work_Order__c.Suggested_Follow_up__c ),
-[ServiceAppointment].Service_Resource_Name__c + &quot; &quot;+ TEXT(DAY(TODAY())) +&quot;/&quot;+TEXT(MONTH(TODAY()))+ &quot;/&quot;+ TEXT(YEAR(TODAY())) + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)  + [ServiceAppointment].Suggested_Follow_up__c  ,
-[ServiceAppointment].Work_Order__c.Action_Taken__c + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)+ SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)+ [ServiceAppointment].Service_Resource_Name__c + &quot; &quot;+ TEXT(DAY(TODAY())) +&quot;/&quot;+TEXT(MONTH(TODAY()))+ &quot;/&quot;+ TEXT(YEAR(TODAY())) + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)  + [ServiceAppointment].Suggested_Follow_up__c  )</stringValue>
+                <stringValue>IF(([ServiceAppointment].Suggested_Follow_up__c &lt;&gt;  [ServiceAppointment].Suggested_Followup_Copied__c ),
+IF(ISBLANK([ServiceAppointment].Suggested_Follow_up__c), [ServiceAppointment].Work_Order__c.Suggested_Follow_up__c  ,
+IF(ISBLANK([ServiceAppointment].Work_Order__c.Suggested_Follow_up__c ),
+[ServiceAppointment].Service_Resource_Name__c + &quot; &quot;+ TEXT(DAY(DATEVALUE([ServiceAppointment].ActualStartTime ))) +&quot;/&quot;+TEXT(MONTH(DATEVALUE([ServiceAppointment].ActualStartTime))) + &quot;/&quot;+ TEXT(YEAR(DATEVALUE([ServiceAppointment].ActualStartTime))) + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)  + [ServiceAppointment].Suggested_Follow_up__c  ,
+[ServiceAppointment].Work_Order__c.Suggested_Follow_up__c + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)+ SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)+ [ServiceAppointment].Service_Resource_Name__c + &quot; &quot;+ TEXT(DAY(DATEVALUE([ServiceAppointment].ActualStartTime ))) +&quot;/&quot;+TEXT(MONTH(DATEVALUE([ServiceAppointment].ActualStartTime)))+ &quot;/&quot;+ TEXT(YEAR(DATEVALUE([ServiceAppointment].ActualStartTime))) + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)  + [ServiceAppointment].Suggested_Follow_up__c  )),
+[ServiceAppointment].Work_Order__c.Suggested_Follow_up__c)</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_38_myRule_35_A1_6136832807</name>
+        <name>formula_38_myRule_35_A1_7970397723</name>
         <dataType>String</dataType>
-        <expression>IF(ISBLANK({!myVariable_current.Work_Order__r.Suggested_Follow_up__c} ),
-{!myVariable_current.Service_Resource_Name__c} + &quot; &quot;+ TEXT(DAY(TODAY())) +&quot;/&quot;+TEXT(MONTH(TODAY()))+ &quot;/&quot;+ TEXT(YEAR(TODAY())) + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)  + {!myVariable_current.Suggested_Follow_up__c}  ,
-{!myVariable_current.Work_Order__r.Action_Taken__c} + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)+ SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)+ {!myVariable_current.Service_Resource_Name__c} + &quot; &quot;+ TEXT(DAY(TODAY())) +&quot;/&quot;+TEXT(MONTH(TODAY()))+ &quot;/&quot;+ TEXT(YEAR(TODAY())) + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)  + {!myVariable_current.Suggested_Follow_up__c}  )</expression>
+        <expression>IF(({!myVariable_current.Suggested_Follow_up__c} &lt;&gt;  {!myVariable_current.Suggested_Followup_Copied__c} ),
+IF(ISBLANK({!myVariable_current.Suggested_Follow_up__c}), {!myVariable_current.Work_Order__r.Suggested_Follow_up__c}  ,
+IF(ISBLANK({!myVariable_current.Work_Order__r.Suggested_Follow_up__c} ),
+{!myVariable_current.Service_Resource_Name__c} + &quot; &quot;+ TEXT(DAY(DATEVALUE({!myVariable_current.ActualStartTime} ))) +&quot;/&quot;+TEXT(MONTH(DATEVALUE({!myVariable_current.ActualStartTime}))) + &quot;/&quot;+ TEXT(YEAR(DATEVALUE({!myVariable_current.ActualStartTime}))) + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)  + {!myVariable_current.Suggested_Follow_up__c}  ,
+{!myVariable_current.Work_Order__r.Suggested_Follow_up__c} + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)+ SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)+ {!myVariable_current.Service_Resource_Name__c} + &quot; &quot;+ TEXT(DAY(DATEVALUE({!myVariable_current.ActualStartTime} ))) +&quot;/&quot;+TEXT(MONTH(DATEVALUE({!myVariable_current.ActualStartTime})))+ &quot;/&quot;+ TEXT(YEAR(DATEVALUE({!myVariable_current.ActualStartTime}))) + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)  + {!myVariable_current.Suggested_Follow_up__c}  )),
+{!myVariable_current.Work_Order__r.Suggested_Follow_up__c})</expression>
     </formulas>
     <formulas>
         <processMetadataValues>
             <name>originalFormula</name>
             <value>
-                <stringValue>IF(ISBLANK([ServiceAppointment].Work_Order__c.Action_Taken__c),
-[ServiceAppointment].Service_Resource_Name__c + &quot; &quot;+ TEXT(DAY(TODAY())) +&quot;/&quot;+TEXT(MONTH(TODAY()))+ &quot;/&quot;+ TEXT(YEAR(TODAY())) + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)  + [ServiceAppointment].Action_Taken__c ,
-[ServiceAppointment].Work_Order__c.Action_Taken__c + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)+ SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)+ [ServiceAppointment].Service_Resource_Name__c + &quot; &quot;+ TEXT(DAY(TODAY())) +&quot;/&quot;+TEXT(MONTH(TODAY()))+ &quot;/&quot;+ TEXT(YEAR(TODAY())) + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)  + [ServiceAppointment].Action_Taken__c )
-
+                <stringValue>IF(([ServiceAppointment].Action_Taken__c &lt;&gt;  [ServiceAppointment].Action_Taken_Copied__c),
+IF(ISBLANK([ServiceAppointment].Work_Order__c.Action_Taken__c),
+[ServiceAppointment].Service_Resource_Name__c + &quot; &quot;+ TEXT(DAY(DATEVALUE([ServiceAppointment].ActualStartTime ))) +&quot;/&quot;+ TEXT(MONTH(DATEVALUE([ServiceAppointment].ActualStartTime)))+ &quot;/&quot;+ TEXT(YEAR(DATEVALUE([ServiceAppointment].ActualStartTime))) + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)  + [ServiceAppointment].Action_Taken__c ,
+[ServiceAppointment].Work_Order__c.Action_Taken__c + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)+ SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)+ [ServiceAppointment].Service_Resource_Name__c + &quot; &quot;+ TEXT(DAY(DATEVALUE([ServiceAppointment].ActualStartTime ))) +&quot;/&quot;+ TEXT(MONTH(DATEVALUE([ServiceAppointment].ActualStartTime))) + &quot;/&quot;+ TEXT(YEAR(DATEVALUE([ServiceAppointment].ActualStartTime))) + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)  + [ServiceAppointment].Action_Taken__c ), [ServiceAppointment].Work_Order__c.Action_Taken__c)
 </stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_42_myRule_40_A1_6425969900</name>
+        <name>formula_42_myRule_40_A1_2934028247</name>
         <dataType>String</dataType>
-        <expression>IF(ISBLANK({!myVariable_current.Work_Order__r.Action_Taken__c}),
-{!myVariable_current.Service_Resource_Name__c} + &quot; &quot;+ TEXT(DAY(TODAY())) +&quot;/&quot;+TEXT(MONTH(TODAY()))+ &quot;/&quot;+ TEXT(YEAR(TODAY())) + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)  + {!myVariable_current.Action_Taken__c} ,
-{!myVariable_current.Work_Order__r.Action_Taken__c} + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)+ SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)+ {!myVariable_current.Service_Resource_Name__c} + &quot; &quot;+ TEXT(DAY(TODAY())) +&quot;/&quot;+TEXT(MONTH(TODAY()))+ &quot;/&quot;+ TEXT(YEAR(TODAY())) + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)  + {!myVariable_current.Action_Taken__c} )</expression>
+        <expression>IF(({!myVariable_current.Action_Taken__c} &lt;&gt;  {!myVariable_current.Action_Taken_Copied__c}),
+IF(ISBLANK({!myVariable_current.Work_Order__r.Action_Taken__c}),
+{!myVariable_current.Service_Resource_Name__c} + &quot; &quot;+ TEXT(DAY(DATEVALUE({!myVariable_current.ActualStartTime} ))) +&quot;/&quot;+ TEXT(MONTH(DATEVALUE({!myVariable_current.ActualStartTime})))+ &quot;/&quot;+ TEXT(YEAR(DATEVALUE({!myVariable_current.ActualStartTime}))) + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)  + {!myVariable_current.Action_Taken__c} ,
+{!myVariable_current.Work_Order__r.Action_Taken__c} + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)+ SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)+ {!myVariable_current.Service_Resource_Name__c} + &quot; &quot;+ TEXT(DAY(DATEVALUE({!myVariable_current.ActualStartTime} ))) +&quot;/&quot;+ TEXT(MONTH(DATEVALUE({!myVariable_current.ActualStartTime}))) + &quot;/&quot;+ TEXT(YEAR(DATEVALUE({!myVariable_current.ActualStartTime}))) + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)  + {!myVariable_current.Action_Taken__c} ), {!myVariable_current.Work_Order__r.Action_Taken__c})</expression>
     </formulas>
     <formulas>
         <processMetadataValues>
             <name>originalFormula</name>
             <value>
-                <stringValue>IF(ISBLANK([ServiceAppointment].Work_Order__c.Suggested_Follow_up__c ),
-[ServiceAppointment].Service_Resource_Name__c + &quot; &quot;+ TEXT(DAY(TODAY())) +&quot;/&quot;+TEXT(MONTH(TODAY()))+ &quot;/&quot;+ TEXT(YEAR(TODAY())) + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)  + [ServiceAppointment].Suggested_Follow_up__c  ,
-[ServiceAppointment].Work_Order__c.Action_Taken__c + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)+ SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)+ [ServiceAppointment].Service_Resource_Name__c + &quot; &quot;+ TEXT(DAY(TODAY())) +&quot;/&quot;+TEXT(MONTH(TODAY()))+ &quot;/&quot;+ TEXT(YEAR(TODAY())) + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)  + [ServiceAppointment].Suggested_Follow_up__c  )</stringValue>
+                <stringValue>IF(([ServiceAppointment].Suggested_Follow_up__c &lt;&gt;  [ServiceAppointment].Suggested_Followup_Copied__c ),
+IF(ISBLANK([ServiceAppointment].Suggested_Follow_up__c), [ServiceAppointment].Work_Order__c.Suggested_Follow_up__c  ,
+IF(ISBLANK([ServiceAppointment].Work_Order__c.Suggested_Follow_up__c ),
+[ServiceAppointment].Service_Resource_Name__c + &quot; &quot;+ TEXT(DAY(DATEVALUE([ServiceAppointment].ActualStartTime ))) +&quot;/&quot;+TEXT(MONTH(DATEVALUE([ServiceAppointment].ActualStartTime))) + &quot;/&quot;+ TEXT(YEAR(DATEVALUE([ServiceAppointment].ActualStartTime))) + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)  + [ServiceAppointment].Suggested_Follow_up__c  ,
+[ServiceAppointment].Work_Order__c.Suggested_Follow_up__c + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)+ SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)+ [ServiceAppointment].Service_Resource_Name__c + &quot; &quot;+ TEXT(DAY(DATEVALUE([ServiceAppointment].ActualStartTime ))) +&quot;/&quot;+TEXT(MONTH(DATEVALUE([ServiceAppointment].ActualStartTime)))+ &quot;/&quot;+ TEXT(YEAR(DATEVALUE([ServiceAppointment].ActualStartTime))) + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)  + [ServiceAppointment].Suggested_Follow_up__c  )),
+[ServiceAppointment].Work_Order__c.Suggested_Follow_up__c)</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_43_myRule_40_A1_3085736893</name>
+        <name>formula_43_myRule_40_A1_7078018308</name>
         <dataType>String</dataType>
-        <expression>IF(ISBLANK({!myVariable_current.Work_Order__r.Suggested_Follow_up__c} ),
-{!myVariable_current.Service_Resource_Name__c} + &quot; &quot;+ TEXT(DAY(TODAY())) +&quot;/&quot;+TEXT(MONTH(TODAY()))+ &quot;/&quot;+ TEXT(YEAR(TODAY())) + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)  + {!myVariable_current.Suggested_Follow_up__c}  ,
-{!myVariable_current.Work_Order__r.Action_Taken__c} + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)+ SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)+ {!myVariable_current.Service_Resource_Name__c} + &quot; &quot;+ TEXT(DAY(TODAY())) +&quot;/&quot;+TEXT(MONTH(TODAY()))+ &quot;/&quot;+ TEXT(YEAR(TODAY())) + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)  + {!myVariable_current.Suggested_Follow_up__c}  )</expression>
+        <expression>IF(({!myVariable_current.Suggested_Follow_up__c} &lt;&gt;  {!myVariable_current.Suggested_Followup_Copied__c} ),
+IF(ISBLANK({!myVariable_current.Suggested_Follow_up__c}), {!myVariable_current.Work_Order__r.Suggested_Follow_up__c}  ,
+IF(ISBLANK({!myVariable_current.Work_Order__r.Suggested_Follow_up__c} ),
+{!myVariable_current.Service_Resource_Name__c} + &quot; &quot;+ TEXT(DAY(DATEVALUE({!myVariable_current.ActualStartTime} ))) +&quot;/&quot;+TEXT(MONTH(DATEVALUE({!myVariable_current.ActualStartTime}))) + &quot;/&quot;+ TEXT(YEAR(DATEVALUE({!myVariable_current.ActualStartTime}))) + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)  + {!myVariable_current.Suggested_Follow_up__c}  ,
+{!myVariable_current.Work_Order__r.Suggested_Follow_up__c} + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)+ SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)+ {!myVariable_current.Service_Resource_Name__c} + &quot; &quot;+ TEXT(DAY(DATEVALUE({!myVariable_current.ActualStartTime} ))) +&quot;/&quot;+TEXT(MONTH(DATEVALUE({!myVariable_current.ActualStartTime})))+ &quot;/&quot;+ TEXT(YEAR(DATEVALUE({!myVariable_current.ActualStartTime}))) + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)  + {!myVariable_current.Suggested_Follow_up__c}  )),
+{!myVariable_current.Work_Order__r.Suggested_Follow_up__c})</expression>
     </formulas>
     <formulas>
         <processMetadataValues>
             <name>originalFormula</name>
             <value>
-                <stringValue>IF(ISBLANK([ServiceAppointment].Work_Order__c.Action_Taken__c),
-[ServiceAppointment].Service_Resource_Name__c + &quot; &quot;+ TEXT(DAY(TODAY())) +&quot;/&quot;+TEXT(MONTH(TODAY()))+ &quot;/&quot;+ TEXT(YEAR(TODAY())) + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)  + [ServiceAppointment].Action_Taken__c ,
-[ServiceAppointment].Work_Order__c.Action_Taken__c + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)+ SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)+ [ServiceAppointment].Service_Resource_Name__c + &quot; &quot;+ TEXT(DAY(TODAY())) +&quot;/&quot;+TEXT(MONTH(TODAY()))+ &quot;/&quot;+ TEXT(YEAR(TODAY())) + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)  + [ServiceAppointment].Action_Taken__c )</stringValue>
+                <stringValue>[ServiceAppointment].Action_Taken__c </stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_47_myRule_45_A1_9162588034</name>
+        <name>formula_47_myRule_45_A2_7834415850</name>
         <dataType>String</dataType>
-        <expression>IF(ISBLANK({!myVariable_current.Work_Order__r.Action_Taken__c}),
-{!myVariable_current.Service_Resource_Name__c} + &quot; &quot;+ TEXT(DAY(TODAY())) +&quot;/&quot;+TEXT(MONTH(TODAY()))+ &quot;/&quot;+ TEXT(YEAR(TODAY())) + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)  + {!myVariable_current.Action_Taken__c} ,
-{!myVariable_current.Work_Order__r.Action_Taken__c} + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)+ SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)+ {!myVariable_current.Service_Resource_Name__c} + &quot; &quot;+ TEXT(DAY(TODAY())) +&quot;/&quot;+TEXT(MONTH(TODAY()))+ &quot;/&quot;+ TEXT(YEAR(TODAY())) + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)  + {!myVariable_current.Action_Taken__c} )</expression>
+        <expression>{!myVariable_current.Action_Taken__c}</expression>
     </formulas>
     <formulas>
         <processMetadataValues>
             <name>originalFormula</name>
             <value>
-                <stringValue>IF(ISBLANK([ServiceAppointment].Work_Order__c.Suggested_Follow_up__c ),
-[ServiceAppointment].Service_Resource_Name__c + &quot; &quot;+ TEXT(DAY(TODAY())) +&quot;/&quot;+TEXT(MONTH(TODAY()))+ &quot;/&quot;+ TEXT(YEAR(TODAY())) + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)  + [ServiceAppointment].Suggested_Follow_up__c  ,
-[ServiceAppointment].Work_Order__c.Action_Taken__c + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)+ SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)+ [ServiceAppointment].Service_Resource_Name__c + &quot; &quot;+ TEXT(DAY(TODAY())) +&quot;/&quot;+TEXT(MONTH(TODAY()))+ &quot;/&quot;+ TEXT(YEAR(TODAY())) + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)  + [ServiceAppointment].Suggested_Follow_up__c  )</stringValue>
+                <stringValue>[ServiceAppointment].Suggested_Follow_up__c </stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_48_myRule_45_A1_3679259391</name>
+        <name>formula_48_myRule_45_A2_3266636269</name>
         <dataType>String</dataType>
-        <expression>IF(ISBLANK({!myVariable_current.Work_Order__r.Suggested_Follow_up__c} ),
-{!myVariable_current.Service_Resource_Name__c} + &quot; &quot;+ TEXT(DAY(TODAY())) +&quot;/&quot;+TEXT(MONTH(TODAY()))+ &quot;/&quot;+ TEXT(YEAR(TODAY())) + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)  + {!myVariable_current.Suggested_Follow_up__c}  ,
-{!myVariable_current.Work_Order__r.Action_Taken__c} + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)+ SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)+ {!myVariable_current.Service_Resource_Name__c} + &quot; &quot;+ TEXT(DAY(TODAY())) +&quot;/&quot;+TEXT(MONTH(TODAY()))+ &quot;/&quot;+ TEXT(YEAR(TODAY())) + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)  + {!myVariable_current.Suggested_Follow_up__c}  )</expression>
+        <expression>{!myVariable_current.Suggested_Follow_up__c}</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>IF(([ServiceAppointment].Action_Taken__c &lt;&gt;  [ServiceAppointment].Action_Taken_Copied__c),
+IF(ISBLANK([ServiceAppointment].Work_Order__c.Action_Taken__c),
+[ServiceAppointment].Service_Resource_Name__c + &quot; &quot;+ TEXT(DAY(DATEVALUE([ServiceAppointment].ActualStartTime ))) +&quot;/&quot;+ TEXT(MONTH(DATEVALUE([ServiceAppointment].ActualStartTime)))+ &quot;/&quot;+ TEXT(YEAR(DATEVALUE([ServiceAppointment].ActualStartTime))) + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)  + [ServiceAppointment].Action_Taken__c ,
+[ServiceAppointment].Work_Order__c.Action_Taken__c + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)+ SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)+ [ServiceAppointment].Service_Resource_Name__c + &quot; &quot;+ TEXT(DAY(DATEVALUE([ServiceAppointment].ActualStartTime ))) +&quot;/&quot;+ TEXT(MONTH(DATEVALUE([ServiceAppointment].ActualStartTime))) + &quot;/&quot;+ TEXT(YEAR(DATEVALUE([ServiceAppointment].ActualStartTime))) + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)  + [ServiceAppointment].Action_Taken__c ), [ServiceAppointment].Work_Order__c.Action_Taken__c)
+</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_49_myRule_45_A1_9768537496</name>
+        <dataType>String</dataType>
+        <expression>IF(({!myVariable_current.Action_Taken__c} &lt;&gt;  {!myVariable_current.Action_Taken_Copied__c}),
+IF(ISBLANK({!myVariable_current.Work_Order__r.Action_Taken__c}),
+{!myVariable_current.Service_Resource_Name__c} + &quot; &quot;+ TEXT(DAY(DATEVALUE({!myVariable_current.ActualStartTime} ))) +&quot;/&quot;+ TEXT(MONTH(DATEVALUE({!myVariable_current.ActualStartTime})))+ &quot;/&quot;+ TEXT(YEAR(DATEVALUE({!myVariable_current.ActualStartTime}))) + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)  + {!myVariable_current.Action_Taken__c} ,
+{!myVariable_current.Work_Order__r.Action_Taken__c} + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)+ SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)+ {!myVariable_current.Service_Resource_Name__c} + &quot; &quot;+ TEXT(DAY(DATEVALUE({!myVariable_current.ActualStartTime} ))) +&quot;/&quot;+ TEXT(MONTH(DATEVALUE({!myVariable_current.ActualStartTime}))) + &quot;/&quot;+ TEXT(YEAR(DATEVALUE({!myVariable_current.ActualStartTime}))) + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)  + {!myVariable_current.Action_Taken__c} ), {!myVariable_current.Work_Order__r.Action_Taken__c})</expression>
     </formulas>
     <formulas>
         <processMetadataValues>
@@ -2117,9 +2142,31 @@
                 <stringValue>IF(ISBLANK(TEXT([ServiceAppointment].Contract_Remote_Job__c) ), TEXT([ServiceAppointment].Work_Order__c.ServiceContract.Remote_Access__c ) , TEXT([ServiceAppointment].Contract_Remote_Job__c)) </stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_4_myRule_3_A1_4974383311</name>
+        <name>formula_4_myRule_3_A1_7889173373</name>
         <dataType>String</dataType>
         <expression>IF(ISBLANK(TEXT({!myVariable_current.Contract_Remote_Job__c}) ), TEXT({!myVariable_current.Work_Order__r.ServiceContract.Remote_Access__c} ) , TEXT({!myVariable_current.Contract_Remote_Job__c}))</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>IF(([ServiceAppointment].Suggested_Follow_up__c &lt;&gt;  [ServiceAppointment].Suggested_Followup_Copied__c ),
+IF(ISBLANK([ServiceAppointment].Suggested_Follow_up__c), [ServiceAppointment].Work_Order__c.Suggested_Follow_up__c  ,
+IF(ISBLANK([ServiceAppointment].Work_Order__c.Suggested_Follow_up__c ),
+[ServiceAppointment].Service_Resource_Name__c + &quot; &quot;+ TEXT(DAY(DATEVALUE([ServiceAppointment].ActualStartTime ))) +&quot;/&quot;+TEXT(MONTH(DATEVALUE([ServiceAppointment].ActualStartTime))) + &quot;/&quot;+ TEXT(YEAR(DATEVALUE([ServiceAppointment].ActualStartTime))) + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)  + [ServiceAppointment].Suggested_Follow_up__c  ,
+[ServiceAppointment].Work_Order__c.Suggested_Follow_up__c + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)+ SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)+ [ServiceAppointment].Service_Resource_Name__c + &quot; &quot;+ TEXT(DAY(DATEVALUE([ServiceAppointment].ActualStartTime ))) +&quot;/&quot;+TEXT(MONTH(DATEVALUE([ServiceAppointment].ActualStartTime)))+ &quot;/&quot;+ TEXT(YEAR(DATEVALUE([ServiceAppointment].ActualStartTime))) + SUBSTITUTE($Label.NewLine , &quot;-&quot;,&quot;&quot;)  + [ServiceAppointment].Suggested_Follow_up__c  )),
+[ServiceAppointment].Work_Order__c.Suggested_Follow_up__c)
+</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_50_myRule_45_A1_9197190429</name>
+        <dataType>String</dataType>
+        <expression>IF(({!myVariable_current.Suggested_Follow_up__c} &lt;&gt;  {!myVariable_current.Suggested_Followup_Copied__c} ),
+IF(ISBLANK({!myVariable_current.Suggested_Follow_up__c}), {!myVariable_current.Work_Order__r.Suggested_Follow_up__c}  ,
+IF(ISBLANK({!myVariable_current.Work_Order__r.Suggested_Follow_up__c} ),
+{!myVariable_current.Service_Resource_Name__c} + &quot; &quot;+ TEXT(DAY(DATEVALUE({!myVariable_current.ActualStartTime} ))) +&quot;/&quot;+TEXT(MONTH(DATEVALUE({!myVariable_current.ActualStartTime}))) + &quot;/&quot;+ TEXT(YEAR(DATEVALUE({!myVariable_current.ActualStartTime}))) + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)  + {!myVariable_current.Suggested_Follow_up__c}  ,
+{!myVariable_current.Work_Order__r.Suggested_Follow_up__c} + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)+ SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)+ {!myVariable_current.Service_Resource_Name__c} + &quot; &quot;+ TEXT(DAY(DATEVALUE({!myVariable_current.ActualStartTime} ))) +&quot;/&quot;+TEXT(MONTH(DATEVALUE({!myVariable_current.ActualStartTime})))+ &quot;/&quot;+ TEXT(YEAR(DATEVALUE({!myVariable_current.ActualStartTime}))) + SUBSTITUTE({!$Label.NewLine} , &quot;-&quot;,&quot;&quot;)  + {!myVariable_current.Suggested_Follow_up__c}  )),
+{!myVariable_current.Work_Order__r.Suggested_Follow_up__c})</expression>
     </formulas>
     <formulas>
         <processMetadataValues>
@@ -2128,7 +2175,7 @@
                 <stringValue>IF(ISBLANK(TEXT([ServiceAppointment].Remote_Job2__c) ), TEXT([ServiceAppointment].Work_Order__c.ServiceContract.Remote_Access__c ) , TEXT([ServiceAppointment].Remote_Job2__c)) </stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_5_myRule_3_A1_1332798671</name>
+        <name>formula_5_myRule_3_A1_6203638588</name>
         <dataType>String</dataType>
         <expression>IF(ISBLANK(TEXT({!myVariable_current.Remote_Job2__c}) ), TEXT({!myVariable_current.Work_Order__r.ServiceContract.Remote_Access__c} ) , TEXT({!myVariable_current.Remote_Job2__c}))</expression>
     </formulas>
@@ -2136,12 +2183,12 @@
         <processMetadataValues>
             <name>originalFormula</name>
             <value>
-                <stringValue>NOT(ISNEW()) &amp;&amp; ISPICKVAL([ServiceAppointment].Status , &#39;None&#39; ) &amp;&amp; NOT(ISBLANK([ServiceAppointment].Service_Resource_Name__c ))</stringValue>
+                <stringValue>NOT(ISNEW()) &amp;&amp; ISPICKVAL([ServiceAppointment].Status , &apos;None&apos; ) &amp;&amp; NOT(ISBLANK([ServiceAppointment].Service_Resource_Name__c ))</stringValue>
             </value>
         </processMetadataValues>
         <name>formula_myRule_11</name>
         <dataType>Boolean</dataType>
-        <expression>NOT(ISNEW()) &amp;&amp; ISPICKVAL({!myVariable_current.Status} , &#39;None&#39; ) &amp;&amp; NOT(ISBLANK({!myVariable_current.Service_Resource_Name__c} ))</expression>
+        <expression>NOT(ISNEW()) &amp;&amp; ISPICKVAL({!myVariable_current.Status} , &apos;None&apos; ) &amp;&amp; NOT(ISBLANK({!myVariable_current.Service_Resource_Name__c} ))</expression>
     </formulas>
     <formulas>
         <processMetadataValues>
@@ -2154,7 +2201,7 @@
         <dataType>Boolean</dataType>
         <expression>NOT(ISNEW()) &amp;&amp; ISCHANGED({!myVariable_current.Recall_PO_WorkItem_Id__c} )</expression>
     </formulas>
-    <interviewLabel>PB_SAP01_ServiceAppointment_Process-12_InterviewLabel</interviewLabel>
+    <interviewLabel>PB_SAP01_ServiceAppointment_Process-31_InterviewLabel</interviewLabel>
     <label>PB_SAP01_ServiceAppointment_Process</label>
     <processMetadataValues>
         <name>ObjectType</name>
@@ -3081,7 +3128,7 @@
             </processMetadataValues>
             <field>EntitlementId</field>
             <value>
-                <elementReference>formula_20_myRule_16_A1_4773329808</elementReference>
+                <elementReference>formula_20_myRule_16_A1_9852894081</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -3153,7 +3200,7 @@
             </processMetadataValues>
             <field>SlaStartDate</field>
             <value>
-                <elementReference>formula_21_myRule_16_A1_1523679429</elementReference>
+                <elementReference>formula_21_myRule_16_A1_9571942681</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -3450,7 +3497,7 @@
             </processMetadataValues>
             <field>EntitlementId</field>
             <value>
-                <elementReference>formula_18_myRule_16_A3_7976762019</elementReference>
+                <elementReference>formula_18_myRule_16_A3_2096655419</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -3522,7 +3569,7 @@
             </processMetadataValues>
             <field>SlaStartDate</field>
             <value>
-                <elementReference>formula_19_myRule_16_A3_2626437388</elementReference>
+                <elementReference>formula_19_myRule_16_A3_2890994535</elementReference>
             </value>
         </inputAssignments>
         <object>WorkOrder</object>
@@ -5744,7 +5791,7 @@
             </processMetadataValues>
             <field>Action_Taken__c</field>
             <value>
-                <elementReference>formula_37_myRule_35_A1_3160571438</elementReference>
+                <elementReference>formula_37_myRule_35_A1_3350011134</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -5816,7 +5863,7 @@
             </processMetadataValues>
             <field>Suggested_Follow_up__c</field>
             <value>
-                <elementReference>formula_38_myRule_35_A1_6136832807</elementReference>
+                <elementReference>formula_38_myRule_35_A1_7970397723</elementReference>
             </value>
         </inputAssignments>
         <object>WorkOrder</object>
@@ -5850,6 +5897,9 @@
         <label>Update Case Timestamp</label>
         <locationX>3500</locationX>
         <locationY>300</locationY>
+        <connector>
+            <targetReference>myRule_35_A3</targetReference>
+        </connector>
         <filters>
             <processMetadataValues>
                 <name>implicit</name>
@@ -5975,6 +6025,122 @@
         <processMetadataValues>
             <name>referenceTargetField</name>
         </processMetadataValues>
+        <name>myRule_35_A3</name>
+        <label>Copy Notes Field</label>
+        <locationX>3500</locationX>
+        <locationY>400</locationY>
+        <filters>
+            <processMetadataValues>
+                <name>implicit</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Action Taken Copied</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue/>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Reference</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>Action_Taken_Copied__c</field>
+            <value>
+                <elementReference>myVariable_current.Action_Taken__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Suggested Followup Copied</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue/>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Reference</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>Suggested_Followup_Copied__c</field>
+            <value>
+                <elementReference>myVariable_current.Suggested_Follow_up__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ServiceAppointment</object>
+    </recordUpdates>
+    <recordUpdates>
+        <processMetadataValues>
+            <name>evaluationType</name>
+            <value>
+                <stringValue>always</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>extraTypeInfo</name>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>isChildRelationship</name>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>reference</name>
+            <value>
+                <stringValue>[ServiceAppointment]</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>referenceTargetField</name>
+        </processMetadataValues>
         <name>myRule_3_A1</name>
         <label>Update SA 2</label>
         <locationX>300</locationX>
@@ -6064,7 +6230,7 @@
             </processMetadataValues>
             <field>Contract_Remote_Job__c</field>
             <value>
-                <elementReference>formula_4_myRule_3_A1_4974383311</elementReference>
+                <elementReference>formula_4_myRule_3_A1_7889173373</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -6100,7 +6266,7 @@
             </processMetadataValues>
             <field>Remote_Job2__c</field>
             <value>
-                <elementReference>formula_5_myRule_3_A1_1332798671</elementReference>
+                <elementReference>formula_5_myRule_3_A1_6203638588</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -6170,6 +6336,9 @@
         <label>WO Update</label>
         <locationX>4000</locationX>
         <locationY>200</locationY>
+        <connector>
+            <targetReference>myRule_40_A2</targetReference>
+        </connector>
         <filters>
             <processMetadataValues>
                 <name>implicit</name>
@@ -6216,7 +6385,7 @@
             </processMetadataValues>
             <field>Action_Taken__c</field>
             <value>
-                <elementReference>formula_42_myRule_40_A1_6425969900</elementReference>
+                <elementReference>formula_42_myRule_40_A1_2934028247</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -6252,10 +6421,126 @@
             </processMetadataValues>
             <field>Suggested_Follow_up__c</field>
             <value>
-                <elementReference>formula_43_myRule_40_A1_3085736893</elementReference>
+                <elementReference>formula_43_myRule_40_A1_7078018308</elementReference>
             </value>
         </inputAssignments>
         <object>WorkOrder</object>
+    </recordUpdates>
+    <recordUpdates>
+        <processMetadataValues>
+            <name>evaluationType</name>
+            <value>
+                <stringValue>always</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>extraTypeInfo</name>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>isChildRelationship</name>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>reference</name>
+            <value>
+                <stringValue>[ServiceAppointment]</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>referenceTargetField</name>
+        </processMetadataValues>
+        <name>myRule_40_A2</name>
+        <label>Copy Notes Field</label>
+        <locationX>4000</locationX>
+        <locationY>300</locationY>
+        <filters>
+            <processMetadataValues>
+                <name>implicit</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Action Taken Copied</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue/>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Reference</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>Action_Taken_Copied__c</field>
+            <value>
+                <elementReference>myVariable_current.Action_Taken__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Suggested Followup Copied</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue/>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Reference</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>Suggested_Followup_Copied__c</field>
+            <value>
+                <elementReference>myVariable_current.Suggested_Follow_up__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ServiceAppointment</object>
     </recordUpdates>
     <recordUpdates>
         <processMetadataValues>
@@ -6286,6 +6571,9 @@
         <label>Update WO</label>
         <locationX>4500</locationX>
         <locationY>200</locationY>
+        <connector>
+            <targetReference>myRule_45_A2</targetReference>
+        </connector>
         <filters>
             <processMetadataValues>
                 <name>implicit</name>
@@ -6332,7 +6620,7 @@
             </processMetadataValues>
             <field>Action_Taken__c</field>
             <value>
-                <elementReference>formula_47_myRule_45_A1_9162588034</elementReference>
+                <elementReference>formula_49_myRule_45_A1_9768537496</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -6368,10 +6656,126 @@
             </processMetadataValues>
             <field>Suggested_Follow_up__c</field>
             <value>
-                <elementReference>formula_48_myRule_45_A1_3679259391</elementReference>
+                <elementReference>formula_50_myRule_45_A1_9197190429</elementReference>
             </value>
         </inputAssignments>
         <object>WorkOrder</object>
+    </recordUpdates>
+    <recordUpdates>
+        <processMetadataValues>
+            <name>evaluationType</name>
+            <value>
+                <stringValue>always</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>extraTypeInfo</name>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>isChildRelationship</name>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>reference</name>
+            <value>
+                <stringValue>[ServiceAppointment]</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>referenceTargetField</name>
+        </processMetadataValues>
+        <name>myRule_45_A2</name>
+        <label>Copy Notes Field</label>
+        <locationX>4500</locationX>
+        <locationY>300</locationY>
+        <filters>
+            <processMetadataValues>
+                <name>implicit</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Action Taken Copied</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue/>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Formula</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>Action_Taken_Copied__c</field>
+            <value>
+                <elementReference>formula_47_myRule_45_A2_7834415850</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Suggested Followup Copied</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue/>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Formula</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>Suggested_Followup_Copied__c</field>
+            <value>
+                <elementReference>formula_48_myRule_45_A2_3266636269</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ServiceAppointment</object>
     </recordUpdates>
     <recordUpdates>
         <processMetadataValues>

@@ -3,7 +3,7 @@
     <assignments>
         <name>Assign_SA_values</name>
         <label>Assign SA values</label>
-        <locationX>192</locationX>
+        <locationX>413</locationX>
         <locationY>575</locationY>
         <assignmentItems>
             <assignToReference>SA_Record.Transaction_Completed__c</assignToReference>
@@ -19,7 +19,7 @@
     <assignments>
         <name>Resource_Name_Update</name>
         <label>Resource Name Update</label>
-        <locationX>1007</locationX>
+        <locationX>1228</locationX>
         <locationY>449</locationY>
         <assignmentItems>
             <assignToReference>ResourceName</assignToReference>
@@ -59,7 +59,7 @@
     <decisions>
         <name>Actual_Vs_Billable</name>
         <label>Actual Vs Billable</label>
-        <locationX>476</locationX>
+        <locationX>697</locationX>
         <locationY>578</locationY>
         <defaultConnector>
             <targetReference>Reason_Screen</targetReference>
@@ -84,7 +84,7 @@
     <decisions>
         <name>Check_Resource_Name</name>
         <label>Check Resource Name</label>
-        <locationX>940</locationX>
+        <locationX>1161</locationX>
         <locationY>245</locationY>
         <defaultConnector>
             <targetReference>TimeInput</targetReference>
@@ -109,7 +109,7 @@
     <decisions>
         <name>Over_16_Hours</name>
         <label>Over 16 Hours</label>
-        <locationX>692</locationX>
+        <locationX>913</locationX>
         <locationY>462</locationY>
         <defaultConnector>
             <targetReference>GetWO</targetReference>
@@ -134,7 +134,7 @@
     <decisions>
         <name>SA_Status</name>
         <label>SA Status</label>
-        <locationX>297</locationX>
+        <locationX>518</locationX>
         <locationY>58</locationY>
         <defaultConnector>
             <targetReference>Get_Current_Service_Resource</targetReference>
@@ -208,9 +208,23 @@
         </rules>
         <rules>
             <name>Job_not_completed</name>
-            <conditionLogic>and</conditionLogic>
+            <conditionLogic>or</conditionLogic>
             <conditions>
                 <leftValueReference>SA_Record.Action_Taken__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SA_Record.JSEA__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>WO_Record_Initial.Initial_Findings__c</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
@@ -225,7 +239,7 @@
     <decisions>
         <name>Start_before_End_Date</name>
         <label>Start before End Date?</label>
-        <locationX>605</locationX>
+        <locationX>826</locationX>
         <locationY>341</locationY>
         <defaultConnector>
             <targetReference>Over_16_Hours</targetReference>
@@ -250,7 +264,7 @@
     <decisions>
         <name>Transaction_for</name>
         <label>Transaction for</label>
-        <locationX>916</locationX>
+        <locationX>1137</locationX>
         <locationY>81</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -284,6 +298,7 @@
             <label>SomeoneElse</label>
         </rules>
     </decisions>
+    <description>JSEA Mandatory before Capturing Transaction</description>
     <dynamicChoiceSets>
         <name>ResourceList</name>
         <dataType>String</dataType>
@@ -402,7 +417,7 @@
     <recordCreates>
         <name>Create_WOLI</name>
         <label>Create WOLI</label>
-        <locationX>327</locationX>
+        <locationX>548</locationX>
         <locationY>577</locationY>
         <connector>
             <targetReference>Assign_SA_values</targetReference>
@@ -484,7 +499,7 @@
     <recordLookups>
         <name>Get_Current_Service_Resource</name>
         <label>Get Current Service Resource</label>
-        <locationX>530</locationX>
+        <locationX>751</locationX>
         <locationY>65</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -517,11 +532,11 @@
     <recordLookups>
         <name>Get_SA</name>
         <label>Get SA</label>
-        <locationX>169</locationX>
+        <locationX>390</locationX>
         <locationY>53</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>SA_Status</targetReference>
+            <targetReference>Get_WO</targetReference>
         </connector>
         <filters>
             <field>Id</field>
@@ -539,11 +554,33 @@
         <queriedFields>Transaction_Completed__c</queriedFields>
         <queriedFields>Initial_Findings__c</queriedFields>
         <queriedFields>Action_Taken__c</queriedFields>
+        <queriedFields>JSEA__c</queriedFields>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_WO</name>
+        <label>Get WO</label>
+        <locationX>228</locationX>
+        <locationY>177</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>SA_Status</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>SA_Record.ParentRecordId</elementReference>
+            </value>
+        </filters>
+        <object>WorkOrder</object>
+        <outputReference>WO_Record_Initial</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Initial_Findings__c</queriedFields>
     </recordLookups>
     <recordLookups>
         <name>GetWO</name>
         <label>GetWO</label>
-        <locationX>710</locationX>
+        <locationX>931</locationX>
         <locationY>578</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -565,14 +602,14 @@
     <recordUpdates>
         <name>Update_SA</name>
         <label>Update SA</label>
-        <locationX>49</locationX>
+        <locationX>270</locationX>
         <locationY>571</locationY>
         <inputReference>SA_Record</inputReference>
     </recordUpdates>
     <screens>
         <name>Actual_hours_Screen</name>
         <label>Actual hours Screen</label>
-        <locationX>582</locationX>
+        <locationX>803</locationX>
         <locationY>566</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -602,14 +639,14 @@
     <screens>
         <name>Capture_Job_detail_message</name>
         <label>Capture Job detail message</label>
-        <locationX>335</locationX>
+        <locationX>555</locationX>
         <locationY>390</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <fields>
             <name>Message</name>
-            <fieldText>&lt;p&gt;Please capture the job details before capturing your time spent on the job.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please populate &#39;Initial Findings&#39; and &#39;Action Taken&#39; fields&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;Please capture the job details before capturing your time spent on the job.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please populate &apos;JSEA&apos;, &apos;Initial Findings&apos; and &apos;Action Taken&apos; fields.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Current Values&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;JSEA: &lt;/b&gt;{!SA_Record.JSEA__c}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Initial Findings: &lt;/b&gt;{!WO_Record_Initial.Initial_Findings__c}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Action Taken: &lt;/b&gt;{!SA_Record.Action_Taken__c}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -618,7 +655,7 @@
     <screens>
         <name>Error_Complete_Screen</name>
         <label>Error Complete Screen</label>
-        <locationX>65</locationX>
+        <locationX>286</locationX>
         <locationY>435</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -634,14 +671,14 @@
     <screens>
         <name>Not_Started_Screen</name>
         <label>Not Started Screen</label>
-        <locationX>207</locationX>
+        <locationX>428</locationX>
         <locationY>431</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <fields>
             <name>ErrorNotStartedMessage</name>
-            <fieldText>&lt;p&gt;Sorry, you cannot create a transaction before starting working on the work order.&lt;/p&gt;&lt;p&gt;Please update the status to &#39;Arrived Onsite&#39;, perform JSEA and capture job details in order to create a transaction.&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;Sorry, you cannot create a transaction before starting working on the work order.&lt;/p&gt;&lt;p&gt;Please update the status to &apos;Arrived Onsite&apos;, perform JSEA and capture job details in order to create a transaction.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -650,7 +687,7 @@
     <screens>
         <name>Reason_Screen</name>
         <label>Reason Screen</label>
-        <locationX>486</locationX>
+        <locationX>707</locationX>
         <locationY>454</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -670,7 +707,7 @@
     <screens>
         <name>Resource_Type_Selection</name>
         <label>Resource Type Selection</label>
-        <locationX>664</locationX>
+        <locationX>885</locationX>
         <locationY>75</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -694,7 +731,7 @@
     <screens>
         <name>Search_Resource_Screen</name>
         <label>Search Resource Screen</label>
-        <locationX>1116</locationX>
+        <locationX>1337</locationX>
         <locationY>84</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -715,7 +752,7 @@
     <screens>
         <name>Select_Technician_Screen</name>
         <label>Select Technician Screen</label>
-        <locationX>1093</locationX>
+        <locationX>1314</locationX>
         <locationY>256</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -738,7 +775,7 @@
     <screens>
         <name>Test</name>
         <label>Test</label>
-        <locationX>328</locationX>
+        <locationX>549</locationX>
         <locationY>784</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -754,7 +791,7 @@
     <screens>
         <name>TimeInput</name>
         <label>TimeInput</label>
-        <locationX>757</locationX>
+        <locationX>978</locationX>
         <locationY>262</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -781,7 +818,7 @@
             <name>End_Date_Time</name>
             <dataType>DateTime</dataType>
             <defaultValue>
-                <elementReference>$Flow.CurrentDateTime</elementReference>
+                <elementReference>SA_Record.ActualStartTime</elementReference>
             </defaultValue>
             <fieldText>End Date/Time</fieldText>
             <fieldType>InputField</fieldType>
@@ -794,7 +831,7 @@
     <screens>
         <name>Transaction_done_screen</name>
         <label>Transaction done screen</label>
-        <locationX>482</locationX>
+        <locationX>703</locationX>
         <locationY>328</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -813,7 +850,7 @@
     <screens>
         <name>Warning_Screen1</name>
         <label>Warning Screen1</label>
-        <locationX>620</locationX>
+        <locationX>841</locationX>
         <locationY>192</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -832,7 +869,7 @@
     <screens>
         <name>Warning_Screen_2</name>
         <label>Warning Screen 2</label>
-        <locationX>825</locationX>
+        <locationX>1046</locationX>
         <locationY>465</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -921,6 +958,22 @@
     </variables>
     <variables>
         <name>WO_Record</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>WorkOrder</objectType>
+    </variables>
+    <variables>
+        <name>WO_Record_Initial</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>WorkOrder</objectType>
+    </variables>
+    <variables>
+        <name>WorkOrderInitialFindings</name>
         <dataType>SObject</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>

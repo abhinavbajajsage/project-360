@@ -233,9 +233,23 @@
         </rules>
         <rules>
             <name>Job_not_completed</name>
-            <conditionLogic>and</conditionLogic>
+            <conditionLogic>or</conditionLogic>
             <conditions>
                 <leftValueReference>SA_Record.Action_Taken__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SA_Record.JSEA__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>WO_RecordInitial.Initial_Findings__c</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
@@ -309,6 +323,7 @@
             <label>SomeoneElse</label>
         </rules>
     </decisions>
+    <description>Making JSEA mandatory before capturing transactions. Showing values added for JSEA, findings and action taken</description>
     <dynamicChoiceSets>
         <name>PriceBookEntry</name>
         <dataType>String</dataType>
@@ -612,11 +627,11 @@
     <recordLookups>
         <name>Get_SA</name>
         <label>Get SA</label>
-        <locationX>390</locationX>
+        <locationX>389</locationX>
         <locationY>54</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>SA_Status</targetReference>
+            <targetReference>Get_WO</targetReference>
         </connector>
         <filters>
             <field>Id</field>
@@ -634,6 +649,28 @@
         <queriedFields>Transaction_Completed__c</queriedFields>
         <queriedFields>Initial_Findings__c</queriedFields>
         <queriedFields>Action_Taken__c</queriedFields>
+        <queriedFields>JSEA__c</queriedFields>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_WO</name>
+        <label>Get WO</label>
+        <locationX>266</locationX>
+        <locationY>199</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>SA_Status</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>SA_Record.ParentRecordId</elementReference>
+            </value>
+        </filters>
+        <object>WorkOrder</object>
+        <outputReference>WO_RecordInitial</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Initial_Findings__c</queriedFields>
     </recordLookups>
     <recordLookups>
         <name>GetWO</name>
@@ -712,7 +749,7 @@
         <allowPause>true</allowPause>
         <fields>
             <name>Message</name>
-            <fieldText>&lt;p&gt;Please capture the job details before capturing your time spent on the job.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please populate &apos;Initial Findings&apos; and &apos;Action Taken&apos; fields&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;Please capture the job details before capturing your time spent on the job.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please populate &apos;JSEA&apos;, &apos;Initial Findings&apos; and &apos;Action Taken&apos; fields.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Current Values&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;JSEA: &lt;/b&gt;{!SA_Record.JSEA__c}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Initial Findings: &lt;/b&gt;{!WO_RecordInitial.Initial_Findings__c}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Action Taken: &lt;/b&gt;{!SA_Record.Action_Taken__c}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -900,7 +937,7 @@
             <name>End_Date_Time</name>
             <dataType>DateTime</dataType>
             <defaultValue>
-                <elementReference>$Flow.CurrentDateTime</elementReference>
+                <elementReference>SA_Record.ActualStartTime</elementReference>
             </defaultValue>
             <fieldText>End Date/Time</fieldText>
             <fieldType>InputField</fieldType>
@@ -1063,6 +1100,14 @@
     </variables>
     <variables>
         <name>WO_Record</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>WorkOrder</objectType>
+    </variables>
+    <variables>
+        <name>WO_RecordInitial</name>
         <dataType>SObject</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
