@@ -22,10 +22,20 @@
 	</types>
 	    <types>
       <members>YVW_Source_CL</members>
-       <members>YVW_Source_CL</members>
-        <members>YVW_Source_CL</members>
+       <members>YVW_Datetime_CL</members>
+        <members>YVW_System</members>
+         <members>YVW_Work_Order_ID</members>
+          <members>YVW_Apollo_ID</members>
+           <members>YVW_Location_ID</members>
+            <members>YVW_Alarm_Description</members>
+             <members>YVW_Priority_C</members>
+              <members>YVW_Location_Description</members>
       <name>CustomLabels</name>
     </types>
+    	<types>
+		<members>PB_WOR01_Process</members>
+		<name>Flow</name>
+	</types>
 
 	<version>47.0</version>
 </Package>
