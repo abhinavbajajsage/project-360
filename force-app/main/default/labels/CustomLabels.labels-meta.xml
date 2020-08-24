@@ -223,7 +223,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>ServiceReportEmailCC</shortDescription>
-        <value>sfuser@proquestit.com</value>
+        <value>service.admin@gotosage.com</value>
     </labels>
     <labels>
         <fullName>ServiceReportEmailTemplateId</fullName>
