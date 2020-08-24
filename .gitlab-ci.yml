@@ -45,7 +45,7 @@ deploy-sandbox-package:
     - install_salesforce_cli
     - install_jq
     - authenticate SANDBOX $SANDBOX_AUTH_URL
-    - sfdx force:source:convert --rootdir force-app --outputdir tmp_convert
+    - sfdx force:source:convert --rootdir force-app --outputdir tmp_convert --manifest manifest/package.xml
     - apt-get install -y zip   
     #- zip r SFDXPackage.zip tmp_convert 
     - (cd tmp_convert && zip -r ../SFDXPackage.zip .)
@@ -80,7 +80,7 @@ deploy-production:
     - install_salesforce_cli
     - install_jq
     - authenticate PRODUCTION $DEVHUB_AUTH_URL
-    - sfdx force:source:convert --rootdir force-app --outputdir tmp_convert
+    - sfdx force:source:convert --rootdir force-app --outputdir tmp_convert --manifest manifest/package.xml
     - apt-get install -y zip   
     #- zip r SFDXPackage.zip tmp_convert 
     - (cd tmp_convert && zip -r ../SFDXPackage.zip .)
