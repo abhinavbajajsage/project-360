@@ -10,9 +10,9 @@
         <body>
             <div class="coverPage">
                 <div class="container">
-                    <apex:image value="{!URLFOR($Resource.SageAutomationCoverPage)}" style="width: 100%;height: 816px;" />
+                    <apex:image value="{!URLFOR($Resource.SageAutomationCoverPage)}" style="width: 100%;height: 1122px;" />
                     <div class="coverPageText">
-                        <table>
+                        <table id="coverPageHeader">
                             <tr>
                                 <td>Contract Agreement Service Report</td>
                             </tr>
@@ -31,7 +31,7 @@
                     <table>
                         <tr>
                         	<td class="alignRight">
-                        	    <apex:image value="{!URLFOR($Resource.SageAutomationLogo)}" style="width:200px; height: 100px;"/>
+                        	    <apex:image value="{!URLFOR($Resource.SageAutomationLogo)}" style="width:200px;"/>
                         	</td>
                         </tr>
                     </table>
@@ -54,7 +54,7 @@
                         </tr>
                         <tr>
                             <td class="alignCenter">
-                                <div style="font-size: 16px; font-weight:600;">
+                                <div style="font-size: 26px; font-weight:600;">
                                     <apex:outputText value="{!ServiceContract.Account.Name}" /> &nbsp; - &nbsp; Service Report for &nbsp; 
                                     <apex:outputText value="{0,date,dd/MM/yyyy}">
                                         <apex:param value="{!workOrderFilter.Filter_Start_Date__c}"/>
@@ -86,15 +86,15 @@
                         <tbody>
                             <apex:repeat value="{!workOrderWrapperList}" var="wrapper">
                                 <tr>
-                                    <td>
+                                    <td  class="alignCenter">
                                         <apex:outputText value="{0,date,dd/MM/yyyy}">
                                             <apex:param value="{!wrapper.workOrderRecord.CreatedDate}"/>
                                         </apex:outputText> 
                                     </td>
-                                    <td>
+                                    <td  class="alignCenter">
                                         <apex:outputField value="{!wrapper.workOrderRecord.WorkOrderNumber}" />
                                     </td>
-                                    <td>
+                                    <td  class="alignCenter">
                                         <apex:outputField value="{!wrapper.workOrderRecord.Customer_Purchase_Order_number__c}" />
                                     </td>
                                     <td>
@@ -103,13 +103,13 @@
                                     <td>
                                         <apex:outputField value="{!wrapper.workOrderRecord.Subject}" />
                                     </td>
-                                    <td>
+                                    <td style="width:500px">
                                         <apex:outputField value="{!wrapper.workOrderRecord.Action_Taken__c}" />
                                     </td>
-                                    <td>
+                                    <td style="width:400px">
                                         <apex:outputField value="{!wrapper.workOrderRecord.Suggested_Follow_up__c}" />
                                     </td>
-                                    <td>
+                                    <td class="alignCenter">
                                         <apex:outputField value="{!wrapper.workOrderRecord.Total_Billable_Hours__c}" />
                                     </td>
                                 </tr>
