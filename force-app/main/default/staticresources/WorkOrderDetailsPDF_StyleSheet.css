@@ -1,0 +1,89 @@
+@page:first {
+    margin: 0px;
+    padding: 0;
+    size: A3 landscape;
+}
+
+@page {
+    margin: 0px;
+    padding: 0;
+    size: A3 landscape;
+}
+
+body, html {
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+  position: relative;
+}
+
+.coverPageText {
+  position: absolute;
+  top: 300px;
+  right: 50px;
+  color: white;
+}
+
+.coverPageText td {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.row {
+    display: block;
+    margin: 20px;
+}
+
+.clear-fix {
+    clear: both;
+}
+
+table {
+	width: 100%;
+}
+
+th {
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 5px;
+}
+
+td {
+    font-size: 12px;
+    padding: 5px;
+    vertical-align: top;
+	text-align: left;
+}
+
+.tblDetail {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.tblDetail th {
+    background: #eeeeee;
+    text-align: center;
+}
+
+.tblDetail th, .tblDetail td  {
+    border: 1px solid black;
+    padding: 7px 10px;
+    border-collapse: collapse;
+}
+
+.alignCenter {
+    text-align: center;
+}
+
+.alignRight {
+    text-align: right;
+}
+
+.alignLeft {
+    text-align: left;
+}
+#coverPageHeader td {
+    font-size: 40px;
+}

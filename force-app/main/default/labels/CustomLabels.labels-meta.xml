@@ -5,7 +5,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Account_Code_Missing_CL</shortDescription>
-        <value>&#39;{&quot;response&quot;: {&quot;Status&quot;: &quot;Failure&quot;, &quot;message&quot;: &quot;Missing query parameter: account_code&quot;}}&#39;</value>
+        <value>&apos;{&quot;response&quot;: {&quot;Status&quot;: &quot;Failure&quot;, &quot;message&quot;: &quot;Missing query parameter: account_code&quot;}}&apos;</value>
     </labels>
     <labels>
         <fullName>Account_Integration_Trigger_Points_CL</fullName>
@@ -19,14 +19,14 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Account_Not_Found_CL</shortDescription>
-        <value>&#39;{&quot;response&quot;: {&quot;Status&quot;: &quot;Failure&quot;, &quot;message&quot;: &quot;Supplier not found&quot;}}&#39;</value>
+        <value>&apos;{&quot;response&quot;: {&quot;Status&quot;: &quot;Failure&quot;, &quot;message&quot;: &quot;Supplier not found&quot;}}&apos;</value>
     </labels>
     <labels>
         <fullName>Account_Not_Found_CL</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Account_Not_Found_CL</shortDescription>
-        <value>&#39;{&quot;response&quot;: {&quot;Status&quot;: &quot;Failure&quot;, &quot;message&quot;: &quot;Supplier not found&quot;}}&#39;</value>
+        <value>&apos;{&quot;response&quot;: {&quot;Status&quot;: &quot;Failure&quot;, &quot;message&quot;: &quot;Supplier not found&quot;}}&apos;</value>
     </labels>
     <labels>
         <fullName>Case_Email_Subject_CL</fullName>
@@ -89,7 +89,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Duplicate_Record_CL</shortDescription>
-        <value>&#39;{&quot;response&quot;: {&quot;Status&quot;: &quot;Failure&quot;, &quot;message&quot;: &quot;Duplicate record found based on the name or the account code&quot;}}&#39;</value>
+        <value>&apos;{&quot;response&quot;: {&quot;Status&quot;: &quot;Failure&quot;, &quot;message&quot;: &quot;Duplicate record found based on the name or the account code&quot;}}&apos;</value>
     </labels>
     <labels>
         <fullName>Integration_Denied_CL</fullName>
@@ -159,21 +159,21 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>MANDATORY_ATTRIBUTES_MISSING_CL</shortDescription>
-        <value>&#39;{&quot;response&quot;: {&quot;Status&quot;: &quot;Failure&quot;, &quot;message&quot;: &quot;Mandatory attributes Account Code or Supplier name missing&quot;}}&#39;</value>
+        <value>&apos;{&quot;response&quot;: {&quot;Status&quot;: &quot;Failure&quot;, &quot;message&quot;: &quot;Mandatory attributes Account Code or Supplier name missing&quot;}}&apos;</value>
     </labels>
     <labels>
         <fullName>Malformed_Body_CL</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Malformed_Body_CL</shortDescription>
-        <value>&#39;{&quot;response&quot;: {&quot;Status&quot;: &quot;Failure&quot;, &quot;message&quot;: &quot;Your request has no body. Please provide a body&quot;}}&#39;</value>
+        <value>&apos;{&quot;response&quot;: {&quot;Status&quot;: &quot;Failure&quot;, &quot;message&quot;: &quot;Your request has no body. Please provide a body&quot;}}&apos;</value>
     </labels>
     <labels>
         <fullName>Missing_Query_Parameter_CL</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Missing_Query_Parameter_CL</shortDescription>
-        <value>&#39;{&quot;response&quot;: {&quot;Status&quot;: &quot;Failure&quot;, &quot;message&quot;: &quot;Mandatory query parameter Account_Code or Salesforce Id missing&quot;}}&#39;</value>
+        <value>&apos;{&quot;response&quot;: {&quot;Status&quot;: &quot;Failure&quot;, &quot;message&quot;: &quot;Mandatory query parameter Account_Code or Salesforce Id missing&quot;}}&apos;</value>
     </labels>
     <labels>
         <fullName>NOC_Admin_Email_CL</fullName>
@@ -209,7 +209,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Sales_Order_Delete_CL</shortDescription>
-        <value>Sales Order with Integration Status &#39;Successful&#39; cannot be deleted</value>
+        <value>Sales Order with Integration Status &apos;Successful&apos; cannot be deleted</value>
     </labels>
     <labels>
         <fullName>Server_Denied_Request_CL</fullName>
@@ -223,7 +223,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>ServiceReportEmailCC</shortDescription>
-        <value>service.admin@gotosage.com</value>
+        <value>sfuser@proquestit.com</value>
     </labels>
     <labels>
         <fullName>ServiceReportEmailTemplateId</fullName>
@@ -275,6 +275,20 @@
         <value>Account with Account Code &quot;{0}&quot; cannot be found.</value>
     </labels>
     <labels>
+        <fullName>YVW_Alarm_Description</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YVW_Alarm_Description</shortDescription>
+        <value>ALARM_DESCRIPTION</value>
+    </labels>
+    <labels>
+        <fullName>YVW_Apollo_ID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YVW_Apollo_ID</shortDescription>
+        <value>APOLLO_ID</value>
+    </labels>
+    <labels>
         <fullName>YVW_Contract_Missing_CL</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -286,14 +300,28 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>YVW_Datetime_CL</shortDescription>
-        <value>DateTime</value>
+        <value>REPORTED_DATE</value>
+    </labels>
+    <labels>
+        <fullName>YVW_Location_Description</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YVW_Location_Description</shortDescription>
+        <value>LOCATION_DESCRIPTION</value>
+    </labels>
+    <labels>
+        <fullName>YVW_Location_ID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YVW_Location_ID</shortDescription>
+        <value>LOCATION_ID</value>
     </labels>
     <labels>
         <fullName>YVW_Priority_CL</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>YVW_Priority_CL</shortDescription>
-        <value>Priority</value>
+        <value>PRIORITY</value>
     </labels>
     <labels>
         <fullName>YVW_Pronto_Contract_No_CL</fullName>
@@ -303,10 +331,31 @@
         <value>427-02</value>
     </labels>
     <labels>
+        <fullName>YVW_ServiceContractID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YVW_ServiceContractID</shortDescription>
+        <value>8105P00000000zUQAQ</value>
+    </labels>
+    <labels>
         <fullName>YVW_Source_CL</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>YVW_Source_CL</shortDescription>
-        <value>Source</value>
+        <value>FULLNAME</value>
+    </labels>
+    <labels>
+        <fullName>YVW_System</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YVW_System</shortDescription>
+        <value>SYSTEM</value>
+    </labels>
+    <labels>
+        <fullName>YVW_Work_Order_ID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YVW_Work_Order_ID</shortDescription>
+        <value>WO_ID</value>
     </labels>
 </CustomLabels>

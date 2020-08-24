@@ -13,6 +13,13 @@ global class YVWCaseEmailHandler implements Messaging.InboundEmailHandler{
         String strdatetime = '';
         String priority = '';
         String errorEmailBody = '';
+        String alarmDescription = '';
+        String locationId = '';
+        String systemtext = '';
+        String workOrderId = '';
+        String apolloId = '';
+        String locationDescription = '';
+
         try{
             List<String> emailBodyParts = emailBody.split('<br>');
             for(String eBody : emailBodyParts){
@@ -24,18 +31,32 @@ global class YVWCaseEmailHandler implements Messaging.InboundEmailHandler{
             for(String eBody : emailBodyParts){
                 String emailHtmlBody = eBody.stripHtmlTags();
                 List<String> caseDetails = emailHtmlBody.split(':');
-                if(caseDetails.get(0).contains(System.Label.YVW_Source_CL)){
-                    source = caseDetails.get(1);
+                if(caseDetails.get(1).contains(System.Label.YVW_Source_CL)){
+                    source = caseDetails.get(2);
                 }
-                if(caseDetails.get(0).contains(System.Label.YVW_Priority_CL)){
-                    priority = caseDetails.get(1);
+                if(caseDetails.get(8).contains(System.Label.YVW_Priority_CL)){
+                    priority = caseDetails.get(9).split(' ').get(1);
                 }
-                if(caseDetails.get(0).contains(System.Label.YVW_Datetime_CL)){
-                    strdatetime = caseDetails.get(1).trim()+':'+caseDetails.get(2)+' '+caseDetails.get(3).split(' ').get(1);
+                if(caseDetails.get(11).contains(System.Label.YVW_Datetime_CL)){
+                    strdatetime = caseDetails.get(12).trim()+':'+caseDetails.get(13)+' '+caseDetails.get(14).split(' ').get(1);
+                }
+                if(caseDetails.get(3).contains(System.Label.YVW_Location_ID)){
+                    locationId = caseDetails.get(4).split(' ').get(1);
+                }
+                if(caseDetails.get(2).contains(System.Label.YVW_Alarm_Description)){
+                    alarmDescription = caseDetails.get(3).split(' ').get(1);
+                }
+                if(caseDetails.get(0).contains(System.Label.YVW_System)){
+                    systemtext = caseDetails.get(1).split(' ').get(1);
+                }
+                if(caseDetails.get(5).contains(System.Label.YVW_Work_Order_ID)){
+                    workOrderId = caseDetails.get(6).split(' ').get(1);
+                }
+                if(caseDetails.get(7).contains(System.Label.YVW_Apollo_ID)){
+                    apolloId = caseDetails.get(8).split(' ').get(1);
                 }
             }
             System.debug(source.trim()+' '+priority.trim()+' '+strdatetime);
-
             Case currentCase = new Case();
             String errorMessage = '';
             
@@ -58,7 +79,8 @@ global class YVWCaseEmailHandler implements Messaging.InboundEmailHandler{
                 }
             }
 
-            if(errorMessage == ''){
+             /*
+                if(errorMessage == ''){
                 //Populate Priority
                 System.debug('Priority');
                 List<YVW_Email_Priority__mdt> bSettings = [SELECT Id, MasterLabel, DeveloperName FROM YVW_Email_Priority__mdt];
@@ -71,10 +93,16 @@ global class YVWCaseEmailHandler implements Messaging.InboundEmailHandler{
                     }
                 }
             }
+             */
 
             //Populate Description
-            currentCase.Description = source.trim()+', '+priority.trim()+', '+strdatetime;
+            //currentCase.Description = source.trim()+', '+priority.trim()+', '+strdatetime;
+            
+            currentCase.Description = locationId + ':' + alarmDescription;
+            currentCase.Subject = systemtext + ':' + locationId + ':' + alarmDescription + ':' + workOrderId;
             currentCase.Origin = 'Email';
+            currentCase.ApolloID__c = apolloId;
+            currentCase.Priority = priority;
             currentCase.YVW_Email_to_Case__c = true;
             List<WorkType> otherType = WorkTypeDAO.getWorkTypeByName('Other');
             currentCase.Work_Type__c = otherType.size() > 0 ? otherType.get(0).Id : null;
