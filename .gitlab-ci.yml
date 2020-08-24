@@ -33,7 +33,7 @@ deploy-sandbox-package:
   stage: staging
   only:
     variables:
-      - $CI_COMMIT_REF_NAME == 'development'
+      - $CI_COMMIT_REF_NAME == 'master'
   except:
     variables:
       - $SANDBOX_DISABLED
@@ -67,7 +67,7 @@ deploy-production:
   stage: production
   only:
     variables:
-      - $CI_COMMIT_REF_NAME == 'development'
+      - $CI_COMMIT_REF_NAME == 'master'
   except:
     variables:
       - $PRODUCTION_DISABLED
