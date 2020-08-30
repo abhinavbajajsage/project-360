@@ -27,20 +27,30 @@ public class SyncWithProntoDAO {
     * 
     @author: Cyrille Jeufo - Proquest Consulting
     @description: If there is contact on the service contract, use otherwise use contact on the work order is present
-    * 
+    * Update: Instead of getting contact from Service Contract, get it from the Case object 
     */
    	public static String getSalesOrderContact(Sales_Order__c so){
         String contactName;
         List<ServiceContract> contracts = new List<ServiceContract>();
+        List<Case> contactFromCase = new List<Case>();
         List<WorkOrder> wos = new List<WorkOrder>();
         List<Contact> contacts = new List<Contact>();
-        If(so.Service_Contract__c != null){
-            
+        /* If(so.Service_Contract__c != null){
+       
             contracts = [Select Id , ContactId FROM ServiceContract WHERE Id =: so.Service_Contract__c  limit 1];
-            
-            if(contracts.size() > 0 ){
+
+             if(contracts.size() > 0 ){
                 contacts = [Select Id , Name From Contact where Id =: contracts[0].ContactId];
-                if(contacts.size() > 0) contactName = contacts[0].Name;
+                if(contacts.size() > 0) 
+				contactName = contacts[0].Name;
+            } 
+
+        } */
+        
+        If(so.Case__c != null){
+            contactFromCase = [Select Id , Contact__c FROM Case WHERE Id =: so.Case__c  limit 1];
+            if(contactFromCase.size() > 0 ){  
+              contactName = contactFromCase[0].Contact__c;
             }
         }
         
