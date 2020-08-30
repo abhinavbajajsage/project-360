@@ -2,7 +2,9 @@ global class YVWCaseEmailHandler implements Messaging.InboundEmailHandler{
     global Messaging.InboundEmailResult handleInboundEmail(Messaging.InboundEmail email, Messaging.InboundEnvelope envelope) {
 
         Messaging.InboundEmailResult result = new Messaging.InboundEmailresult();
-        String emailBody = email.htmlBody;
+        
+        //String emailBody = email.htmlBody;
+        String emailBody = email.plainTextBody;
         System.debug('****emailBody:'+emailBody);
         parseEmailBody(emailBody);
         return result;
@@ -28,7 +30,9 @@ global class YVWCaseEmailHandler implements Messaging.InboundEmailHandler{
                 }
             }
             
+            System.debug('****parts:'+emailBodyParts);
             for(String eBody : emailBodyParts){
+                
                 String emailHtmlBody = eBody.stripHtmlTags();
                 List<String> caseDetails = emailHtmlBody.split(':');
                 if(caseDetails.get(1).contains(System.Label.YVW_Source_CL)){
@@ -44,11 +48,21 @@ global class YVWCaseEmailHandler implements Messaging.InboundEmailHandler{
                     locationId = caseDetails.get(4).split(' ').get(1);
                 }
                 if(caseDetails.get(2).contains(System.Label.YVW_Alarm_Description)){
-                    alarmDescription = caseDetails.get(3).split(' ').get(1);
-                }
+ 
+                    for(integer i = 0; i<caseDetails.get(3).split(' ').size();i++)
+                    {
+                     if(!caseDetails.get(3).split(' ').get(i).contains(System.Label.YVW_Location_ID)){
+                     alarmDescription = alarmDescription + ' ' + caseDetails.get(3).split(' ').get(i);}
+                    }}
+
                 if(caseDetails.get(0).contains(System.Label.YVW_System)){
-                    systemtext = caseDetails.get(1).split(' ').get(1);
-                }
+                    
+                    for(integer i = 0; i<caseDetails.get(1).split(' ').size();i++)
+                    {
+                     if(!caseDetails.get(1).split(' ').get(i).contains('FULLNAME')){
+                     systemtext = systemtext + ' ' + caseDetails.get(1).split(' ').get(i);}
+                    }}
+                    
                 if(caseDetails.get(5).contains(System.Label.YVW_Work_Order_ID)){
                     workOrderId = caseDetails.get(6).split(' ').get(1);
                 }
@@ -111,9 +125,11 @@ global class YVWCaseEmailHandler implements Messaging.InboundEmailHandler{
                 insert currentCase;
             }else{
                 Utilities.logError(errorEmailBody.substring(0,255), errorMessage, Schema.SObjectType.Error_Log__c.getRecordTypeInfosByDeveloperName().get(Constants.ERR_DEV_Case_RT).getRecordTypeId());
+                system.debug(errorMessage);
             }
         }catch(Exception ex){
-            Utilities.logError(errorEmailBody.substring(0,255), ex, Schema.SObjectType.Error_Log__c.getRecordTypeInfosByDeveloperName().get(Constants.ERR_DEV_Case_RT).getRecordTypeId());
+                Utilities.logError(errorEmailBody.substring(0,255), ex, Schema.SObjectType.Error_Log__c.getRecordTypeInfosByDeveloperName().get(Constants.ERR_DEV_Case_RT).getRecordTypeId());
+        		system.debug(ex);
         }
         
     }
