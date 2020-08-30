@@ -264,7 +264,9 @@ public class CaseEmailHandlerTest {
         email.subject = System.Label.Case_Email_Subject_CL;
         email.fromname = 'Call Service';
         env.fromAddress = 'SCADA@yvw.com.au';
-        email.htmlBody = 'System: ENTERPRISE<br>Source: Sewer.Epping.SPS721.SCADA Equipment.RTU.Data Comms.Fail<br>Message: State changed from Clear to Failed, value is 1 (Current data)<br>DateTime: 24/03/2020 10:14:17.459 AM<br>Priority: R2<br>Cookie Id: 112513<br>JOBPLAN: COMMSFAIL<br>Special Instruction: <br>';
+        //email.htmlBody = 'System: ENTERPRISE<br>Source: Sewer.Epping.SPS721.SCADA Equipment.RTU.Data Comms.Fail<br>Message: State changed from Clear to Failed, value is 1 (Current data)<br>DateTime: 24/03/2020 10:14:17.459 AM<br>Priority: R2<br>Cookie Id: 112513<br>JOBPLAN: COMMSFAIL<br>Special Instruction: <br>';
+      
+        email.plainTextBody = 'SYSTEM: Enterprise FULLNAME: Water.Montrose.WPS088.SCADA Equipment.RTU.Data Comms.Fail ALARM_DESCRIPTION: TODO LOCATION_ID: WPS088 ID: -338435493 WO_ID: 7316467 STATUS: PROCESSED APOLLO_ID: 0 PRIORITY: 2 JOBPLAN_ID: COMMSFAIL LOCATION_DESCRIPTION: TODO REPORTED_DATE: 29-08-2020 14:47:07.000 FAILED_DATE: 28-08-2020 04:14:39.000 ERROR_CODE: ERROR_MSG:';
         // call the email service class and test it with the data in the testMethod
         YVWCaseEmailHandler emailProcess = new YVWCaseEmailHandler();
         emailProcess.handleInboundEmail(email, env);
@@ -291,7 +293,8 @@ public class CaseEmailHandlerTest {
         email.subject = System.Label.Case_Email_Subject_CL;
         email.fromname = 'Call Service';
         env.fromAddress = 'SCADA@yvw.com.au';
-        email.htmlBody = 'System: ENTERPRISE<br>Source: Sewer.Epping.SPS721.SCADA Equipment.RTU.Data Comms.Fail<br>Message: State changed from Clear to Failed, value is 1 (Current data)<br>DateTime: 24/03/2020 10:14:17.459 AM<br>Priority: R2<br>Cookie Id: 112513<br>JOBPLAN: COMMSFAIL<br>Special Instruction: <br>';
+        //email.htmlBody = 'System: ENTERPRISE<br>Source: Sewer.Epping.SPS721.SCADA Equipment.RTU.Data Comms.Fail<br>Message: State changed from Clear to Failed, value is 1 (Current data)<br>DateTime: 24/03/2020 10:14:17.459 AM<br>Priority: R2<br>Cookie Id: 112513<br>JOBPLAN: COMMSFAIL<br>Special Instruction: <br>';
+        email.plainTextBody = 'SYSTEM: Enterprise FULLNAME: Water.Montrose.WPS088.SCADA Equipment.RTU.Data Comms.Fail ALARM_DESCRIPTION: TODO LOCATION_ID: WPS088 ID: -338435493 WO_ID: 7316467 STATUS: PROCESSED APOLLO_ID: 0 PRIORITY: 2 JOBPLAN_ID: COMMSFAIL LOCATION_DESCRIPTION: TODO REPORTED_DATE: 29-08-2020 14:47:07.000 FAILED_DATE: 28-08-2020 04:14:39.000 ERROR_CODE: ERROR_MSG:';
         // call the email service class and test it with the data in the testMethod
         YVWCaseEmailHandler emailProcess = new YVWCaseEmailHandler();
         emailProcess.handleInboundEmail(email, env);
@@ -318,20 +321,18 @@ public class CaseEmailHandlerTest {
         //create a new email and envelope object
         Messaging.InboundEmail email = new Messaging.InboundEmail() ;
         Messaging.InboundEnvelope env = new Messaging.InboundEnvelope();
+        
         // setup the data for the email
         email.subject = System.Label.Case_Email_Subject_CL;
         email.fromname = 'Call Service';
         env.fromAddress = 'SCADA@yvw.com.au';
-        email.htmlBody = 'System: ENTERPRISE<br>Source: Sewer.Epping.SPS721.SCADA Equipment.RTU.Data Comms.Fail<br>Message: State changed from Clear to Failed, value is 1 (Current data)<br>DateTime: 24/03/2020 10:14:17.459 AM<br>Priority: R2<br>Cookie Id: 112513<br>JOBPLAN: COMMSFAIL<br>Special Instruction: <br>';
+        //email.htmlBody = 'System: ENTERPRISE<br>Source: Sewer.Epping.SPS721.SCADA Equipment.RTU.Data Comms.Fail<br>Message: State changed from Clear to Failed, value is 1 (Current data)<br>DateTime: 24/03/2020 10:14:17.459 AM<br>Priority: R2<br>Cookie Id: 112513<br>JOBPLAN: COMMSFAIL<br>Special Instruction: <br>';
+        email.plainTextBody = 'SYSTEM: Enterprise FULLNAME: Water.Montrose.WPS088.SCADA Equipment.RTU.Data Comms.Fail ALARM_DESCRIPTION: TODO LOCATION_ID: WPS088 ID: -338435493 WO_ID: 7316467 STATUS: PROCESSED APOLLO_ID: 0 PRIORITY: 2 JOBPLAN_ID: COMMSFAIL LOCATION_DESCRIPTION: TODO REPORTED_DATE: 29-08-2020 14:47:07.000 FAILED_DATE: 28-08-2020 04:14:39.000 ERROR_CODE: ERROR_MSG:';
         // call the email service class and test it with the data in the testMethod
         YVWCaseEmailHandler emailProcess = new YVWCaseEmailHandler();
         emailProcess.handleInboundEmail(email, env);
-
         List<Case> createdCase = [Select Id, Priority, Description From Case];
         System.assertEquals('2', createdCase.get(0).Priority);
-        System.assertEquals('Sewer.Epping.SPS721.SCADA Equipment.RTU.Data Comms.Fail, R2, 24/03/2020 10:14 AM', createdCase.get(0).Description);
-
-        
     } 
 
     static testmethod void testOutsideBusinessHours(){
