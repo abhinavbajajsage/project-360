@@ -42,13 +42,97 @@ public class SynchWithPronto implements Queueable , Database.AllowsCallouts{
     
     /**
     * 
+    @author: Abhi - SAGE
+    @description: This method handles http callouts for Deletion of Timesheets
+    * 
+    */
+    @Future(callout=true)
+    public static void makeHTTPCallout(String woliId){
+        System.debug('$$$Timesheet Delete Callout');
+        HttpResponse res;
+        System.debug('@@@$woliId ' + woliId);
+        Long timestamp = System.now().getTime();
+        String jsonInput = '{\n' + ' "id" : ' + '\"' + woliId +  '\" ,'  + '\n' + ' "timestamp" : ' + '\"' + timestamp +  '\" }'  ; 
+        System.debug('jsonInput'+jsonInput);
+        HTTP_Request__mdt httpSettings;
+        WorkOrderLineItem tempWoli;
+        String urlWithDate;
+		
+        httpSettings = SyncWithProntoDAO.getHTTPSettings('Timesheet_Del');
+        
+        HttpRequest req = new HttpRequest();
+        req.setEndpoint(httpSettings.URL__c);
+        system.debug('setEndpoint'+httpSettings.URL__c);
+        
+        req.setMethod(httpSettings.Method__c);
+        system.debug('setMethod'+httpSettings.Method__c);
+        
+        if(String.isNotBlank(jsonInput)){
+            req.setBody(jsonInput);
+        }
+        
+        System.debug('@@@request body ' + jsonInput);
+        req.setHeader('Content-Type', httpSettings.Content_Type__c);
+        req.setHeader('Accept-Version',httpSettings.Version__c);
+        req.setHeader('Ocp-Apim-Subscription-Key', httpSettings.Subscription_Key__c);
+        req.setHeader('Conflux-River', httpSettings.Conflux_River__c);
+        req.setTimeout(Integer.valueOf(httpSettings.Timeout__c));
+        
+        Http h = new Http();
+        if(!Test.isRunningTest()){
+            try{
+                res = h.send(req);
+            }catch(Exception ex){
+                logError(woliId, null,null, null, ex);
+                return;
+            }
+        }else{
+            if(String.isNotBlank(woliId)){ 
+                res = new HttpResponse();
+                res.setBody('{ "code": 200, "status": "success", "message": "null", "data": { "valid": true } }');
+                res.setStatusCode(200);
+            }
+        }
+        
+        if(woliId != null){
+            system.debug('reply from ERP is' + res);
+            handleWOLICalloutResponse2(res , woliId, false, false);
+        }
+    }
+    
+    public static void handleWOLICalloutResponse2(HttpResponse result , String woliId, Boolean validatePayroll, Boolean saCompleted){
+        try{
+            System.debug('###handleDELETECalloutResponse body ' + result.getBody());
+            Utilities.woliUpdateAllowed = true;
+            
+            WorkOrderLineItem recordToUpdate = [SELECT Id FROM WorkOrderLineItem WHERE IsDeleted =: TRUE AND ID = :woliId ALL ROWS];
+            
+            PayrollResponse pResponse = (PayrollResponse) System.JSON.deserialize(result.getBody(), PayrollResponse.class);
+            System.debug('pResponse ' + pResponse );
+            if(result.getStatusCode() == 200){
+                   //recordToUpdate.Integration_Status__c = Utilities.INTEGRATION_SUCCESSFUL;
+            }else{
+                Error_log__c logRecord = new Error_log__c(workOrderLineItem__c = woliId,  Message__c	= Json.serialize(pResponse.Data) , recordTypeId = transaction_recordtype, Status__c = pResponse.status, Status_Code__c = pResponse.code + '',Subject__c = pResponse.message );
+                insert logRecord;  
+                Undelete recordToUpdate;
+            }
+        }catch(Exception ex){
+            //WorkOrderLineItem woli = new WorkOrderLineItem(Id = woliId, Integration_Status__c = Utilities.INTEGRATION_FAILED , Sync_With_Pronto__c = false);
+            //update woli;
+            Utilities.logError(woliId , ex , transaction_recordtype);
+        }
+        
+    }    
+    
+    /**
+    * 
     @author: Cyrille Jeufo - Proquest Consulting
     @description: This method handles all the http callouts.
     @params: woliId/accountId/SalesOrderId represent the Salesforce Id of the record being sent to Pronto
     @params: body = the payload. This will be null when Method = GET (Transaction validation)
     * 
     */
-    @Future(callout=true)
+     @Future(callout=true)
     public static void makeHTTPCallout(String woliId , String accountId , String salesOrderId , String purchaseOrderId, Boolean validatePayroll, String body, Boolean saCompleted, Boolean cancelPo){
         System.debug('$$$Here 2');
         HttpResponse res;
@@ -315,6 +399,7 @@ public class SynchWithPronto implements Queueable , Database.AllowsCallouts{
             String payload = Json.serialize(soWrapped);
             payload = payload.replace('caseNumber', 'case');
             System.debug('Json.serialize(soWrapped) ' + payload);
+            system.debug('payload'+ payload);
             makeHTTPCallout(null , null , so.Id, null, null, payload, null, false);
             update soCopy;
         }catch (Exception ex){
@@ -441,7 +526,6 @@ public class SynchWithPronto implements Queueable , Database.AllowsCallouts{
             Id userId = woli.Resource__r.RelatedRecordId;
             Map<Id,User> usersMap = UserDAO.getUsers(new Set<Id>{userId});
             Timesheet woliWrapped = Timesheet.WrappedWOLI(woli,usersMap.get(userId));
-            
             String payload = Json.serialize(woliWrapped);
             System.debug('Json.serialize(woliWrapped) ' + payload);
             makeHTTPCallout(woli.Id , null , null, null, null, payload, woli.SA_Completed__c, false);
