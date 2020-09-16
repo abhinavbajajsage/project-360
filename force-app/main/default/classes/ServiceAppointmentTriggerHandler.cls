@@ -62,6 +62,18 @@ public class ServiceAppointmentTriggerHandler {
             }
         }
     }
+    
+    //reset Actual Start Time seconds to 0 
+    public static void  updateActualStartTime(List<ServiceAppointment> newServiceAppointments){
+        
+        for(ServiceAppointment sa:newServiceAppointments)
+            { 
+                if(sa.ActualStartTime!=null)
+                {
+                  sa.ActualStartTime = Utilities.DatetimeZeroSecond(sa.ActualStartTime);
+                }
+            }
+        }
 
     //check if SA should be synced and if any exist then send the timesheet to Pronto
     public static void  syncWithProntoForCompletion(List<ServiceAppointment> newServiceAppointments , Map<Id , ServiceAppointment> oldServiceAppointmentsMap){
@@ -74,8 +86,8 @@ public class ServiceAppointmentTriggerHandler {
         }
 
         if(workOrderIds.size() > 0){
-            
             Map<Id,WorkOrderLineItem> workOrderLineItems = WorkOrderLineItemDAO.getWorkOrderLineItemsUsingWoIds(workOrderIds);
+            
             // Boolean checkValidTransactionExist = false;
             // //Check atleast one transaction exist withing the current payroll period
             // for(WorkOrderLineItem woli :workOrderLineItems.values()){
@@ -85,16 +97,21 @@ public class ServiceAppointmentTriggerHandler {
             // }
             // if(checkValidTransactionExist){
             Map<Id,WorkOrderLineItem> itemsToSend = new Map<Id,WorkOrderLineItem>();
+            
             for(WorkOrderLineItem woli :workOrderLineItems.values()){
                 if( woli.Integration_Status__c != Utilities.INTEGRATION_WAITING && woli.Integration_Status__c != Utilities.INTEGRATION_SUCCESSFUL){
                     woli.Sync_With_Pronto__c = true;
+                    system.debug('wwww'+woli.Id);
+                    system.debug('wwww222'+woli);
                     itemsToSend.put(woli.Id,woli);
+                    
                 }
-            // }
+             }
             //Send the transaction to Pronto
-            WorkOrderLineItemHandler.syncWithPronto(itemsToSend, null, false); 
+             	WorkOrderLineItemHandler.syncWithPronto(itemsToSend, null, false);
+                system.debug('send'+itemsToSend);
             }
         }
-    }
+    
 
 }
