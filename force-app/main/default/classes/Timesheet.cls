@@ -7,6 +7,9 @@
 public class Timesheet {
     public String id {get;set;} 
     public Decimal hours {get;set;} 
+    public Decimal overtime_hours {get;set;} 
+    public Decimal double_time_hours {get;set;} 
+    public Decimal public_holiday_hours {get;set;}
     public String work_order {get;set;} 
     public String trans_number {get;set;} 
     public String description {get;set;} 
@@ -23,7 +26,13 @@ public class Timesheet {
         Timesheet woliWrapped = new Timesheet();
         
         woliWrapped.id = woliIn.Id;
-        woliWrapped.hours = woliIn.Actual_Hours__c.setScale(2);
+        //woliWrapped.hours = woliIn.Actual_Hours__c.setScale(2);
+        
+        woliWrapped.hours = woliIn.Normal_Time__c.setScale(2);
+        woliWrapped.overtime_hours = woliIn.Overtime__c.setScale(2);
+        woliWrapped.double_time_hours = woliIn.Double_Time__c.setScale(2);
+        woliWrapped.public_holiday_hours = woliIn.Public_Holiday__c.setScale(2);
+        
         woliWrapped.work_order = woliIn.WorkOrder.WorkOrderNumber;
         woliWrapped.trans_number = woliIn.LineItemNumber;
         woliWrapped.description = woliIn.Description;
