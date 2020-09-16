@@ -4,6 +4,7 @@ trigger ServiceAppointmentTrigger on ServiceAppointment (before update, after up
     if(isTriggerActive){
 
         if(Trigger.isBefore &&  Trigger.isUpdate){
+            ServiceAppointmentTriggerHandler.updateActualStartTime(Trigger.NEW);
             ServiceAppointmentTriggerHandler.saValidationforCompleteWO(Trigger.New , Trigger.OldMap);
             ServiceAppointmentTriggerHandler.saValidationForOpenPOs(Trigger.New , Trigger.OldMap);
         }  
